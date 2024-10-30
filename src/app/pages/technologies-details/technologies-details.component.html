@@ -1,0 +1,30 @@
+<button 
+(click)="goBack()" 
+class="back-button fixed top-5 left-5 bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-700 transition"
+>
+  ←
+</button>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8 bg-white">
+  <div
+    *ngFor="let tech of technologies"
+    [id]="tech.name"
+    #techSection
+    class="tech-item flex bg-white shadow-md rounded-lg overflow-hidden"
+  >
+    <div class="w-1/3">
+      <img 
+        [src]="tech.icon" 
+        [alt]="tech.name" 
+        class="w-full h-full object-contain" 
+        (mouseover)="onMouseOver($event)" 
+        (mouseout)="onMouseOut($event)"
+      />
+    </div>
+
+    <div class="w-2/3 p-6 flex flex-col justify-center">
+      <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ tech.name }}</h2>
+      <p class="text-gray-600">{{ tech.description }}</p>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {SidebarService} from "../../services/sidebar.service";
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,10 @@ import {SidebarService} from "../../services/sidebar.service";
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit{
-  isDropdownOpen = false;
+  isDropdownOpen: boolean = false; 
 
-  constructor(private sidebarService: SidebarService) {
+  constructor(
+    private sidebarService: SidebarService) {
   }
   ngOnInit(): void {
   }
@@ -21,7 +23,4 @@ export class HeaderComponent implements OnInit{
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
-
-
-
 }

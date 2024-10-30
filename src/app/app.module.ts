@@ -10,6 +10,14 @@ import {SharedModule} from "./shared/shared.module";
 import {SidebarComponent} from "./core/components/sidebar/sidebar.component";
 import {OverviewComponent} from "./pages/overview/overview.component";
 import {ResumeProfilsComponent} from "./pages/resume-profils/resume-profils.component";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+import { TechnologiesComponent } from './pages/technologies/technologies.component';
+import { FooterComponent } from './pages/footer/footer.component';
+
 
 @NgModule({
   declarations: [
@@ -18,6 +26,7 @@ import {ResumeProfilsComponent} from "./pages/resume-profils/resume-profils.comp
     NotFoundComponent
   ],
     imports: [
+      FooterComponent,
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
@@ -26,9 +35,17 @@ import {ResumeProfilsComponent} from "./pages/resume-profils/resume-profils.comp
         SidebarComponent,
         OverviewComponent,
         ResumeProfilsComponent,
+        MatIconModule,
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterLink,
+        TechnologiesComponent
 // meme si sharedModule a ete importe dans CoreModule cela ne va pas double le taille du fichier
     ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

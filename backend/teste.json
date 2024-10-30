@@ -1,0 +1,131 @@
+{
+    "routes": [
+      { 
+        "id": 1, 
+        "name": "Home", 
+        "path": "/home", 
+        "description": "Home page." 
+      },
+      { 
+        "id": 2, 
+        "name": "Liste", 
+        "path": "blogs/list", 
+        "description": "Liste des Blog." 
+      },
+      { 
+        "id": 3, 
+        "name": "Editeur", 
+        "path": "blogs/editor", 
+        "description": "Editeur de Blog." 
+      }
+    ], 
+    
+      "tech": [
+        {
+          "name": "API Platform",
+          "icon": "https://les-tilleuls.coop/wp-content/uploads/2021/08/api-platform.png",
+          "description": "API Platform est un framework PHP open source permettant de créer des API REST et GraphQL facilement et rapidement, avec une prise en charge native de JSON-LD, Hydra et OpenAPI."
+        },
+        {
+          "name": "Symfony",
+          "icon": "https://les-tilleuls.coop/wp-content/uploads/2021/08/symfony-1.png",
+          "description": "Symfony est un framework PHP reconnu pour sa flexibilité et ses composants réutilisables, utilisé pour le développement d’applications web robustes et évolutives."
+        },
+        {
+          "name": "Kubernetes",
+          "icon": "https://les-tilleuls.coop/wp-content/uploads/2021/08/kubernetes.png",
+          "description": "Kubernetes est un système open source permettant d’automatiser le déploiement, la mise à l'échelle et la gestion de conteneurs d’applications."
+        },
+        {
+          "name": "Vue.js",
+          "icon": "https://les-tilleuls.coop/wp-content/uploads/2021/08/vue-1.png",
+          "description": "Vue.js est un framework JavaScript progressif utilisé pour la création d'interfaces utilisateur interactives et dynamiques."
+        },
+        {
+          "name": "ElephantSQL",
+          "icon": "https://les-tilleuls.coop/wp-content/uploads/2023/12/elephant_cover-600x580.png",
+          "description": "ElephantSQL est un service de base de données PostgreSQL hébergé, offrant des solutions de gestion de bases de données fiables et performantes."
+        },
+        {
+          "name": "React",
+          "icon": "https://les-tilleuls.coop/wp-content/uploads/2021/09/react.png",
+          "description": "React est une bibliothèque JavaScript pour créer des interfaces utilisateur, développée et maintenue par Facebook."
+        },
+        {
+          "name": "Node.js",
+          "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE43cQj4WGgyLZjuebqsC8rXhnkjKv79Q0Yg&s",
+          "description": "Node.js est une plateforme JavaScript côté serveur permettant de créer des applications réseau rapides et évolutives."
+        },
+        {
+          "name": "Express",
+          "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSNiUbrMV1INLnuCRKFgXv0F28lubc6gTppw&s",
+          "description": "Express est un framework minimaliste pour Node.js permettant de créer facilement des API et des applications web."
+        },
+        {
+          "name": "MongoDB",
+          "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYk-ZZTPa5ZWKuwQDTvn50XSsIkr7Ip7hCxQ&s",
+          "description": "MongoDB est une base de données NoSQL orientée document, utilisée pour stocker des données JSON de manière flexible."
+        },
+        {
+          "name": "PostgreSQL",
+          "icon": "https://www.postgresql.org/media/img/about/press/elephant.png",
+          "description": "PostgreSQL est une base de données relationnelle puissante et open source, connue pour sa fiabilité et ses fonctionnalités avancées."
+        },
+        {
+          "name": "MySQL",
+          "icon": "https://www.mysql.com/common/logos/logo-mysql-170x115.png",
+          "description": "MySQL est un système de gestion de bases de données relationnelles populaire et open source, souvent utilisé avec des applications web."
+        },
+        {
+          "name": "GraphQL",
+          "icon": "https://graphql.org/img/logo.svg",
+          "description": "GraphQL est un langage de requête pour les API qui permet aux clients de demander exactement les données dont ils ont besoin."
+        },
+        {
+          "name": "Django",
+          "icon": "https://www.djangoproject.com/m/img/logos/django-logo-negative.png",
+          "description": "Django est un framework web Python qui encourage un développement rapide et suit le principe DRY (Don't Repeat Yourself)."
+        },
+        {
+          "name": "Flask",
+          "icon": "https://flask.palletsprojects.com/en/2.0.x/_static/flask-icon.png",
+          "description": "Flask est un microframework web en Python, minimaliste et léger, souvent utilisé pour créer des applications simples et rapides."
+        },
+        {
+          "name": "Laravel",
+          "icon": "https://laravel.com/img/logomark.min.svg",
+          "description": "Laravel est un framework PHP élégant, offrant une syntaxe expressive et un écosystème puissant pour les développeurs web."
+        },
+        {
+          "name": "Angular",
+          "icon": "https://angular.io/assets/images/logos/angular/angular.svg",
+          "description": "Angular est un framework d'application web open source développé par Google, utilisé pour créer des applications web dynamiques et riches."
+        },
+        {
+          "name": "TypeScript",
+          "icon": "https://w7.pngwing.com/pngs/1008/952/png-transparent-typescript-hd-logo-thumbnail.png",
+          "description": "TypeScript est un sur-ensemble de JavaScript qui ajoute un typage statique facultatif, facilitant le développement de grandes applications."
+        },
+        {
+          "name": "Tailwind CSS",
+          "icon": "https://w7.pngwing.com/pngs/754/29/png-transparent-tailwindcss-hd-logo-thumbnail.png",
+          "description": "Tailwind CSS est un framework de design utilitaire permettant de créer rapidement des interfaces utilisateur sans écrire de CSS personnalisé."
+        },
+        {
+          "name": "Bootstrap",
+          "icon": "https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg",
+          "description": "Bootstrap est un framework CSS populaire utilisé pour créer rapidement des sites web réactifs et compatibles avec les mobiles."
+        },
+        {
+          "name": "Sass",
+          "icon": "https://sass-lang.com/assets/img/logos/logo.svg",
+          "description": "Sass est un préprocesseur CSS qui ajoute des fonctionnalités comme les variables et les mixins pour faciliter la gestion des styles."
+        },
+        {
+          "name": "Webpack",
+          "icon": "https://w7.pngwing.com/pngs/520/68/png-transparent-webpack-gulp-js-npm-github-laravel-github-text-logo-repository-thumbnail.png",
+          "description": "Webpack est un bundler JavaScript qui permet de compiler plusieurs fichiers en un seul pour optimiser les performances des applications."
+        }
+      ]  
+}
+  

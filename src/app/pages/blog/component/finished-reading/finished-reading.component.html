@@ -1,0 +1,46 @@
+
+
+
+
+<div class="max-w-4xl mx-auto p-6 bg-gray-900 text-white rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold mb-4">Félicitations !</h2>
+    <p>Vous avez terminé de lire ce blog. Nous espérons que vous avez trouvé l'information utile.</p>
+  
+    <h3 class="text-xl mt-6 mb-2">Autres blogs qui pourraient vous intéresser :</h3>
+    <div *ngIf="suggestedBlogs.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div *ngFor="let blog of suggestedBlogs" class="bg-gray-800 p-4 rounded-lg shadow-md">
+        <img [src]="blog.coverImageUrl" alt="Image de couverture" class="w-full h-40 object-cover rounded-md mb-2"/>
+        <h4 class="font-semibold">{{ blog.coverText }}</h4>
+        <div class="flex flex-wrap mt-2">
+            <div *ngFor="let tech of blog.technologies" class="flex items-center mr-4">
+              <img 
+               [src]="tech.logoUrl" 
+               alt="{{ tech.name }}" 
+               
+               class="w-6 h-6 mr-1" 
+              />
+              <span class="text-sm font-semibold">{{ tech.name }}</span>
+            </div>
+          </div>
+        <button mat-button color="primary" [routerLink]="['/blogs/blogs', blog.id]">
+          Lire plus
+        </button>
+      </div>
+    </div>
+    <div *ngIf="suggestedBlogs.length === 0" class="text-gray-400">
+      Aucun autre blog à lire pour le moment.
+    </div> 
+   
+  
+    <div class="mt-6">
+      <button 
+        mat-button 
+        color="primary" 
+        (click)="goBack()" 
+        class="bg-cyan-600 hover:bg-cyan-700 text-white rounded-md px-4 py-2"
+      >
+        Retourner à la liste des blogs
+      </button>
+    </div>
+</div>
+  

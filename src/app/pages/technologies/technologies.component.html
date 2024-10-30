@@ -1,0 +1,92 @@
+<!-- <div class="tech-container grid grid-cols-3 md:grid-cols-6 gap-6 p-8">
+  <div
+    *ngFor="let tech of technologies"
+    class="tech-card group relative flex flex-col items-center justify-center p-6 bg-white shadow-md rounded-lg cursor-pointer transition-transform transform hover:scale-105"
+    [id]="tech.name" 
+  >
+    <img [src]="tech.icon" [alt]="tech.name" class="w-24 h-24 object-contain" />
+
+    <div
+      class="overlay absolute inset-0 bg-red-500 bg-opacity-90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+    >
+      <div class="text-center text-white">
+        <h3 class="text-lg font-semibold">{{ tech.name }}</h3>
+        <button
+          class="mt-2 px-4 py-2 bg-white text-red-500 rounded-full hover:bg-red-600 hover:text-white"
+          (click)="goToTechnology(tech)"
+        >
+          En savoir plus
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flex justify-center mt-8">
+  <button
+    class="flex items-center px-6 py-3 bg-blue-500 text-white rounded-full transition-all duration-300 transform hover:scale-110"
+    (mouseover)="toggleIcon(true)"
+    (mouseleave)="toggleIcon(false)"
+  >
+    <ng-container *ngIf="!isHovered; else hoveredIcon">
+      <span class="mr-2">&larr;</span> 
+    </ng-container>
+
+    <ng-template #hoveredIcon>
+      <span class="ml-2">&rarr;</span> 
+    </ng-template>
+
+    Les technologies que nous maîtrisons
+  </button>
+</div> -->
+
+
+
+<div class="tech-container grid grid-cols-3 md:grid-cols-6 gap-6 p-8 bg-white">
+  <div
+    *ngFor="let tech of technologies.slice(0, 6)"
+    class="tech-card group relative flex flex-col items-center justify-center p-6 bg-white shadow-md rounded-lg cursor-pointer transition-transform transform hover:scale-105"
+    [id]="tech.name"
+  >
+    <img 
+     [src]="tech.icon" 
+     [alt]="tech.name" 
+     class="w-24 h-24 object-contain" 
+     (mouseover)="onMouseOver($event)" 
+     (mouseout)="onMouseOut($event)"
+     />
+
+    <div
+      class="overlay absolute inset-0 bg-red-500 bg-opacity-90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+    >
+      <div class="text-center text-white">
+        <h3 class="text-lg font-semibold">{{ tech.name }}</h3>
+        <button
+          class="mt-2 px-4 py-2 bg-white text-red-500 rounded-full hover:bg-red-600 hover:text-white"
+          (click)="goToTechnology(tech)"
+        >
+          En savoir plus
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flex justify-center mt-8">
+  <button
+    class="flex items-center px-6 py-3 bg-blue-500 text-white rounded-full transition-all duration-300 transform hover:scale-110"
+    (mouseover)="toggleIcon(true)"
+    (mouseleave)="toggleIcon(false)"
+    (click)="ListTech()"
+  >
+    <ng-container *ngIf="!isHovered; else hoveredIcon">
+      <span class="mr-2">&larr;</span> 
+    </ng-container>
+
+    <ng-template #hoveredIcon>
+      <span class="ml-2">&rarr;</span> 
+    </ng-template>
+
+    Les technologies que nous maîtrisons
+  </button>
+</div>

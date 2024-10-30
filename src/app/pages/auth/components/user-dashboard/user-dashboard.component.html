@@ -1,0 +1,139 @@
+<div class="flex container mx-auto p-6 bg-white">
+    <div class="w-1/4 p-4 bg-gray-100 rounded-lg shadow-md">
+    <div class="mb-4 text-center">
+        <img *ngIf="currentUser?.profile?.imageUrl; else defaultImage" 
+             [src]="currentUser?.profile?.imageUrl" 
+             (mouseover)="onMouseOver($event)" 
+             (mouseout)="onMouseOut($event)"
+             alt="Photo de profil" 
+             class="w-24 h-24 rounded-full mx-auto mb-2 object-cover" />
+        
+        <ng-template #defaultImage>
+          <img src="assets/default-profile.png" 
+               alt="Image par défaut" 
+               (mouseover)="onMouseOver($event)" 
+               (mouseout)="onMouseOut($event)"
+               class="w-24 h-24 rounded-full mx-auto mb-2 object-cover" />
+        </ng-template>
+        <P 
+         *ngIf="currentUser"
+         class="text-2xl font-bold mb-4"
+        >
+            {{currentUser.pseudo}}
+        </P>
+      </div>
+
+        <button *ngIf="currentUser" (click)="logout()" class="relative group bg-red-500  rounded px-4 py-2 mb-4 w-full">
+            <i class="fas fa-sign-out-alt text-white"></i> 
+            <span class="text-black font-bold absolute left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                Déconnexion
+            </span>
+        </button>
+        
+        <button *ngIf="currentUser" (click)="toggleView('blogs')" class="relative group bg-blue-500 text-white rounded px-4 py-2 mb-4 w-full">
+            <i class="fa-solid fa-bars text-white"></i>
+            <span class="text-black font-bold absolute left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                Mes Blogs
+            </span>
+        </button>
+        
+        <button *ngIf="currentUser" (click)="toggleView('settings')" class="relative group bg-gray-500 text-white rounded px-4 py-2 mb-4 w-full">
+            <i class="fas fa-cog text-white"></i> 
+            <span class="text-black font-bold absolute left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                Paramètres
+            </span>
+        </button>
+        
+
+        <div *ngIf="currentUser && activeView === 'blogs'" class="mt-4">
+            <p class="font-semibold">Choisissez un filtre :</p>
+            <button (click)="filterBlogs('all')" class="bg-gray-300 rounded px-2 py-1 mx-1">Tous</button>
+            <button (click)="filterBlogs('published')" class="bg-gray-300 rounded px-2 py-1 mx-1">Publiés</button>
+            <button (click)="filterBlogs('draft')" class="bg-gray-300 rounded px-2 py-1 mx-1">Brouillons</button>
+        </div>
+    </div>
+
+    <div class="w-3/4 p-4">
+        <!-- <h2 *ngIf="currentUser" class="text-2xl font-bold mb-4">
+            Tableau de bord - {{currentUser.pseudo}}
+        </h2> -->
+
+        <div *ngIf="!currentUser" class="text-gray-500 items-center">
+            <p class="mr-2">Veuillez vous connecter ou créer un compte pour accéder à vos blogs.</p>
+            <a routerLink="/auth/register" class="text-blue-500 underline mr-5">Créer un compte</a>
+            <a routerLink="/auth/login" class="text-blue-500 underline">Connectez-vous</a>
+        </div>
+
+        <ng-container *ngIf="currentUser && activeView === 'settings'">
+            <form [formGroup]="userForm" (ngSubmit)="updateUser()">
+                <h3 class="text-lg font-semibold mb-2">Modifier vos informations</h3>
+
+                <div class="mb-4">
+                    <label for="email" class="block">Email:</label>
+                    <input id="email" formControlName="email" type="email" required class="w-full p-2 border rounded" />
+                    <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="text-red-500 text-sm">
+                        Email invalide
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="pseudo"class="block">Pseudo:</label>
+                    <input id="pseudo" formControlName="pseudo" type="text" class="w-full p-2 border rounded" />
+                </div>
+
+                <div class="mb-4">
+                    <label for="firstName" class="block">Prénom:</label>
+                    <input id="firstName" formControlName="firstName" type="text" class="w-full p-2 border rounded" />
+                </div>
+
+                <div class="mb-4">
+                    <label for="lastName" class="block">Nom:</label>
+                    <input id="lastName" formControlName="lastName" type="text" class="w-full p-2 border rounded" />
+                </div>
+
+                <div class="mb-4">
+                    <label for="profilePicture" class="block">Photo de profil:</label>
+                    <input type="file" (change)="onFileChange($event)" accept="image/*" />
+                </div>
+
+                <button type="submit" [disabled]="userForm.invalid" class="bg-blue-500 text-white rounded px-4 py-2">
+                    Mettre à jour
+                </button>
+            </form>
+        </ng-container>
+
+        <ng-container *ngIf="currentUser && activeView === 'blogs'">
+          <div *ngIf="filteredBlogs.length === 0" class="text-gray-500">
+              <p>Aucun blog trouvé. Publiez ou enregistrez un blog pour le voir ici.......</p>
+              <a routerLink="/blogs/editor" class="text-blue-500 mr-5">Créer un Blog Ici</a>
+          </div>
+      
+          <div *ngFor="let blog of filteredBlogs" class="bg-white p-4 rounded-lg shadow-md mb-4">
+              <div class="flex-1">
+                  <p class="text-xl font-semibold text-gray-800 hover:text-green-600 transition duration-200 cursor-pointer">
+                      {{ blog.coverText }}
+                  </p>
+                    <img 
+                        src="{{blog.coverImageUrl}}" 
+                        alt="{{blog.coverText}}"
+                        (mouseover)="onMouseOver($event)" 
+                        (mouseout)="onMouseOut($event)"
+                    >
+              </div>
+              <p class="text-sm text-gray-500">
+                  Statut : {{ blog.status === 'published' ? 'Publié' : 'Brouillon' }}
+              </p>
+              <button *ngIf="blog.status === 'draft'" (click)="editDraft(blog)" class="bg-blue-500 text-white rounded px-4 py-2 mt-2 mr-3">
+                  Modifier le Brouillon
+              </button>
+              <button *ngIf="blog.status === 'published'" (click)="readBlog(blog)" class="bg-green-500 text-white rounded px-4 py-2 mt-2 mr-3">
+                  Lire le Blog
+              </button>
+              <button (click)="deleteBlog(blog.id)" class="bg-red-500 text-white rounded px-4 py-2">
+                  Supprimer
+              </button>
+          </div> 
+      </ng-container>
+      
+    </div>
+</div>  

@@ -1,0 +1,17 @@
+<!-- sur blog detail  -->
+
+<div class="bg-gray-800 p-4 rounded-lg text-gray-300">
+    <h3 class="font-bold mb-2">Chapitres</h3>
+    <div *ngFor="let chapter of blog?.chapters; let i = index" class="flex items-center mb-1">
+      <div class=" hapter-item flex items-center justify-center w-10 h-10 rounded-full border-2 mr-2" 
+        [ngClass]="{
+          'border-green-500 bg-green-200 text-gray-500': i < currentChapterIndex,
+          'border-gray-300 bg-white': i >= currentChapterIndex
+        }">
+        {{ i + 1 }}
+      </div>
+      <span (click)="selectChapter(i)" class="cursor-pointer hover:text-gray-300">
+        {{ chapter.title }}
+      </span>
+    </div>
+  </div>

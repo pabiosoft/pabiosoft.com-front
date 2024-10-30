@@ -1,0 +1,63 @@
+<div class="max-w-7xl mx-auto p-8 bg-gray-900 ">
+  <h2 class="text-2xl font-bold text-center mb-4 text-white">Liste des Blogs</h2>
+
+  <div *ngIf="blogs.length === 0" class="text-center text-gray-500">
+    Aucun blog publié pour le moment.
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div *ngIf="isLoading" class="text-center text-gray-500">
+      Chargement des blogs...
+    </div>
+    <div *ngFor="let blog of blogs" class="bg-gray-800 shadow-md rounded-lg p-4 mb-6">  
+      <img 
+        [src]="blog.coverImageUrl" 
+        alt="Image de couverture" 
+        (mouseover)="onMouseOver($event)" 
+        (mouseout)="onMouseOut($event)"
+        class="w-full h-64 object-cover rounded-md mb-4"
+      />
+
+      <p class="text-xl font-semibold mb-2 text-white">{{ blog.coverText }}</p>
+
+      <div [routerLink]="['/author', blog.userId]" class="flex items-center mt-4 cursor-pointer">
+        <img 
+          [src]="getUserById(blog.userId)?.profile?.imageUrl || 'assets/default-profile.png'" 
+          alt="Photo de profil" 
+          (mouseover)="onMouseOver($event)" 
+          (mouseout)="onMouseOut($event)"
+          class="w-10 h-10 rounded-full object-cover mr-3"
+          style="transition: transform 0.3s;" 
+        />
+
+        <p class="text-blue-500 cursor-pointer text-white ">
+          {{ getUserById(blog.userId)?.pseudo || 'Auteur inconnu' }}
+        </p>
+      </div>
+
+      <div class="flex justify-between mt-4">
+        <span class="text-sm text-gray-500">
+          <i class="fa-regular fa-calendar-check"></i> {{ blog.date | date: 'dd MMMM yyyy' }}
+        </span>
+        <a 
+          [routerLink]="['/blogs/blogs', blog.id]" 
+          class="text-blue-500 hover:underline"
+        >
+         Lire plus <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="flex flex-wrap mt-2">
+        <div *ngFor="let tech of blog.technologies" class="flex items-center mr-4">
+          <img 
+           [src]="tech.logoUrl" 
+           alt="{{ tech.name }}" 
+           (mouseover)="onMouseOver($event)" 
+           (mouseout)="onMouseOut($event)"
+           class="w-6 h-6 mr-1" 
+          />
+          <span class="text-sm font-semibold">{{ tech.name }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

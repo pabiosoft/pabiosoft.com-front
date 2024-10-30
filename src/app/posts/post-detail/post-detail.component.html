@@ -1,17 +1,13 @@
 <div class="bg-gray-900 text-gray-100 p-8 rounded-lg max-w-4xl mx-auto mt-8 shadow-lg">
     <app-resume-profils/>
-    <!-- Titre de l'article -->
     <h1 class="text-3xl font-bold mb-4">Introduction à `standalone: true` dans Angular</h1>
 
-    <!-- Auteur et date de publication -->
     <p class="text-gray-400 text-sm mb-6">Publié par John Doe | 28 Octobre 2024</p>
 
-    <!-- Introduction -->
     <p class="text-lg mb-4">
         Angular introduit l'option <code class="bg-gray-800 px-1 py-0.5 rounded">standalone: true</code> pour simplifier la création de composants sans les attacher à un module. Dans cet article, nous allons découvrir pourquoi et comment utiliser cette fonctionnalité pour un développement plus modulaire.
     </p>
 
-    <!-- Avantages de standalone: true -->
     <h2 class="text-2xl font-semibold mt-8 mb-4">Pourquoi utiliser `standalone: true` ?</h2>
     <ul class="list-disc pl-6 mb-4">
         <li class="mb-2">Réduit la complexité en éliminant la dépendance à un module.</li>
@@ -19,13 +15,11 @@
         <li>Favorise un développement modulaire et réutilisable.</li>
     </ul>
 
-    <!-- Fonctionnement de standalone components -->
     <h2 class="text-2xl font-semibold mt-8 mb-4">Comment fonctionne `standalone: true` ?</h2>
     <p class="mb-4">
         Lorsqu'un composant est défini avec <code class="bg-gray-800 px-1 py-0.5 rounded">standalone: true</code>, il peut être utilisé sans être déclaré dans un module. Vous pouvez ainsi importer uniquement les modules nécessaires directement dans le composant, comme <code class="bg-gray-800 px-1 py-0.5 rounded">CommonModule</code> pour utiliser les directives structurelles.
     </p>
 
-    <!-- Étapes d'implémentation -->
     <h2 class="text-2xl font-semibold mt-8 mb-4">Étapes pour créer un composant standalone</h2>
     <ol class="list-decimal pl-6 mb-4">
         <li class="mb-2">Utilisez Angular CLI pour générer un composant avec l'option standalone :</li>
@@ -41,7 +35,6 @@
         <li class="mt-4">Ajoutez le composant dans le routing sans module parent.</li>
     </ol>
 
-    <!-- Exemple pratique -->
     <h2 class="text-2xl font-semibold mt-8 mb-4">Exemple Pratique</h2>
     <p class="mb-4">
         Considérons un composant `PostDetailComponent` qui affiche les détails d'un article. En utilisant <code class="bg-gray-800 px-1 py-0.5 rounded">standalone: true</code>, vous pouvez simplifier l'architecture en le rendant totalement autonome.
@@ -53,19 +46,108 @@
         </code>
     </div>
 
-    <!-- Conclusion -->
     <h2 class="text-2xl font-semibold mt-8 mb-4">Conclusion</h2>
     <p class="mb-4">
         L’option <code class="bg-gray-800 px-1 py-0.5 rounded">standalone: true</code> est une avancée significative qui rend Angular plus flexible et modulaire. Elle est idéale pour construire des applications modernes, légères, et faciles à maintenir.
     </p>
 
-    <!-- Bouton de partage -->
     <div class="flex justify-end mt-6">
         <button class="px-4 py-2 bg-cyan-600 text-white rounded-md hover:bg-cyan-700 transition">
             Partager cet article
         </button>
     </div>
 </div>
+
+
+
+<H1>--------------------------------------Editeur-------------------------------------</H1>
+
+
+<div class="bg-gray-900 text-white min-h-screen p-8 flex gap-6">
+    <div class="w-2/3 bg-gray-800 rounded-lg p-6">
+      <h2 class="text-xl font-semibold mb-4">Create a new post</h2>
+  
+      <div class="border-2 border-dashed border-gray-600 h-32 rounded-lg flex justify-center items-center mb-6">
+        <span class="text-pink-400">📄 Drop or select a cover image</span>
+      </div>
+  
+      <input
+        type="text"
+        placeholder="Title"
+        class="w-full bg-gray-700 text-white border border-gray-600 rounded p-3 mb-4"
+      />
+  
+      <textarea
+        placeholder="Content"
+        rows="5"
+        class="w-full bg-gray-700 text-white border border-gray-600 rounded p-3 mb-4"
+      ></textarea>
+  
+      <div class="bg-gray-700 p-3 rounded-lg">
+        <div class="flex gap-2 items-center text-gray-300 mb-2">
+          <button class="text-sm font-medium">Normal</button>
+          <button class="text-sm font-medium">Sans Serif</button>
+          <button class="text-sm font-medium">B</button>
+          <button class="text-sm font-medium">I</button>
+          <button class="text-sm font-medium">U</button>
+          <button class="text-sm font-medium">...</button>
+        </div>
+        <textarea
+          rows="3"
+          class="w-full bg-gray-700 text-white border border-gray-600 rounded p-2"
+          placeholder="Write something..."
+        ></textarea>
+      </div>
+    </div>
+  
+    <!-- Panneau latéral -->
+    <div class="w-1/3 space-y-6">
+      <div class="bg-gray-800 rounded-lg p-4">
+        <h3 class="font-medium mb-2">Publish</h3>
+        <div class="flex justify-between mb-2">
+          <span>Status: <strong>Draft</strong></span>
+          <button class="text-pink-500">✏️</button>
+        </div>
+        <div class="flex justify-between">
+          <span>Visibility: <strong>Private</strong></span>
+          <button class="text-pink-500">✏️</button>
+        </div>
+      </div>
+  
+      <div class="bg-gray-800 rounded-lg p-4">
+        <h3 class="font-medium mb-2">Tags</h3>
+        <div class="flex gap-2">
+          <span class="bg-gray-700 text-white px-3 py-1 rounded">Software</span>
+          <span class="bg-gray-700 text-white px-3 py-1 rounded">Web</span>
+        </div>
+      </div>
+  
+      <div class="bg-gray-800 rounded-lg p-4">
+        <h3 class="font-medium mb-2">Meta</h3>
+        <input
+          type="text"
+          placeholder="Title"
+          class="w-full bg-gray-700 text-white border border-gray-600 rounded p-2 mb-3"
+        />
+        <textarea
+          placeholder="Description"
+          rows="2"
+          class="w-full bg-gray-700 text-white border border-gray-600 rounded p-2"
+        ></textarea>
+      </div>
+  
+      <div class="flex justify-between">
+        <button class="bg-red-500 text-white px-4 py-2 rounded flex items-center gap-2">
+          🗑️ Discard
+        </button>
+        <button class="bg-pink-500 text-white px-4 py-2 rounded flex items-center gap-2">
+          ✔️ Publish
+        </button>
+      </div>
+    </div>
+  </div>
+  
+
 
 
 

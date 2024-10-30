@@ -1,0 +1,92 @@
+<div class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+  <h2 class="text-2xl font-bold text-center mb-4">Éditeur de Brouillon</h2>
+
+  <div class="flex items-center gap-4">
+    <input 
+      type="text" 
+      placeholder="URL de l'image de couverture"
+      [(ngModel)]="coverImageUrl"
+      [disabled]="isLocalImage"
+      class="flex-1 p-2 border rounded-md"
+    />
+
+    <input 
+      type="file" 
+      accept="image/*" 
+      (change)="onFileSelected($event)"
+      class="p-2 border rounded-md"
+    />
+    
+    <div class="flex-1">
+      <input 
+        type="text" 
+        placeholder="Texte de couverture"
+        [(ngModel)]="coverText"
+        class="w-full mb-4 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        (input)="checkCoverTextLength()"
+      />
+      <div class="text-gray-500 text-sm">
+        {{ maxCoverTextLength - coverText.length }} caractères restants
+      </div>
+      <span *ngIf="coverText.length > maxCoverTextLength" class="text-red-500">
+        Le texte de couverture ne doit pas dépasser {{ maxCoverTextLength }} caractères.
+      </span>
+    </div>
+  </div>
+
+  <h3 class="text-lg font-semibold mb-2">Chapitres</h3>
+  <div *ngFor="let chapter of chapters; let i = index" class="mb-4 border p-4 rounded-md">
+    <input 
+      type="text" 
+      placeholder="Titre du chapitre"
+      [(ngModel)]="chapter.title"
+      class="w-full mb-2 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+    />
+    <!-- [modules]="editorModules" -->
+    <quill-editor
+      [(ngModel)]="chapter.content"
+      
+      class="border border-gray-300 rounded-md mb-2"
+      [style]="{ height: '200px' }"
+    ></quill-editor>
+    <button 
+      class="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-2 rounded-md transition"
+      (click)="removeChapter(i)">
+      Supprimer ce chapitre
+    </button>
+  </div>
+
+  <button 
+    class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md transition mb-4"
+    (click)="addChapter()">
+    Ajouter un Chapitre
+  </button>
+
+  <div class="flex justify-between mb-4">
+    <button 
+      class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition"
+      (click)="saveChanges()">
+      Enregistrer le Brouillon
+    </button>
+    <button 
+      class="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-md transition"
+      (click)="publishBlog()">
+      Publier le Blog
+    </button>
+  </div>
+
+  <button 
+    class="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-md transition"
+    (click)="togglePreview()">
+    {{ isPreviewVisible ? 'Masquer' : 'Afficher' }} l'Aperçu
+  </button>
+
+  <div *ngIf="isPreviewVisible" class="mt-4 p-4 border rounded-md">
+    <h2 class="text-2xl font-bold">{{ coverText }}</h2>
+    <img [src]="coverImageUrl" alt="Aperçu de l'image de couverture" class="w-full h-64 object-cover rounded-md mb-4" />
+    
+    <div *ngFor="let chapter of chapters" class="mb-4">
+      <h3 class="text-lg font-semibold">{{ chapter.title }}</h3>
+      <div [innerHTML]="getSanitizedContent(chapter.content)"></div>
+    </div>
+</div>

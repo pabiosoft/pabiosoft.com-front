@@ -1,0 +1,141 @@
+<div class="max-w-7xl mx-auto p-8 bg-gray-900 text-white shadow-xl rounded-lg">
+  <div class="grid grid-cols-4 gap-8">
+    
+    <div class="col-span-3">
+      <ng-container *ngIf="!isPreviewVisible; else preview">
+        <div class="space-y-8">
+          <h2 class="text-3xl font-bold text-center mb-6">Éditeur de Blog</h2>
+
+          <div class="space-y-4">
+            <label class="block font-medium">Image et Texte de couverture</label>
+            <div class="flex items-center gap-4">
+              <input 
+                type="text" 
+                placeholder="URL de l'image de couverture"
+                [(ngModel)]="coverImageUrl"
+                [disabled]="isLocalImage"
+                class="flex-1 p-2 bg-gray-800 text-white rounded-md focus:ring-2 focus:ring-pink-500"
+              />
+              <input 
+                type="file" 
+                accept="image/*" 
+                (change)="onFileSelected($event)"
+                class="p-2 bg-gray-800 rounded-md focus:ring-2 focus:ring-pink-500"
+              />
+            </div>
+
+            <div *ngIf="coverImageUrl" class="mt-4">
+              <img 
+                [src]="coverImageUrl" 
+                alt="Aperçu de l'image de couverture" 
+                class="w-full h-64 object-cover rounded-lg"
+              />
+            </div>
+
+            <input 
+              type="text" 
+              placeholder="Texte de couverture"
+              [(ngModel)]="coverText"
+              class="w-full p-2 mt-4 bg-gray-800 text-white rounded-md focus:ring-2 focus:ring-pink-500"
+            />
+            <div class="text-gray-400 text-sm mt-1">
+              {{ maxCoverTextLength - coverText.length }} caractères restants
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-xl font-semibold">Technologies expliquées</h3>
+            <div class="flex items-center gap-2">
+              <input 
+                type="text" 
+                [(ngModel)]="newTechnology" 
+                placeholder="Ajouter une technologie" 
+                class="flex-grow p-2 bg-gray-800 rounded-md text-white"
+              />
+              <button 
+                (click)="addTechnology()" 
+                class="bg-green-500 px-4 py-2 rounded-md hover:bg-green-600">
+                Ajouter
+              </button>
+            </div>
+
+            <ul class="space-y-2">
+              <li *ngFor="let tech of technologies; let i = index" class="flex items-center space-x-4">
+                <img [src]="tech.logoUrl" alt="{{ tech.name }}" class="w-8 h-8 rounded-full">
+                <span class="text-white">{{ tech.name }}</span>
+                <button 
+                  (click)="removeTechnology(i)" 
+                  class="text-red-400 hover:text-red-600">
+                  Supprimer
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-xl font-semibold">Chapitres</h3>
+            <div *ngFor="let chapter of chapters; let i = index" class="p-4 bg-gray-800 rounded-lg space-y-2">
+              <input 
+                type="text" 
+                placeholder="Titre du chapitre"
+                [(ngModel)]="chapter.title"
+                class="w-full p-2 bg-gray-700 rounded-md focus:ring-2 focus:ring-pink-500"
+              />
+              <quill-editor
+                [(ngModel)]="chapter.content"
+                [modules]="editorModules"
+                class="bg-gray-800 rounded-md text-white"
+                [style]="{ height: '200px' }"
+              ></quill-editor>
+              <button 
+                (click)="removeChapter(i)"
+                class="bg-red-500 px-4 py-2 rounded-md hover:bg-red-600">
+                Supprimer ce chapitre
+              </button>
+            </div>
+
+            <button 
+              (click)="addChapter()"
+              class="bg-green-500 px-4 py-2 rounded-md hover:bg-green-600">
+              Ajouter un Chapitre
+            </button>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #preview>
+        <div class="p-4 bg-gray-800 rounded-lg space-y-6">
+          <h2 class="text-3xl font-bold">{{ coverText }}</h2>
+          <img 
+            [src]="coverImageUrl" 
+            alt="Aperçu de l'image de couverture" 
+            class="w-full h-64 object-cover rounded-md"
+          />
+          <div *ngFor="let chapter of chapters" class="space-y-4">
+            <h3 class="text-xl font-semibold">{{ chapter.title }}</h3>
+            <div [innerHTML]="getSanitizedContent(chapter.content)" class="text-gray-300"></div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+
+    <div class="col-span-1 space-y-8 sticky top-8 self-start">
+      <button 
+        (click)="saveDraft()"
+        class="bg-blue-500 w-full px-6 py-3 rounded-md hover:bg-blue-600">
+        Enregistrer le Brouillon
+      </button>
+      <button 
+        (click)="publishBlog()"
+        class="bg-purple-500 w-full px-6 py-3 rounded-md hover:bg-purple-600">
+        Publier le Blog
+      </button>
+      <button 
+        (click)="togglePreview()"
+        class="bg-gray-700 w-full px-6 py-3 rounded-md hover:bg-gray-600">
+        {{ isPreviewVisible ? 'Retour à l\'édition' : 'Aperçu' }}
+      </button>
+    </div>
+
+  </div>
+</div>

@@ -5,7 +5,7 @@ import {Component, OnInit} from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './overview.component.html',
-  styleUrl: './posts.component.scss'
+  styleUrl: './overview.component.scss'
 })
 export class OverviewComponent implements OnInit{
 

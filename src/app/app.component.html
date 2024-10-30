@@ -3,7 +3,75 @@
 <!--    <router-outlet></router-outlet>-->
 <!--</div>-->
 
+<!-- <div class="min-h-full flex">
+  <ng-container *ngIf="showSidebar">
+    <app-sidebar></app-sidebar>
+  </ng-container>
 
+  <div [class.lg:pl-64]="showSidebar" class="flex flex-col flex-1">
+    <app-header></app-header>
+
+    <div class="flex items-center justify-between p-4">
+      <ng-container *ngIf="currentRoute !== '/' && currentRoute !== ''">
+        <button 
+          (click)="affichageSidebar()" 
+          class="text-black px-4 py-2 rounded flex items-center gap-2 bg-transparent hover:bg-gray-100 transition">
+          <mat-icon>
+            {{ showSidebar ? 'close' : 'menu' }}
+          </mat-icon>
+        </button>
+      </ng-container>
+    </div>
+
+    <main class="flex-1 pb-8">
+      <div class="bg-white shadow">
+        <div class="px-4 sm:px-6 lg:max-w-6xl lg:mx-auto lg:px-8">
+          
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
+
+<app-footer></app-footer> -->
+
+<div class="min-h-full flex">
+  <ng-container *ngIf="showSidebar">
+    <app-sidebar></app-sidebar>
+  </ng-container>
+
+  <div [class.lg:pl-64]="showSidebar" class="flex flex-col flex-1">
+    <app-header></app-header>
+
+    <div class="flex items-center justify-between p-4">
+      <ng-container *ngIf="currentRoute !== '/' && currentRoute !== ''">
+        <button 
+          (click)="affichageSidebar()" 
+          class="text-black px-4 py-2 rounded flex items-center gap-2 bg-transparent hover:bg-gray-100 transition">
+          <mat-icon>
+            {{ showSidebar ? 'close' : 'menu' }}
+          </mat-icon>
+        </button>
+      </ng-container>
+    </div>
+
+    <main class="flex-1 pb-8">
+      <div class="bg-white shadow">
+        <div class="px-4 sm:px-6 lg:max-w-6xl lg:mx-auto lg:px-8">
+          <!-- Contenu additionnel peut être ajouté ici -->
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+    </main>
+
+    <!-- Ajout du footer -->
+    <app-footer></app-footer>
+  </div>
+</div>
+
+
+<!-- 
 <div class="min-h-full">
   <app-sidebar></app-sidebar>
   <div class="lg:pl-64 flex flex-col flex-1">
@@ -16,5 +84,5 @@
       <router-outlet></router-outlet>
     </main>
   </div>
-</div>
+</div> -->
 
