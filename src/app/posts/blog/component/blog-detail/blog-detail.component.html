@@ -1,0 +1,94 @@
+<div class="max-w-7xl mx-auto p-6 bg-gray-900 shadow-lg rounded-lg">
+  <app-resume-profils *ngIf="authorInfo" [authorInfo]="authorInfo"></app-resume-profils>
+  <button 
+    mat-button 
+    color="primary" 
+    (click)="goBack()" 
+    class="fixed left-2 z-50 hover:bg-red-200"
+  >
+    <mat-icon>arrow_back</mat-icon> 
+  </button>
+
+  <div class="flex">
+    <div class="w-1/4 sticky top-0 h-full bg-gray-800 p-4 rounded-lg">
+      <app-sidebar-blog 
+        [blog]="blog" 
+        [currentChapterIndex]="currentChapterIndex"
+      ></app-sidebar-blog>
+    </div>    
+
+    <!-- Contenu principal du blog --> 
+    <div class="ml-4 w-3/4">
+      <div class="flex justify-end">
+        <button
+  (click)="PartageBlog()"
+  class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+>
+  Partager le Blog
+</button>
+
+
+      </div>
+      <p class="text-3xl font-bold mb-4 text-gray-200">{{ blog?.coverText }}</p>
+      <div class="flex flex-wrap mt-2">
+        <span class="text-sm font-semibold mr-2">Technologies :</span>
+        <div *ngFor="let tech of blog?.technologies" class="flex items-center mr-4">
+          <img 
+           [src]="tech.logoUrl" 
+           alt="{{ tech.name }}" 
+           (mouseover)="onMouseOver($event)" 
+           (mouseout)="onMouseOut($event)"
+           class="w-6 h-6 mr-1" 
+          />
+          <span class="text-sm">{{ tech.name }}</span>
+        </div>
+      </div>
+      <br>
+      <p class="text-gray-500 text-sm mb-6">
+        <i class="fa-regular fa-calendar-check"></i> {{ blog?.date | date: 'dd MMMM yyyy' }}
+      </p>
+      <br>
+      <div *ngIf="blog?.coverImageUrl" class="mb-6">
+        <img 
+          [src]="blog.coverImageUrl" 
+          alt="Image de couverture" 
+          (mouseover)="onMouseOver($event)" 
+          (mouseout)="onMouseOut($event)"
+          class="w-full h-64 object-cover rounded-md"
+        />
+      </div>
+
+      <div *ngIf="blog?.chapters && blog.chapters.length > 0">
+        <div class="prose max-w-none text-gray-100">
+          <h2 #chapterTitle class="text-2xl font-bold">{{ blog.chapters[currentChapterIndex]?.title }}</h2>
+          <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(blog.chapters[currentChapterIndex]?.content)"></div>
+          
+          <div class="flex justify-between mt-4">
+            <button 
+              class="bg-gray-300 hover:bg-gray-400 text-black py-2 px-4 rounded"
+              (click)="previousChapter()" 
+              [disabled]="currentChapterIndex === 0">
+              Chapitre Précédent
+            </button>
+            <ng-container *ngIf="currentChapterIndex === blog.chapters.length - 1; else nextChapterButton">
+              <button 
+                class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
+                (click)="finishReading()">
+                Terminer
+              </button>
+            </ng-container>
+            <ng-template #nextChapterButton>
+              <button 
+                class="bg-gray-300 hover:bg-gray-400 text-black py-2 px-4 rounded"
+                (click)="nextChapter()" 
+                [disabled]="currentChapterIndex === blog.chapters.length - 1">
+                Chapitre Suivant
+              </button>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-comment [blogId]="blog?.id"></app-comment>
+</div>

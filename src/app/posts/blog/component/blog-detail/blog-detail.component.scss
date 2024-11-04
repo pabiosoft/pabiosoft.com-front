@@ -1,0 +1,23 @@
+.fixed-back-button {
+    position: fixed;
+    top: 16px; /* ou toute autre valeur pour ajuster la position */
+    left: 16px; /* ou toute autre valeur pour ajuster la position */
+    z-index: 1000; /* Pour s'assurer que l'icône soit au-dessus d'autres éléments */
+  }
+img{
+  object-fit: cover;
+}
+
+.chapters-container {
+  max-height: 150px; /* Ajustez selon vos besoins */
+  overflow-y: auto;
+}
+
+.chapter-item {
+  transition: background-color 0.3s, border-color 0.3s;
+  cursor: pointer;
+}
+
+.chapter-item:hover {
+  background-color: #e0e0e0; /* Couleur d'hover pour les chapitres non lus */
+}

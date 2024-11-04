@@ -1,0 +1,19 @@
+.container {
+  padding: 2rem;
+
+  h1, h3 {
+    font-family: 'Arial', sans-serif; // Choix de la police
+  }
+
+  img {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Effet d'ombre pour les images
+    border-radius: 8px; // Coins arrondis pour un look plus doux
+  }
+
+  .bg-white {
+    border: 1px solid #e2e8f0; // Bordure légère pour les sections
+  }
+}
+img{
+  object-fit: cover;
+}

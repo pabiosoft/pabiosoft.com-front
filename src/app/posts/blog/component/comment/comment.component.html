@@ -1,0 +1,60 @@
+<div class="like-section flex items-center mb-6">
+  <button
+    (click)="toggleLike()"
+    class="bg-transparent border-none cursor-pointer focus:outline-none"
+  >
+    <i
+      [class.fa-regular]="!hasLiked"
+      [class.fa-solid]="hasLiked"
+      class="fa-heart text-2xl text-red-500 transition-transform duration-300"
+    ></i>
+  </button>
+  <span class="text-white ml-2">{{ likes.length }}</span>
+</div>
+
+<!-- Affichage du nombre de vues -->
+<div class="views-section text-white mb-4">
+  <i class="fa-regular fa-eye text-blue-400 mr-1"></i>
+  <span>{{ viewsCount }} Vues</span>
+</div>
+
+<!-- Section Commentaire -->
+<div class="comment-section bg-gray-800 p-4 rounded-lg">
+  <h3 class="text-lg font-bold text-white mb-4">Commentaires</h3>
+
+  <!-- Formulaire d'ajout de commentaire -->
+  <form (ngSubmit)="addComment()" class="mb-6">
+    <textarea
+      [(ngModel)]="newCommentContent"
+      name="content"
+      class="w-full p-2 rounded-md mb-2"
+      placeholder="Votre commentaire..."
+      required
+    ></textarea>
+    <div class="flex justify-end">
+      <button
+        type="submit"
+        class="bg-cyan-600 text-white px-4 py-2 rounded-md hover:bg-cyan-700 transition"
+        [disabled]="!newCommentContent.trim()"
+      >
+        Publier
+      </button>
+    </div>
+  </form>
+
+  <!-- Liste des commentaires -->
+  <div *ngFor="let comment of comments" class="mb-4">
+    <div class="flex items-center mb-2">
+      <img
+        [src]="comment.authorPhotoUrl"
+        alt="Avatar"
+        class="w-10 h-10 rounded-full mr-4"
+      />
+      <div>
+        <p class="text-white font-semibold">{{ comment.authorName }}</p>
+        <p class="text-gray-400 text-sm">{{ comment.date | date:'short' }}</p>
+      </div>
+    </div>
+    <p class="text-white">{{ comment.content }}</p>
+  </div>
+</div>
