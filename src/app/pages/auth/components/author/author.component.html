@@ -1,0 +1,63 @@
+<div class="container mx-auto p-6 bg-gray-50 rounded-lg shadow-lg bg-white">
+  
+  <div *ngIf="author" class="bg-gray-100 p-6 rounded-lg shadow-md mb-6">
+    <div class="flex items-center mb-4">
+      <div class="flex-shrink-0">
+        <div 
+          [ngClass]="author.profile?.imageUrl ? 'border-green-500' : 'border-red-500'" 
+          class="flex items-center justify-center h-16 w-16 border-2 rounded-full mr-4"
+        >
+          <img 
+            *ngIf="author?.profile?.imageUrl; else defaultProfile"
+            [src]="author.profile?.imageUrl" 
+            (mouseover)="onMouseOver($event)" 
+            (mouseout)="onMouseOut($event)"
+            alt="Profile {{ author.pseudo }}" 
+            
+            class="h-full w-full rounded-full  cursor-pointer"
+          />
+        </div>
+        <ng-template #defaultProfile>
+          <mat-icon style="font-size: 48px;">account_circle</mat-icon>
+        </ng-template>
+      </div>
+      <div class="ml-4">
+        <p class="text-xl font-semibold">{{ author.pseudo }}</p>
+        <p class="text-gray-500">{{ author.email }}</p>
+      </div>
+    </div>
+
+    <button (click)="abon()">
+      <mat-icon>{{ isSubscribed ? 'remove_circle' : 'add_circle' }}</mat-icon>
+      <span>{{ isSubscribed ? 'Se Désabonner' : 'S\'Abonner' }}</span>
+    </button>
+    
+    <h3 class="mt-6 text-2xl font-semibold text-gray-700">Blogs publiés :</h3>
+    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div *ngFor="let blog of authorBlogs" class="flex flex-col bg-gray-200 p-4 rounded-lg shadow-md mb-4 transition duration-300 ease-in-out hover:shadow-lg">
+        <div class="flex-1">
+          <p class="text-xl font-semibold text-gray-800 hover:text-green-600 transition duration-200 cursor-pointer">
+            {{ blog.coverText }}
+          </p>
+          <img 
+            src="{{blog.coverImageUrl}}" 
+            alt="{{blog.coverText}}"
+            (mouseover)="onMouseOver($event)" 
+            (mouseout)="onMouseOut($event)"
+          >
+        </div>
+        <div class="flex justify-between mt-4">
+          <span class="text-sm text-gray-500">
+            Publié le : {{ blog.date | date: 'dd MMMM yyyy' }}
+          </span>
+          <a 
+            [routerLink]="['/blogs/blogs', blog.id]" 
+            class="text-blue-500 hover:underline"
+          >
+            Lire plus
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="h-screen flex items-center justify-center gradient-bg text-white">
+  <div class="flex w-3/4 max-w-4xl shadow-lg rounded-lg overflow-hidden">
+
+    <div class="w-1/2 bg-gray-800 flex items-center justify-center">
+      <span class="text-9xl font-bold text-red-600">PA</span>
+      <span class="text-7xl text-white">biosoft</span>
+    </div>
+
+    <div class="w-1/2 p-10 bg-gray-900 pattern-overlay">
+
+      <div class="text-center mb-6">
+        <h2 class="text-3xl font-extrabold text-gray-900">
+          {{ showRegister ? 'Inscrivez-vous' : 'Connectez-vous à votre compte' }}
+        </h2>
+        <p class="mt-2 text-sm text-gray-200">
+          <span *ngIf="!showRegister">Pas encore de compte ?</span>
+          <span *ngIf="showRegister">Déjà un compte ?</span>
+          <button 
+            (click)="toggleRegister($event)" 
+            class="font-medium text-indigo-600 hover:text-indigo-500"
+          >
+            {{ showRegister ? 'Connectez-vous ici' : 'Inscrivez-vous ici' }}
+          </button>
+        </p>
+      </div>
+
+      <div *ngIf="!showRegister; else registerTemplate" class="space-y-4">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div>
+            <label for="email" class="block mb-1 text-sm">Email</label>
+            <input
+              type="email"
+              formControlName="email"
+              placeholder="Entrez votre email"
+              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500"
+            />
+          </div>
+
+          <div>
+            <label for="password" class="block mb-1 text-sm">Mot de passe</label>
+            <input
+              type="password"
+              formControlName="password"
+              placeholder="Entrez votre mot de passe"
+              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500"
+            />
+          </div>
+
+          <div class="flex justify-between text-sm mt-2">
+            <a href="#" class="text-pink-500 hover:underline">Mot de passe oublié ?</a>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
+          >
+            Connexion
+          </button>
+        </form>
+      </div>
+
+      <ng-template #registerTemplate>
+        <app-register></app-register>
+      </ng-template>
+
+      <div class="text-center mt-6">
+        <p class="text-xs">&copy; Pabiosoft - Copyright 2024</p>
+      </div>
+    </div>
+
+  </div>
+</div>
