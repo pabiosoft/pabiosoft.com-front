@@ -1,0 +1,63 @@
+<div class="flex flex-wrap justify-center gap-4 w-full">
+    <!-- Cartes Frontend et Backend alignées sur la même ligne -->
+        <p-card class="flex-1 shadow-lg">
+            <ng-template pTemplate="content">
+                <p-organizationChart
+                        [value]="frontendData"
+                        selectionMode="multiple"
+                        [(selection)]="selectedNodes"
+                        [collapsible]="true">
+                    <ng-template let-node pTemplate="person">
+                        <div class="p-2 text-center">
+                            <img [src]="node.data.image" class="fixed-image" alt="{{node.data.name}}" />
+                            <div class="font-bold">{{ node.data.name }}</div>
+                        </div>
+                    </ng-template>
+                    <ng-template let-node pTemplate="category">
+                        <div class="p-2 text-center font-bold">{{ node.label }}</div>
+                    </ng-template>
+                </p-organizationChart>
+            </ng-template>
+        </p-card>
+
+        <p-card class="flex-1 shadow-lg">
+            <ng-template pTemplate="content">
+                <p-organizationChart
+                        [value]="backendData"
+                        selectionMode="multiple"
+                        [(selection)]="selectedNodes"
+                        [collapsible]="true">
+                    <ng-template let-node pTemplate="person">
+                        <div class="p-2 text-center">
+                            <img [src]="node.data.image" class="fixed-image" alt="{{node.data.name}}" />
+                            <div class="font-bold">{{ node.data.name }}</div>
+                        </div>
+                    </ng-template>
+                    <ng-template let-node pTemplate="category">
+                        <div class="p-2 text-center font-bold">{{ node.label }}</div>
+                    </ng-template>
+                </p-organizationChart>
+            </ng-template>
+        </p-card>
+
+        <!-- Carte pour la catégorie DevOps sur toute la largeur en dessous -->
+        <p-card class="w-full shadow-lg mt-4">
+            <ng-template pTemplate="content">
+                <p-organizationChart
+                        [value]="technoData"
+                        selectionMode="multiple"
+                        [(selection)]="selectedNodes"
+                        [collapsible]="true">
+                    <ng-template let-node pTemplate="person">
+                        <div class="p-2 text-center">
+                            <img [src]="node.data.image" class="mb-3 w-3rem h-3rem" alt="{{node.data.name}}" />
+                            <div class="font-bold">{{ node.data.name }}</div>
+                        </div>
+                    </ng-template>
+                    <ng-template let-node pTemplate="category">
+                        <div class="p-2 text-center font-bold">{{ node.label }}</div>
+                    </ng-template>
+                </p-organizationChart>
+            </ng-template>
+        </p-card>
+</div>

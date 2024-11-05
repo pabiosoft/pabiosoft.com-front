@@ -3,6 +3,27 @@
 @tailwind components;
 @tailwind utilities;
 
-//@import 'tailwindcss/base';
-//@import 'tailwindcss/components';
-//@import 'tailwindcss/utilities';
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+/* Cible le premier item du menu, qui est "Pabiosoft" */
+.p-menubar-root-list > li:first-child .p-menuitem-link {
+  font-size: 1.25rem; /* Augmente la taille de la police */
+  font-weight: bold;  /* Met le texte en gras */
+  color: #4A90E2;     /* Couleur personnalisée */
+  font-family: 'Roboto', sans-serif; /* Police personnalisée */
+  letter-spacing: 0.5px; /* Espacement des lettres */
+}
+
+/* Ajoute des styles pour l'icône à côté de "Pabiosoft" */
+.p-menubar-root-list > li:first-child .p-menuitem-icon {
+  color: #4A90E2; /* Assure-toi que la couleur de l'icône est la même que le texte */
+  font-size: 1.5rem; /* Agrandit l'icône pour correspondre au texte */
+}
+
+//
+
+
+
+

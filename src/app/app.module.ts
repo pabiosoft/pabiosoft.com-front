@@ -10,6 +10,9 @@ import {SharedModule} from "./shared/shared.module";
 import {SidebarComponent} from "./core/components/sidebar/sidebar.component";
 import {OverviewComponent} from "./pages/overview/overview.component";
 import {ResumeProfilsComponent} from "./pages/resume-profils/resume-profils.component";
+import {FooterComponent} from "./core/components/footer/footer.component";
+import {TechnologiesComponent} from "./pages/technologies/technologies.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -19,6 +22,7 @@ import {ResumeProfilsComponent} from "./pages/resume-profils/resume-profils.comp
   ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         AppRoutingModule,
         HttpClientModule,
         CoreModule,
@@ -26,6 +30,8 @@ import {ResumeProfilsComponent} from "./pages/resume-profils/resume-profils.comp
         SidebarComponent,
         OverviewComponent,
         ResumeProfilsComponent,
+        FooterComponent,
+        TechnologiesComponent,
 // meme si sharedModule a ete importe dans CoreModule cela ne va pas double le taille du fichier
     ],
   providers: [],
