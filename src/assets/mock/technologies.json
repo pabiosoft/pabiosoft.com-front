@@ -1,0 +1,63 @@
+[
+  {
+    "id": "1",
+    "name": "Angular",
+    "logoUrl": "https://img.icons8.com/color/48/angularjs.png",
+    "category": "Frontend"
+  },
+  {
+    "id": "11",
+    "name": "React",
+    "logoUrl": "https://img.icons8.com/color/48/react-native.png",
+    "category": "Frontend"
+  },
+  {
+    "id": "2",
+    "name": "Symfony",
+    "logoUrl": "https://img.icons8.com/color/48/symfony.png",
+    "category": "Backend"
+  },
+  {
+    "id": "22",
+    "name": "Node.js",
+    "logoUrl": "https://img.icons8.com/fluency/48/node-js.png",
+    "category": "Backend"
+  },
+  {
+    "id": "21",
+    "name": "APIPlatform",
+    "logoUrl": "/assets/img/api-platform.svg",
+    "category": "Backend"
+  },
+
+  {
+    "id": "5",
+    "name": "Docker",
+    "logoUrl": "https://img.icons8.com/color/48/docker.png",
+    "category": "Techno"
+  },
+  {
+    "id": "6",
+    "name": "Jenkins",
+    "logoUrl": "https://img.icons8.com/color/48/jenkins.png",
+    "category": "Techno"
+  },
+  {
+    "id": "7",
+    "name": "FrankenPHP",
+    "logoUrl": "https://img.icons8.com/color/48/php.png",
+    "category": "Techno"
+  },
+  {
+    "id": "8",
+    "name": "Kubernetes",
+    "logoUrl": "https://img.icons8.com/color/48/kubernetes.png",
+    "category": "Techno"
+  },
+  {
+    "id": "9",
+    "name": "GitHub Actions",
+    "logoUrl": "https://img.icons8.com/color/48/github.png",
+    "category": "Techno"
+  }
+]

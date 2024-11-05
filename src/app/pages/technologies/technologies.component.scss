@@ -1,0 +1,6 @@
+.fixed-image {
+  width: 48px; /* Taille fixe en largeur */
+  height: 48px; /* Taille fixe en hauteur */
+  object-fit: contain; /* Garde le ratio de l'image */
+  border-radius: 4px; /* Optionnel : coins arrondis */
+}
