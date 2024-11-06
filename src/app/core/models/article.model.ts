@@ -13,12 +13,14 @@ export interface ArticleModel {
     technologies: Technology[];
     profileImageUrl: string;
     relatedArticles: RelatedArticle[];
+    estimateTime: number;
 }
 
 export interface Author {
     "@id": string;
     name: string;
     country: string;
+    profileImageUrl: string
 }
 
 export interface Chapter {

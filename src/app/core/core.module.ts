@@ -20,7 +20,7 @@ import {ChipsModule} from "primeng/chips";
         Ripple,
         BadgeModule,
         AvatarModule,
-        ChipsModule
+        ChipsModule,
     ],
   exports :[
     HeaderComponent

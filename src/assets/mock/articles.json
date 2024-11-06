@@ -1,114 +1,297 @@
 [
   {
     "@context": "/contexts/Article",
-    "@id": "/articles/1b9d8f2e-4e12-4c42-921e-0c688b162e29",
-    "@type": "Article",
-    "coverImageUrl": "https://img.icons8.com/color/48/angularjs.png",
-    "coverText": "Mastering Angular in Modern Web Development",
-    "date": "2024-10-20T12:45:00.000Z",
+    "@id": "/articles/3a9d7c2f-5e2b-4f3c-928a-1b9c8d3f9a12",
+    "@type": "Article 1",
+    "coverImageUrl": "https://img.icons8.com/color/48/vue-js.png",
+    "coverText": "Exploring Vue 3 Composition API for Scalable Applications",
+    "date": "2024-10-25T14:15:00.000Z",
     "status": "published",
     "author": {
-      "@id": "/authors/23f8b9c4-3f1e-4d8d-992a-3b4f9b4e7a12",
-      "name": "Jane Doe",
-      "country": "France"
+      "@id": "/authors/7d8e9b3f-4c6a-5f7d-8e1a-2c9b8f7e1d12",
+      "name": "Emily Clarke",
+      "country": "Canada",
+      "profileImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1igwcWN4GUH-z9hOeNnbZYCYjtUAJxHgwXw&s"
     },
     "chapters": [
       {
-        "@id": "/chapters/abc123",
-        "title": "Introduction to Angular",
-        "content": "Angular is a powerful framework for building complex applications. In this article, we'll explore the fundamentals and best practices of using Angular for large-scale projects..."
+        "@id": "/chapters/stu123",
+        "title": "Introduction to Composition API",
+        "content": "Vue 3's Composition API offers a flexible way to organize and scale your code. This chapter introduces the basics and shows how it differs from the Options API..."
       },
       {
-        "@id": "/chapters/def456",
-        "title": "Components and Services",
-        "content": "Understanding Angular's component-based architecture is key to mastering this framework. Components define the structure, while services handle data sharing across components..."
+        "@id": "/chapters/vwx456",
+        "title": "Reactivity and Lifecycle Hooks",
+        "content": "Learn how to manage reactivity and leverage lifecycle hooks in Vue 3 for efficient data handling and state management..."
       },
       {
-        "@id": "/chapters/ghi789",
-        "title": "State Management with RxJS",
-        "content": "Using RxJS for state management allows for seamless data flow in Angular applications. Learn how to use observables, operators, and best practices for managing app state efficiently..."
+        "@id": "/chapters/yz123",
+        "title": "Reusable Composition Functions",
+        "content": "Composition functions allow for easy reuse of logic across components. We’ll explore best practices for creating reusable functions..."
       }
     ],
     "technologies": [
       {
-        "@id": "/technologies/12a3d5e7-9c1a-4e2b-8213-7f32c123b456",
+        "@id": "/technologies/98b2d4c1-8d1e-4f2b-95c3-5e6a8d2f3c4e",
+        "name": "Vue",
+        "logoUrl": "https://img.icons8.com/color/48/vue-js.png"
+      },
+      {
+        "@id": "/technologies/10c4e8d3-7f2b-4e1f-96b4-3d8e9f4c2b1f",
+        "name": "JavaScript",
+        "logoUrl": "https://img.icons8.com/color/48/javascript.png"
+      },
+      {
+        "@id": "/technologies/98b2d4c1-8d1e-4f2b-95c3-5e6a8d2f3c4e",
+        "name": "Vue",
+        "logoUrl": "https://img.icons8.com/color/48/vue-js.png"
+      },
+      {
+        "@id": "/technologies/98b2d4c1-8d1e-4f2b-95c3-5e6a8d2f3c4e",
+        "name": "Vue",
+        "logoUrl": "https://img.icons8.com/color/48/vue-js.png"
+      }
+    ],
+    "profileImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-cUXxUM3DEIE8wMNkRXxDOWWagwtdqOoXhg&s",
+    "relatedArticles": [
+      {
+        "@id": "/articles/5e2c8f1a-6b3d-4f2e-9d9a-8e1c6d3f9c12",
+        "title": "Using Vue 3 with TypeScript",
+        "coverImageUrl": "https://img.icons8.com/color/48/typescript.png",
+        "author": {
+          "@id": "/authors/6f8b1c2d-9e1a-3f2d-6b4c-5d8f9c1e3a7d",
+          "name": "Liam Smith",
+          "country": "United States"
+        }
+      }
+    ],
+    "estimateTime": 30
+  },
+  {
+    "@context": "/contexts/Article",
+    "@id": "/articles/4c1e8f3b-5f2a-4d3c-91b2-0f9c7e1a5d12",
+    "@type": "Article 2",
+    "coverImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-cUXxUM3DEIE8wMNkRXxDOWWagwtdqOoXhg&s",
+    "coverText": "Data Science Essentials with Python and Pandas",
+    "date": "2024-10-27T10:00:00.000Z",
+    "status": "published",
+    "author": {
+      "@id": "/authors/2d1f9b3a-4e7b-5f2c-8d3e-9c4e5b7f1d23",
+      "name": "Daniela Santos",
+      "country": "Brazil",
+      "profileImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1igwcWN4GUH-z9hOeNnbZYCYjtUAJxHgwXw&s"
+    },
+    "chapters": [
+      {
+        "@id": "/chapters/abc234",
+        "title": "Introduction to Data Science with Python",
+        "content": "Python is a versatile language for data science. In this chapter, we introduce data science concepts and show how to get started with Python..."
+      },
+      {
+        "@id": "/chapters/def567",
+        "title": "Data Manipulation with Pandas",
+        "content": "Pandas is a powerful tool for data manipulation. Learn how to clean, transform, and analyze data using Pandas..."
+      },
+      {
+        "@id": "/chapters/ghi890",
+        "title": "Data Visualization Techniques",
+        "content": "Effective data visualization is key to insights. Discover how to create compelling visualizations with Matplotlib and Seaborn..."
+      }
+    ],
+    "technologies": [
+      {
+        "@id": "/technologies/15c3d5b9-7f1e-4f5a-8e6b-3c9b4d7e1f6d",
+        "name": "Python",
+        "logoUrl": "https://img.icons8.com/color/48/python.png"
+      },
+      {
+        "@id": "/technologies/23d4e9b6-5f2c-4e1f-92d3-4b8e7c6f1a4f",
+        "name": "Pandas",
+        "logoUrl": "https://img.icons8.com/color/48/pandas.png"
+      }
+    ],
+    "profileImageUrl": "https://img.icons8.com/color/48/python.png",
+    "relatedArticles": [
+      {
+        "@id": "/articles/6f9a1d2b-7c2e-4e3f-9d1a-2f4c5b8e9a3d",
+        "title": "Advanced Data Analysis with Python",
+        "coverImageUrl": "https://img.icons8.com/color/48/python.png",
+        "author": {
+          "@id": "/authors/8c1f7e3a-9b2e-5f3d-7a6d-2e9f4b5c3f7e",
+          "name": "Marta Lopez",
+          "country": "Spain"
+        }
+      }
+    ],
+    "estimateTime": 25
+  },
+  {
+    "@context": "/contexts/Article",
+    "@id": "/articles/7d3f8a1e-9b2c-4f5e-92d1-3c4b5e6a7f9c",
+    "@type": "Article 3",
+    "coverImageUrl": "https://img.icons8.com/color/48/docker.png",
+    "coverText": "Docker for Beginners: Simplifying Containerization",
+    "date": "2024-10-28T08:45:00.000Z",
+    "status": "published",
+    "author": {
+      "@id": "/authors/3f1c7d2b-6a9e-5b3f-8d4c-2e5a9f8b3c12",
+      "name": "Samuel Green",
+      "country": "Australia",
+      "profileImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1igwcWN4GUH-z9hOeNnbZYCYjtUAJxHgwXw&s"
+    },
+    "chapters": [
+      {
+        "@id": "/chapters/jkl234",
+        "title": "Why Use Docker?",
+        "content": "Docker is revolutionizing how we deploy applications. This chapter covers the basics of Docker and why it's beneficial for developers..."
+      },
+      {
+        "@id": "/chapters/mno678",
+        "title": "Creating Your First Docker Container",
+        "content": "Learn how to create, manage, and run Docker containers. This hands-on chapter guides you through the Docker CLI and basic commands..."
+      },
+      {
+        "@id": "/chapters/pqr910",
+        "title": "Docker Compose and Multi-Container Applications",
+        "content": "Explore Docker Compose and how to manage multi-container applications with ease. Great for setting up complex environments..."
+      }
+    ],
+    "technologies": [
+      {
+        "@id": "/technologies/45a8c3e1-9d2f-4f1e-85b6-7d3e5c9f2a1f",
+        "name": "Docker",
+        "logoUrl": "https://img.icons8.com/color/48/docker.png"
+      }
+    ],
+    "profileImageUrl": "https://img.icons8.com/color/48/docker.png",
+    "relatedArticles": [
+      {
+        "@id": "/articles/8c2e4f1a-6d3b-5f1e-9a7d-4e2b3c5d8e9f",
+        "title": "Kubernetes vs Docker: Understanding the Differences",
+        "coverImageUrl": "https://img.icons8.com/color/48/kubernetes.png",
+        "author": {
+          "@id": "/authors/7d8e9c3f-5b1e-4a3f-8d9a-6e7c2b5f4a9f",
+          "name": "Lucy Adams",
+          "country": "United Kingdom"
+        }
+      }
+    ],
+    "estimateTime": 20
+  },
+  {
+    "@context": "/contexts/Article",
+    "@id": "/articles/9e1c5a3f-8b2d-4f7e-92d4-1b9c6d2a5f3c",
+    "@type": "Article 4",
+    "coverImageUrl": "https://img.icons8.com/color/48/angularjs.png",
+    "coverText": "Building Real-Time Applications with Angular and Firebase",
+    "date": "2024-10-29T16:30:00.000Z",
+    "status": "published",
+    "author": {
+      "@id": "/authors/5f1c7e2b-9d3a-4b1e-8f2d-6c4e8a7f1d2e",
+      "name": "Olivia Roberts",
+      "country": "New Zealand",
+      "profileImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1igwcWN4GUH-z9hOeNnbZYCYjtUAJxHgwXw&s"
+    },
+    "chapters": [
+      {
+        "@id": "/chapters/stu345",
+        "title": "Setting Up Firebase with Angular",
+        "content": "Firebase is an excellent choice for real-time data. Learn how to set up Firebase and connect it to an Angular project..."
+      },
+      {
+        "@id": "/chapters/vwx789",
+        "title": "Building Real-Time Data Sync",
+        "content": "This chapter explores real-time data synchronization between Firebase and Angular, enhancing user experience..."
+      },
+      {
+        "@id": "/chapters/yz234",
+        "title": "Adding User Authentication",
+        "content": "Implement secure user authentication with Firebase in your Angular application. This chapter covers best practices and example code..."
+      }
+    ],
+    "technologies": [
+      {
+        "@id": "/technologies/67d8e9b3-4f1a-5b6d-8c2e-3f4b5e7c9d1f",
         "name": "Angular",
         "logoUrl": "https://img.icons8.com/color/48/angularjs.png"
       },
       {
-        "@id": "/technologies/34b7f9d0-5b0a-4a1f-83b5-2c89d89a5a3f",
-        "name": "TypeScript",
-        "logoUrl": "https://img.icons8.com/color/48/typescript.png"
+        "@id": "/technologies/89b1d4e5-7c3f-4e2d-95f2-6a9e5c4b1f8e",
+        "name": "Firebase",
+        "logoUrl": "https://img.icons8.com/color/48/firebase.png"
       }
     ],
-    "profileImageUrl": "https://img.icons8.com/offices/48/react.png",
+    "profileImageUrl": "https://img.icons8.com/color/48/angularjs.png",
     "relatedArticles": [
       {
-        "@id": "/articles/2d8f6b0c-1a4b-4f5e-9d9a-7eac5c47b456",
-        "title": "Advanced Angular Testing Techniques",
-        "coverImageUrl": "https://img.icons8.com/offices/48/react.png",
+        "@id": "/articles/9d3a8f4b-5e1c-4f2e-8a7b-3d6c5e2f9a3d",
+        "title": "Progressive Web Apps with Angular",
+        "coverImageUrl": "https://img.icons8.com/color/48/angularjs.png",
         "author": {
-          "@id": "/authors/8b9c1234-5f4b-4a6d-9f1a-2e7b5f6a8b78",
-          "name": "John Smith",
-          "country": "Germany"
+          "@id": "/authors/8f1a9d2c-7b3e-4c1f-92d5-4e6b9c7a5f2e",
+          "name": "Lucas Brown",
+          "country": "South Africa"
         }
       }
-    ]
+    ],
+    "estimateTime": 15
   },
   {
     "@context": "/contexts/Article",
-    "@id": "/articles/2c8d5f1b-7e2a-4f3e-928f-0b9a5c4e8d29",
-    "@type": "Article",
-    "coverImageUrl": "https://img.icons8.com/offices/48/react.png",
-    "coverText": "Building Robust APIs with API Platform and Symfony",
-    "date": "2024-10-22T09:30:00.000Z",
+    "@id": "/articles/0d2b7c4e-9f1a-4e3d-8d5a-1e7c6a5f9b8c",
+    "@type": "Article 5",
+    "coverImageUrl": "https://img.icons8.com/color/48/java-coffee-cup-logo.png",
+    "coverText": "Spring Boot Essentials for RESTful API Development",
+    "date": "2024-10-30T13:10:00.000Z",
     "status": "published",
     "author": {
-      "@id": "/authors/5b9d4c6e-3e2f-4c5f-951b-2a3d4f5b9a78",
-      "name": "Alice Martin",
-      "country": "Belgium"
+      "@id": "/authors/1f8c3d5e-9a7b-4b6c-92e1-3d9c8e1a5f2d",
+      "name": "Rajesh Patel",
+      "country": "India",
+      "profileImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1igwcWN4GUH-z9hOeNnbZYCYjtUAJxHgwXw&s"
     },
     "chapters": [
       {
-        "@id": "/chapters/jkl123",
-        "title": "Getting Started with API Platform",
-        "content": "API Platform is an open-source framework built on Symfony, designed to simplify the creation of RESTful and GraphQL APIs. In this guide, we’ll explore the setup and configuration..."
+        "@id": "/chapters/jkl678",
+        "title": "Getting Started with Spring Boot",
+        "content": "Spring Boot simplifies Java development. Learn the basics of Spring Boot and set up a project in minutes..."
       },
       {
-        "@id": "/chapters/mno456",
-        "title": "Defining Data Models and Serialization",
-        "content": "Understanding how to model data and serialize responses is crucial in API development. Learn how to define models, use Doctrine ORM, and serialize data for efficient API responses..."
+        "@id": "/chapters/mno234",
+        "title": "Building RESTful APIs",
+        "content": "RESTful APIs are essential for modern web applications. Discover how to build robust APIs with Spring Boot..."
       },
       {
-        "@id": "/chapters/pqr789",
-        "title": "Testing and Securing APIs",
-        "content": "Building secure and well-tested APIs ensures reliability and trust. Explore best practices for securing endpoints and writing integration tests using Symfony’s built-in tools..."
+        "@id": "/chapters/pqr567",
+        "title": "Security and Authentication",
+        "content": "Secure your APIs with Spring Security. This chapter covers JWT authentication and role-based access control..."
       }
     ],
     "technologies": [
       {
-        "@id": "/technologies/56c8e9a3-7d1f-4e2a-85c4-3f4d5b8a1c6e",
-        "name": "Symfony",
-        "logoUrl": "https://img.icons8.com/color/48/symfony.png"
+        "@id": "/technologies/10e8f7c3-9d5a-4f2b-83b4-6c2a5d8f9e1d",
+        "name": "Spring Boot",
+        "logoUrl": "https://img.icons8.com/color/48/spring-logo.png"
       },
       {
-        "@id": "/technologies/78a2c4b9-6d2e-4e1f-94b2-5c7f9e6a1d2b",
-        "name": "API Platform",
-        "logoUrl": "https://img.icons8.com/color/48/api.png"
+        "@id": "/technologies/25f4e7c1-8d6b-4b1a-9c2e-7e8f1c9d4a6d",
+        "name": "Java",
+        "logoUrl": "https://img.icons8.com/color/48/java-coffee-cup-logo.png"
       }
     ],
-    "profileImageUrl": "https://img.icons8.com/color/48/api.png",
+    "profileImageUrl": "https://img.icons8.com/color/48/java-coffee-cup-logo.png",
     "relatedArticles": [
       {
-        "@id": "/articles/4d1f9a3c-7b2a-4f1e-9d8f-0a3c5e9b4a7d",
-        "title": "Integrating React with Symfony and API Platform",
-        "coverImageUrl": "https://example.com/images/react_integration.png",
+        "@id": "/articles/2e1c4d5b-9f8a-3b7e-92f6-7c5a3e8f1d4b",
+        "title": "Microservices Architecture with Spring Cloud",
+        "coverImageUrl": "https://img.icons8.com/color/48/spring-logo.png",
         "author": {
-          "@id": "/authors/9c1e4f2a-5b4d-6a3f-7e1c-3f9b7a6d8e2c",
-          "name": "Chris Doe",
-          "country": "Netherlands"
+          "@id": "/authors/4f8d1c3a-7b2e-5a6d-8f3b-2e9c7d5a4f3e",
+          "name": "Aditi Verma",
+          "country": "India"
         }
       }
-    ]
+    ],
+    "estimateTime": 12
   }
 ]
