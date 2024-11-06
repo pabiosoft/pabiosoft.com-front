@@ -6,7 +6,7 @@ import { PostListComponent } from "./post-list/post-list.component";
 
 
 const routes: Routes = [
-    { path: "detail/: id", component: PostDetailComponent },
+    { path: "article/:id", component: PostDetailComponent },
     { path: "", component: PostListComponent },
 ];
 
