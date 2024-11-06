@@ -1,0 +1,12 @@
+<aside class="w-1/4 bg-gray-800 text-gray-100 p-4 rounded-l-lg">
+    <h2 class="text-xl font-bold mb-4">Chapitres</h2>
+    <ul class="space-y-2">
+      <li
+        *ngFor="let chapter of article?.chapters; let i = index"
+        (click)="goToChapter(i)"
+        [class.bg-gray-500]="i === currentChapterIndex"
+        class="cursor-pointer px-4 py-2 rounded hover:bg-cyan-600 transition">
+        Chapitre {{ i + 1 }}: {{ chapter.title }}
+      </li> 
+    </ul>
+</aside>

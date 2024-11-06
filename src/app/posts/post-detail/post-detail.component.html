@@ -1,104 +1,56 @@
-<div class="bg-gray-900 text-gray-100 p-8 rounded-lg max-w-4xl mx-auto mt-8 shadow-lg">
-    <app-resume-profils/>
-    <!-- Titre de l'article -->
-    <h1 class="text-3xl font-bold mb-4">Introduction à `standalone: true` dans Angular</h1>
-
-    <!-- Auteur et date de publication -->
-    <p class="text-gray-400 text-sm mb-6">Publié par John Doe | 28 Octobre 2024</p>
-
-    <!-- Introduction -->
-    <p class="text-lg mb-4">
-        Angular introduit l'option <code class="bg-gray-800 px-1 py-0.5 rounded">standalone: true</code> pour simplifier la création de composants sans les attacher à un module. Dans cet article, nous allons découvrir pourquoi et comment utiliser cette fonctionnalité pour un développement plus modulaire.
-    </p>
-
-    <!-- Avantages de standalone: true -->
-    <h2 class="text-2xl font-semibold mt-8 mb-4">Pourquoi utiliser `standalone: true` ?</h2>
-    <ul class="list-disc pl-6 mb-4">
-        <li class="mb-2">Réduit la complexité en éliminant la dépendance à un module.</li>
-        <li class="mb-2">Améliore le lazy-loading en permettant aux composants d'être chargés de manière autonome.</li>
-        <li>Favorise un développement modulaire et réutilisable.</li>
-    </ul>
-
-    <!-- Fonctionnement de standalone components -->
-    <h2 class="text-2xl font-semibold mt-8 mb-4">Comment fonctionne `standalone: true` ?</h2>
-    <p class="mb-4">
-        Lorsqu'un composant est défini avec <code class="bg-gray-800 px-1 py-0.5 rounded">standalone: true</code>, il peut être utilisé sans être déclaré dans un module. Vous pouvez ainsi importer uniquement les modules nécessaires directement dans le composant, comme <code class="bg-gray-800 px-1 py-0.5 rounded">CommonModule</code> pour utiliser les directives structurelles.
-    </p>
-
-    <!-- Étapes d'implémentation -->
-    <h2 class="text-2xl font-semibold mt-8 mb-4">Étapes pour créer un composant standalone</h2>
-    <ol class="list-decimal pl-6 mb-4">
-        <li class="mb-2">Utilisez Angular CLI pour générer un composant avec l'option standalone :</li>
-        <pre class="bg-gray-800 text-pink-400 p-4 rounded mt-2"><code>ng generate component my-component --standalone</code></pre>
-
-        <li class="mt-4 mb-2">Définissez les imports nécessaires directement dans le composant :</li>
-        <pre class="bg-gray-800 text-pink-400 p-4 rounded mt-2">
-            <code>
-                echo 'bonjour php';
-        </code>
-        </pre>
-
-        <li class="mt-4">Ajoutez le composant dans le routing sans module parent.</li>
-    </ol>
-
-    <!-- Exemple pratique -->
-    <h2 class="text-2xl font-semibold mt-8 mb-4">Exemple Pratique</h2>
-    <p class="mb-4">
-        Considérons un composant `PostDetailComponent` qui affiche les détails d'un article. En utilisant <code class="bg-gray-800 px-1 py-0.5 rounded">standalone: true</code>, vous pouvez simplifier l'architecture en le rendant totalement autonome.
-    </p>
-
-    <div class="bg-gray-800 text-pink-400 p-4 rounded mb-4">
-        <code>
-            echo 'bonjour api platform';
-        </code>
-    </div>
-
-    <!-- Conclusion -->
-    <h2 class="text-2xl font-semibold mt-8 mb-4">Conclusion</h2>
-    <p class="mb-4">
-        L’option <code class="bg-gray-800 px-1 py-0.5 rounded">standalone: true</code> est une avancée significative qui rend Angular plus flexible et modulaire. Elle est idéale pour construire des applications modernes, légères, et faciles à maintenir.
-    </p>
-
-    <!-- Bouton de partage -->
-    <div class="flex justify-end mt-6">
-        <button class="px-4 py-2 bg-cyan-600 text-white rounded-md hover:bg-cyan-700 transition">
-            Partager cet article
-        </button>
+<div class="bg-gray-900 text-gray-600 p-8 ">
+    <app-resume-profils [article]="article" />
+</div>
+  
+<div class="flex max-w-6xl mx-auto shadow-lg ">
+  
+    <div class="w-full flex flex-col md:flex-row">
+      
+      <div class="w-full md:w-1/4 bg-gray-800 text-gray-100 p-4 sticky top-0 h-screen overflow-y-auto">
+        <app-sidebar-detail 
+          [article]="article" 
+          [currentChapterIndex]="currentChapterIndex" 
+          [goToChapter]="goToChapter" />
+      </div>
+  
+      <div class="w-full md:w-3/4 bg-gray-900 text-gray-100 p-8 ">
+        <div *ngIf="currentChapterIndex === 0" class="mb-6">
+          <h1 class="text-3xl font-bold mb-4">{{ article?.coverText }}</h1>
+          <img [src]="article?.coverImageUrl" alt="Cover Image" class="w-full mb-4 rounded-lg">
+        </div>
+  
+        <div *ngIf="currentChapterIndex < (article?.chapters.length || 0)" class="mb-6">
+          <h2 class="text-xl font-semibold mb-2">{{ article?.chapters[currentChapterIndex].title }}</h2>
+          <p class="text-justify">{{ article?.chapters[currentChapterIndex].content }}</p>
+        </div>
+  
+        <div class="flex justify-between mt-6">
+          <button
+            (click)="goBack()"
+            class="px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition mb-6">
+            &larr; Retour à la page précédente
+          </button>
+  
+          <button
+            *ngIf="currentChapterIndex > 0"
+            (click)="previousChapter()"
+            class="px-4 py-2 bg-cyan-600 text-white rounded-md hover:bg-cyan-700 transition">
+            Précédent
+          </button>
+  
+          <button
+            *ngIf="currentChapterIndex < (article?.chapters.length || 0) - 1"
+            (click)="nextChapter()"
+            class="px-4 py-2 bg-cyan-600 text-white rounded-md hover:bg-cyan-700 transition">
+            Suivant
+          </button>
+  
+          <button
+            *ngIf="currentChapterIndex === (article?.chapters.length || 0) - 1"
+            class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition">
+            Fin de l'article
+          </button>
+        </div>
+      </div>
     </div>
 </div>
-
-
-
-
-
-
-<!--<div class="bg-gray-900 p-6 rounded-lg shadow-lg max-w-2xl mx-auto mt-8">-->
-<!--    &lt;!&ndash; Image de couverture &ndash;&gt;-->
-<!--    <div class="h-48 bg-gray-800 rounded-lg overflow-hidden">-->
-<!--        <img src="URL_IMAGE_COUVERTURE" alt="Cover Image" class="object-cover h-full w-full">-->
-<!--    </div>-->
-
-<!--    &lt;!&ndash; Titre et description &ndash;&gt;-->
-<!--    <div class="mt-4">-->
-<!--        <h2 class="text-2xl font-semibold text-white">Titre de l'Article</h2>-->
-<!--        <p class="text-gray-400 mt-2">Courte description de l'article pour attirer l'attention du lecteur.</p>-->
-<!--    </div>-->
-
-<!--    &lt;!&ndash; Tags &ndash;&gt;-->
-<!--    <div class="flex flex-wrap gap-2 mt-4">-->
-<!--        <span class="px-3 py-1 bg-cyan-700 text-cyan-100 rounded-full text-xs font-medium">Software</span>-->
-<!--        <span class="px-3 py-1 bg-cyan-700 text-cyan-100 rounded-full text-xs font-medium">Web</span>-->
-<!--        &lt;!&ndash; Ajouter d'autres tags ici &ndash;&gt;-->
-<!--    </div>-->
-
-<!--    &lt;!&ndash; Meta Info &ndash;&gt;-->
-<!--    <div class="flex items-center justify-between text-gray-500 text-sm mt-4">-->
-<!--        <span>Publié le : 12 Octobre 2024</span>-->
-<!--        <span>Visibilité : Public</span>-->
-<!--    </div>-->
-
-<!--    &lt;!&ndash; Boutons d'action &ndash;&gt;-->
-<!--    <div class="flex justify-end mt-6">-->
-<!--        <a href="#" class="px-4 py-2 bg-pink-600 text-white rounded-md font-medium hover:bg-pink-700 transition">Lire l'article</a>-->
-<!--    </div>-->
-<!--</div>-->

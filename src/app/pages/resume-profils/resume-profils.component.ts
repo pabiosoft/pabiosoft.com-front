@@ -1,18 +1,28 @@
-import {Component, OnInit} from '@angular/core';
-import {Input} from "postcss";
+import { CommonModule, Location } from '@angular/common';
+import {Component, Input, OnInit} from '@angular/core';
+import { ArticleModel } from 'src/app/core/models/article.model';
 
 @Component({
   selector: 'app-resume-profils',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './resume-profils.component.html',
   styleUrl: './resume-profils.component.scss'
 })
 export class ResumeProfilsComponent implements OnInit{
-  // @Input photoUrl: string = '';
-  // @Input authorName: string = '';
-  // @Input preferredTechnologies: string[] = [];
+
+  @Input() article!: ArticleModel;
+
+  constructor(
+    private location: Location
+  ){}
 
   ngOnInit(): void {
+  }
+  
+  goBack() {
+    this.location.back();
   }
 }
