@@ -6,6 +6,11 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
+//
+@import "prismjs/themes/prism-okaidia.css";
+@import "prismjs/plugins/toolbar/prism-toolbar.css";
+@import "prismjs/plugins/line-numbers/prism-line-numbers.css";
+
 
 /* Cible le premier item du menu, qui est "Pabiosoft" */
 .p-menubar-root-list > li:first-child .p-menuitem-link {
@@ -26,4 +31,195 @@
 
 
 
+/* Container style for the code snippet */
+.code-snippet-card {
+  background-color: #2d2d2d; /* Dark background similar to an IDE */
+  color: #dcdcdc;
+  border-radius: 8px;
+  padding: 16px;
+  font-family: 'Courier New', monospace;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  max-width: 100%;
+}
+
+/* Header style for the code snippet */
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+/* Button style for the "Copy" button */
+.copy-btn {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 4px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.copy-btn:hover {
+  background-color: #45a049;
+}
+
+/* Code block styling */
+pre {
+  background-color: #1e1e1e; /* Slightly darker for the code area */
+  border-radius: 6px;
+  padding: 12px;
+  color: #dcdcdc;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* JavaScript Syntax Highlighting */
+.language-js .token.comment,
+.language-js .token.prolog,
+.language-js .token.doctype,
+.language-js .token.cdata {
+  color: #6a9955;
+}
+
+.language-js .token.punctuation {
+  color: #d4d4d4;
+}
+
+.language-js .token.property,
+.language-js .token.tag,
+.language-js .token.boolean,
+.language-js .token.number,
+.language-js .token.constant,
+.language-js .token.symbol,
+.language-js .token.deleted {
+  color: #d19a66;
+}
+
+.language-js .token.selector,
+.language-js .token.attr-name,
+.language-js .token.string,
+.language-js .token.char,
+.language-js .token.builtin,
+.language-js .token.inserted {
+  color: #ce9178;
+}
+
+.language-js .token.operator,
+.language-js .token.entity,
+.language-js .token.url,
+.language-js .token.variable {
+  color: #569cd6;
+}
+
+.language-js .token.atrule,
+.language-js .token.attr-value,
+.language-js .token.keyword {
+  color: #c586c0;
+}
+
+.language-js .token.function,
+.language-js .token.class-name {
+  color: #dcdcaa;
+}
+
+.language-js .token.regex,
+.language-js .token.important {
+  color: #d16969;
+}
+
+/* Java Syntax Highlighting */
+.language-java .token.comment {
+  color: #6a9955;
+}
+.language-java{
+  color: red;
+}
+
+.language-java .token.keyword {
+  color: #569cd6;
+  font-weight: bold;
+}
+
+.language-java .token.string {
+  color: #ce9178;
+}
+
+.language-java .token.class-name {
+  color: #4ec9b0;
+}
+
+.language-java .token.function {
+  color: #dcdcaa;
+}
+
+.language-java .token.number {
+  color: #b5cea8;
+}
+
+.language-java .token.operator {
+  color: red;
+}
+
+/* PHP Syntax Highlighting */
+.language-php .token.comment {
+  color: #6a9955;
+}
+
+.language-php .token.keyword {
+  color: #569cd6;
+  font-weight: bold;
+}
+
+.language-php .token.string {
+  color: #ce9178;
+}
+
+.language-php .token.function {
+  color: #dcdcaa;
+}
+
+.language-php .token.variable {
+  color: #9cdcfe;
+}
+
+.language-php .token.constant {
+  color: #4ec9b0;
+}
+
+.language-php .token.operator {
+  color: #d4d4d4;
+}
+
+.language-php .token.punctuation {
+  color: #d4d4d4;
+}
+
+/* Common styles for important and bold tokens */
+.language-js .token.important,
+.language-java .token.important,
+.language-php .token.important,
+.language-js .token.bold,
+.language-java .token.bold,
+.language-php .token.bold {
+  font-weight: bold;
+}
+
+.language-js .token.italic,
+.language-java .token.italic,
+.language-php .token.italic {
+  font-style: italic;
+}
+
+.language-js .token.entity,
+.language-java .token.entity,
+.language-php .token.entity {
+  cursor: help;
+}
 

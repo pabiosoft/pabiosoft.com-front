@@ -239,7 +239,7 @@
   {
     "@context": "/contexts/Article",
     "@id": "/articles/0d2b7c4e-9f1a-4e3d-8d5a-1e7c6a5f9b8c",
-    "@type": "Article 5",
+    "@type": "Article",
     "coverImageUrl": "https://img.icons8.com/color/48/java-coffee-cup-logo.png",
     "coverText": "Spring Boot Essentials for RESTful API Development",
     "date": "2024-10-30T13:10:00.000Z",
@@ -254,17 +254,31 @@
       {
         "@id": "/chapters/jkl678",
         "title": "Getting Started with Spring Boot",
-        "content": "Spring Boot simplifies Java development. Learn the basics of Spring Boot and set up a project in minutes..."
+        "content": "Spring Boot simplifies Java development. Learn the basics of Spring Boot and set up a project in minutes... Spring Boot offers a rapid development environment by embedding a web server, allowing applications to run independently without needing an external server. It provides a range of tools for configuration, making it easier to deploy Java applications with minimal setup. The framework includes built-in support for various aspects of modern development, including dependency management and REST APIs.With Spring Boot, developers can focus on building application logic rather than dealing with configuration complexities."
       },
       {
         "@id": "/chapters/mno234",
         "title": "Building RESTful APIs",
-        "content": "RESTful APIs are essential for modern web applications. Discover how to build robust APIs with Spring Boot..."
-      },
+        "content": [
+          {
+            "type": "text",
+            "value": "RESTful APIs are essential for modern web applications. Discover how to build robust APIs with Spring Boot..."
+          },
+          {
+            "type": "code",
+            "language": "java",
+            "value": "import org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RequestMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\n@RestController\n@RequestMapping(\"/api\")\npublic class HelloController {\n    @GetMapping(\"/hello\")\n    public String sayHello() {\n        return \"Hello, World!\";\n    }\n}"
+          },
+          {
+            "type": "text",
+            "value": "In this example, we define a REST controller with a single endpoint..."
+          }
+        ]
+       },
       {
         "@id": "/chapters/pqr567",
         "title": "Security and Authentication",
-        "content": "Secure your APIs with Spring Security. This chapter covers JWT authentication and role-based access control..."
+        "content": "Secure your APIs with Spring Security. This chapter covers JWT authentication and role-based access control... Security in APIs is crucial for protecting sensitive data and ensuring only authorized users can access specific resources. Spring Security provides a flexible system for implementing authentication and authorization strategies, such as JWT. By using JWTs (JSON Web Tokens), applications can securely transmit information between client and server without needing session storage.Additionally, role-based access control enables fine-grained permissions, allowing admins to manage user access levels across the application."
       }
     ],
     "technologies": [
@@ -294,4 +308,5 @@
     ],
     "estimateTime": 12
   }
+
 ]
