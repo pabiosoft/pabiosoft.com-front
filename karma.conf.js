@@ -45,7 +45,6 @@ module.exports = function (config) {
     webpack: {
       resolve: {
         fallback: {
-          "crypto": false,
           "path": require.resolve("path-browserify"),
           "fs": false
         },
