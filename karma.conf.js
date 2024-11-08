@@ -1,6 +1,8 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
+const path = require('path');
+
 module.exports = function (config) {
   config.set({
     basePath: '',
@@ -25,7 +27,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/olympic-games-starter'),
+      dir: path.join(__dirname, './coverage/olympic-games-starter'),
       subdir: '.',
       reporters: [
         { type: 'html' },
@@ -36,9 +38,22 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
+    autoWatch: false,
     browsers: ['ChromeHeadless'],
     singleRun: true,
-    restartOnFileChange: true
+    restartOnFileChange: true,
+    webpack: {
+      resolve: {
+        fallback: {
+          "crypto": false,
+          "path": require.resolve("path-browserify"),
+          "fs": false
+        },
+        alias: {
+          // This alias might help if you encounter issues with require.context
+          'require-context': require.resolve('require-context')
+        }
+      }
+    }
   });
 };
