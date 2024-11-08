@@ -8,6 +8,8 @@ import { OlympicService } from './core/services/olympic.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  title = 'Pabiosoft';
+
   constructor(private olympicService: OlympicService) {}
 
   ngOnInit(): void {
