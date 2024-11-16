@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ResumeProfilsComponent} from "../../pages/resume-profils/resume-profils.component";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ArticleService } from 'src/app/core/services/article.service';
 import { ArticleModel } from 'src/app/core/models/article.model';
 import { CommonModule, Location } from '@angular/common';
@@ -19,7 +19,8 @@ export class PostDetailComponent implements OnInit{
   constructor(
     private route: ActivatedRoute,
     private articleService: ArticleService,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -54,4 +55,18 @@ export class PostDetailComponent implements OnInit{
   goBack() {
     this.location.back();
   }
+
+  terminer() {
+    if (this.article && this.article.technologies) {
+      const technologies = this.article.technologies.map((tech: any) => ({ name: tech.name }));
+      
+      this.router.navigate(['/posts/finish'], {
+        queryParams: {
+          technologies: JSON.stringify(technologies), 
+          blogId: this.article['@id'] 
+        }
+      });
+    }
+  }
+  
 }

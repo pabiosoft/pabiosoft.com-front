@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { ArticleModel } from '../models/article.model';
 
 @Injectable({
@@ -47,4 +47,14 @@ export class ArticleService {
             }
         });
     }
+    getArticlesByTechnologies(technologies: any[]): Observable<ArticleModel[]> {
+        return this.http.get<ArticleModel[]>(this.articlesUrl).pipe(
+            map(article => article.filter(article => 
+                article.technologies?.some(tech => 
+                    technologies.some(t => t.name === tech.name)
+                )
+            ))
+        );
+    }
+    
 }

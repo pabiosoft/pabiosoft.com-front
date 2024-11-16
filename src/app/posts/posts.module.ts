@@ -7,21 +7,25 @@ import { RouterModule } from '@angular/router';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { ResumeProfilsComponent } from '../pages/resume-profils/resume-profils.component';
 import { SidebarDetailComponent } from './post-detail/sidebar-detail/sidebar-detail.component';
-
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PostCodehighlighterComponent } from './post-codehighlighter/post-codehighlighter.component';
+import { FinishedReadingComponent } from './finished-reading/finished-reading.component';
 @NgModule({
   declarations: [
     PostListComponent,
     PostDetailComponent,
     SidebarDetailComponent,
-    RelativeTimePipe
+    PostCodehighlighterComponent,
+    FinishedReadingComponent,
+    RelativeTimePipe,
   ],
   imports: [
     CommonModule,
     PostsRoutingModule,
     RouterModule,
     ResumeProfilsComponent,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class PostsModule { }

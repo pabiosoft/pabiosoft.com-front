@@ -161,6 +161,11 @@
         "@id": "/technologies/45a8c3e1-9d2f-4f1e-85b6-7d3e5c9f2a1f",
         "name": "Docker",
         "logoUrl": "https://img.icons8.com/color/48/docker.png"
+      },
+      {
+        "@id": "/technologies/67d8e9b3-4f1a-5b6d-8c2e-3f4b5e7c9d1f",
+        "name": "Angular",
+        "logoUrl": "https://img.icons8.com/color/48/angularjs.png"
       }
     ],
     "profileImageUrl": "https://img.icons8.com/color/48/docker.png",
