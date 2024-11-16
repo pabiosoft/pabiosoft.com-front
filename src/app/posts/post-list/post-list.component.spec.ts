@@ -1,3 +1,4 @@
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PostListComponent } from './post-list.component';
@@ -20,4 +21,18 @@ describe('PostListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have an empty articles array initially', () => {
+    expect(component.articles.length).toBe(5);
+  });
+
+  let a;
+  it("and so is a spec", function() {
+    a = true;
+
+    expect(a).toBe(true);
+  });
 });
+
+
+

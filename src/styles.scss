@@ -10,6 +10,12 @@
 @import "prismjs/themes/prism-okaidia.css";
 @import "prismjs/plugins/toolbar/prism-toolbar.css";
 @import "prismjs/plugins/line-numbers/prism-line-numbers.css";
+//
+
+body {
+  background-image: url('./assets/img/bg-site.svg');
+  background-color: #f5f5f5; /* Optionnel : Couleur de fond pour remplir les espaces */
+}
 
 
 /* Cible le premier item du menu, qui est "Pabiosoft" */
