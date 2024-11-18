@@ -1,0 +1,33 @@
+aside {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Prend toute la largeur disponible */
+  height: 100%; /* S'assure qu'il occupe toute la hauteur disponible */
+  box-sizing: border-box; /* Inclut les marges et les bordures dans les dimensions */
+}
+
+aside ul {
+  flex-grow: 1; /* Permet à la liste de remplir l'espace disponible */
+  padding: 0; /* Enlève les marges supplémentaires */
+  margin: 0;
+}
+
+aside ul li {
+  display: block;
+  width: 100%;
+  padding: 12px 16px; /* Ajoute de l'espace intérieur */
+  border-radius: 8px; /* Adoucit les coins */
+  white-space: normal; /* Permet d'avoir des lignes multiples */
+  word-wrap: break-word; /* Coupe les mots longs pour éviter le débordement */
+  background-color: transparent; /* Laisse le fond transparent par défaut */
+}
+
+aside ul li:hover {
+  background-color: #1e3a8a; /* Change la couleur de fond au survol */
+  color: #fff; /* Change la couleur du texte au survol */
+}
+
+aside ul li.bg-gray-500 {
+  background-color: #475569; /* Couleur de fond lorsque l'élément est actif */
+  color: #fff; /* Couleur du texte actif */
+}

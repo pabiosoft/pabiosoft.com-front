@@ -17,17 +17,41 @@
       {
         "@id": "/chapters/stu123",
         "title": "Introduction to Composition API",
-        "content": "Vue 3's Composition API offers a flexible way to organize and scale your code. This chapter introduces the basics and shows how it differs from the Options API..."
+        "content": [
+          {
+            "type": "text",
+            "value": "Vue 3's Composition API offers a flexible way to organize and scale your code. This chapter introduces the basics and shows how it differs from the Options API..."
+          },
+          {
+            "type": "code",
+            "language": "javascript",
+            "value": "export default {\n  setup() {\n    const count = ref(0);\n    const increment = () => count.value++;\n    return { count, increment };\n  }\n};"
+          },
+          {
+            "type": "text",
+            "value": "The Composition API provides a more expressive and reusable way to write your components..."
+          }
+        ]
       },
       {
         "@id": "/chapters/vwx456",
         "title": "Reactivity and Lifecycle Hooks",
-        "content": "Learn how to manage reactivity and leverage lifecycle hooks in Vue 3 for efficient data handling and state management..."
+        "content": [
+          {
+            "type": "text",
+            "value": "Learn how to manage reactivity and leverage lifecycle hooks in Vue 3 for efficient data handling and state management..."
+          }
+        ]
       },
       {
         "@id": "/chapters/yz123",
         "title": "Reusable Composition Functions",
-        "content": "Composition functions allow for easy reuse of logic across components. We’ll explore best practices for creating reusable functions..."
+        "content": [
+          {
+            "type": "text",
+            "value": "Learn how to manage reactivity and leverage lifecycle hooks in Vue 3 for efficient data handling and state management..."
+          }
+        ]
       }
     ],
     "technologies": [
@@ -85,17 +109,59 @@
       {
         "@id": "/chapters/abc234",
         "title": "Introduction to Data Science with Python",
-        "content": "Python is a versatile language for data science. In this chapter, we introduce data science concepts and show how to get started with Python..."
+        "content": [
+          {
+            "type": "text",
+            "value": "Python is a versatile language for data science. In this chapter, we introduce data science concepts and show how to get started with Python..."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "value": "import numpy as np\nimport pandas as pd\n\n# Generate a random dataset\ndata = np.random.randn(100, 3)\ndf = pd.DataFrame(data, columns=['A', 'B', 'C'])\nprint(df.head())"
+          },
+          {
+            "type": "text",
+            "value": "In this example, we created a random dataset using NumPy and converted it into a Pandas DataFrame. This forms the foundation of many data science workflows."
+          }
+        ]
       },
       {
         "@id": "/chapters/def567",
         "title": "Data Manipulation with Pandas",
-        "content": "Pandas is a powerful tool for data manipulation. Learn how to clean, transform, and analyze data using Pandas..."
+        "content": [
+          {
+            "type": "text",
+            "value": "Pandas is a powerful tool for data manipulation. Learn how to clean, transform, and analyze data using Pandas..."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "value": "import pandas as pd\n\n# Create a sample DataFrame\ndata = {\n    'Name': ['Alice', 'Bob', 'Charlie'],\n    'Age': [25, 30, 35],\n    'Salary': [50000, 60000, 70000]\n}\ndf = pd.DataFrame(data)\n\n# Calculate average salary\naverage_salary = df['Salary'].mean()\nprint(f'Average Salary: {average_salary}')"
+          },
+          {
+            "type": "text",
+            "value": "This example demonstrates how to create a simple DataFrame and perform calculations such as finding the average salary."
+          }
+        ]
       },
       {
         "@id": "/chapters/ghi890",
         "title": "Data Visualization Techniques",
-        "content": "Effective data visualization is key to insights. Discover how to create compelling visualizations with Matplotlib and Seaborn..."
+        "content": [
+          {
+            "type": "text",
+            "value": "Effective data visualization is key to insights. Discover how to create compelling visualizations with Matplotlib and Seaborn..."
+          },
+          {
+            "type": "code",
+            "language": "python",
+            "value": "import matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Sample data\ndata = [15, 25, 30, 10, 20]\nlabels = ['A', 'B', 'C', 'D', 'E']\n\n# Create a pie chart\nplt.pie(data, labels=labels, autopct='%1.1f%%', startangle=90)\nplt.title('Data Distribution')\nplt.show()"
+          },
+          {
+            "type": "text",
+            "value": "Here, we used Matplotlib to create a simple pie chart representing data distribution. You can further customize it with Seaborn for more advanced visualizations."
+          }
+        ]
       }
     ],
     "technologies": [
@@ -143,17 +209,59 @@
       {
         "@id": "/chapters/jkl234",
         "title": "Why Use Docker?",
-        "content": "Docker is revolutionizing how we deploy applications. This chapter covers the basics of Docker and why it's beneficial for developers..."
+        "content": [
+          {
+            "type": "text",
+            "value": "Docker is revolutionizing how we deploy applications. This chapter covers the basics of Docker and why it's beneficial for developers..."
+          },
+          {
+            "type": "code",
+            "language": "bash",
+            "value": "# Check if Docker is installed\ndocker --version\n\n# Pull a sample image from Docker Hub\ndocker pull hello-world\n\n# Run the container\ndocker run hello-world"
+          },
+          {
+            "type": "text",
+            "value": "In this example, we verify Docker installation, pull the 'hello-world' image, and run a basic container to understand how Docker works."
+          }
+        ]
       },
       {
         "@id": "/chapters/mno678",
         "title": "Creating Your First Docker Container",
-        "content": "Learn how to create, manage, and run Docker containers. This hands-on chapter guides you through the Docker CLI and basic commands..."
+        "content": [
+          {
+            "type": "text",
+            "value": "Learn how to create, manage, and run Docker containers. This hands-on chapter guides you through the Docker CLI and basic commands..."
+          },
+          {
+            "type": "code",
+            "language": "bash",
+            "value": "# Create a simple Dockerfile\necho 'FROM alpine\nCMD [\"echo\", \"Hello from Docker!\"]' > Dockerfile\n\n# Build the image\ndocker build -t my-alpine .\n\n# Run the container\ndocker run my-alpine"
+          },
+          {
+            "type": "text",
+            "value": "This example shows how to create a Dockerfile, build a custom image, and run a container using the Docker CLI."
+          }
+        ]
       },
       {
         "@id": "/chapters/pqr910",
         "title": "Docker Compose and Multi-Container Applications",
-        "content": "Explore Docker Compose and how to manage multi-container applications with ease. Great for setting up complex environments..."
+        "content": [
+          {
+            "type": "text",
+            "value": "Explore Docker Compose and how to manage multi-container applications with ease. Great for setting up complex environments..."
+          },
+          {
+            "type": "code",
+            "language": "yaml",
+            "value": "version: '3.8'\nservices:\n  web:\n    image: nginx:latest\n    ports:\n      - '8080:80'\n  database:\n    image: mysql:latest\n    environment:\n      MYSQL_ROOT_PASSWORD: example\n      MYSQL_DATABASE: example_db\n"
+          },
+          {
+            "type": "text",
+            "value": "In this example, we define a `docker-compose.yml` file to set up a multi-container application with Nginx as the web server and MySQL as the database."
+          }
+        ]
       }
     ],
     "technologies": [
@@ -201,17 +309,59 @@
       {
         "@id": "/chapters/stu345",
         "title": "Setting Up Firebase with Angular",
-        "content": "Firebase is an excellent choice for real-time data. Learn how to set up Firebase and connect it to an Angular project..."
+        "content": [
+          {
+            "type": "text",
+            "value": "Firebase is an excellent choice for real-time data. Learn how to set up Firebase and connect it to an Angular project."
+          },
+          {
+            "type": "code",
+            "language": "typescript",
+            "value": "// Install Firebase SDK\nnpm install firebase @angular/fire\n\n// Import AngularFireModule in your app.module.ts\nimport { AngularFireModule } from '@angular/fire/compat';\nimport { environment } from '../environments/environment';\n\n@NgModule({\n  declarations: [\n    AppComponent\n  ],\n  imports: [\n    BrowserModule,\n    AngularFireModule.initializeApp(environment.firebase)\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }"
+          },
+          {
+            "type": "text",
+            "value": "This setup ensures Firebase is properly integrated into your Angular project by importing the necessary modules and initializing them with the environment configuration."
+          }
+        ]
       },
       {
         "@id": "/chapters/vwx789",
         "title": "Building Real-Time Data Sync",
-        "content": "This chapter explores real-time data synchronization between Firebase and Angular, enhancing user experience..."
+        "content": [
+          {
+            "type": "text",
+            "value": "This chapter explores real-time data synchronization between Firebase and Angular, enhancing user experience with seamless updates."
+          },
+          {
+            "type": "code",
+            "language": "typescript",
+            "value": "// Define your Firestore data service\nimport { Injectable } from '@angular/core';\nimport { AngularFirestore } from '@angular/fire/compat/firestore';\nimport { Observable } from 'rxjs';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class DataService {\n  constructor(private firestore: AngularFirestore) {}\n\n  getItems(): Observable<any[]> {\n    return this.firestore.collection('items').valueChanges();\n  }\n\n  addItem(item: any): Promise<void> {\n    const id = this.firestore.createId();\n    return this.firestore.collection('items').doc(id).set({ ...item, id });\n  }\n}"
+          },
+          {
+            "type": "text",
+            "value": "This example demonstrates how to set up a service in Angular to retrieve and add items to a Firebase Firestore collection in real-time."
+          }
+        ]
       },
       {
         "@id": "/chapters/yz234",
         "title": "Adding User Authentication",
-        "content": "Implement secure user authentication with Firebase in your Angular application. This chapter covers best practices and example code..."
+        "content": [
+          {
+            "type": "text",
+            "value": "Implement secure user authentication with Firebase in your Angular application. This chapter covers best practices and example code for managing users."
+          },
+          {
+            "type": "code",
+            "language": "typescript",
+            "value": "// Configure Firebase authentication\nimport { AngularFireAuth } from '@angular/fire/compat/auth';\nimport { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class AuthService {\n  constructor(private afAuth: AngularFireAuth) {}\n\n  login(email: string, password: string): Promise<any> {\n    return this.afAuth.signInWithEmailAndPassword(email, password);\n  }\n\n  logout(): Promise<void> {\n    return this.afAuth.signOut();\n  }\n\n  getUser(): Observable<any> {\n    return this.afAuth.authState;\n  }\n}"
+          },
+          {
+            "type": "text",
+            "value": "In this example, an `AuthService` is created to handle user login, logout, and authentication state using Firebase's authentication module."
+          }
+        ]
       }
     ],
     "technologies": [
@@ -259,17 +409,62 @@
       {
         "@id": "/chapters/jkl678",
         "title": "Getting Started with Spring Boot",
-        "content": "Spring Boot simplifies Java development. Learn the basics of Spring Boot and set up a project in minutes..."
+        "content": [
+          {
+            "type": "text",
+            "value": "Spring Boot simplifies Java development. Learn the basics of Spring Boot and set up a project in minutes."
+          },
+          {
+            "type": "code",
+            "language": "java",
+            "value": "// Main class for a Spring Boot application\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n\n@SpringBootApplication\npublic class DemoApplication {\n    public static void main(String[] args) {\n        SpringApplication.run(DemoApplication.class, args);\n    }\n}"
+          },
+          {
+            "type": "text",
+            "value": "This basic setup demonstrates how to start a Spring Boot application using the `@SpringBootApplication` annotation, which encapsulates the configurations for a standalone Spring project."
+          }
+        ]
+
       },
       {
         "@id": "/chapters/mno234",
         "title": "Building RESTful APIs",
-        "content": "RESTful APIs are essential for modern web applications. Discover how to build robust APIs with Spring Boot..."
+        "content": [
+          {
+            "type": "text",
+            "value": "Secure your APIs with Spring Security. This chapter covers JWT authentication and role-based access control."
+          },
+          {
+            "type": "code",
+            "language": "java",
+            "value": "// Security configuration for Spring Boot\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\nimport org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;\n\n@Configuration\n@EnableWebSecurity\npublic class SecurityConfig extends WebSecurityConfigurerAdapter {\n\n    @Override\n    protected void configure(HttpSecurity http) throws Exception {\n        http.csrf().disable()\n            .authorizeRequests()\n            .antMatchers(\"/api/public/**\").permitAll()\n            .anyRequest().authenticated()\n            .and()\n            .httpBasic();\n    }\n}"
+          },
+          {
+            "type": "text",
+            "value": "This example showcases a simple Spring Security configuration. Public APIs are accessible without authentication, while all other endpoints require user authentication."
+          }
+        ]
+
       },
       {
         "@id": "/chapters/pqr567",
         "title": "Security and Authentication",
-        "content": "Secure your APIs with Spring Security. This chapter covers JWT authentication and role-based access control..."
+        "content": [
+          {
+            "type": "text",
+            "value": "RESTful APIs are essential for modern web applications. Discover how to build robust APIs with Spring Boot."
+          },
+          {
+            "type": "code",
+            "language": "java",
+            "value": "// Simple REST Controller in Spring Boot\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RequestMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\n@RestController\n@RequestMapping(\"/api\")\npublic class HelloController {\n    @GetMapping(\"/hello\")\n    public String sayHello() {\n        return \"Hello, World!\";\n    }\n}"
+          },
+          {
+            "type": "text",
+            "value": "This code defines a basic REST controller with a single endpoint `/hello`. The `@RestController` annotation makes the class a controller where every method returns a domain object instead of a view."
+          }
+        ]
+
       }
     ],
     "technologies": [

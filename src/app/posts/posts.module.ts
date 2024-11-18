@@ -10,6 +10,8 @@ import { SidebarDetailComponent } from './post-detail/sidebar-detail/sidebar-det
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostCodehighlighterComponent } from './post-codehighlighter/post-codehighlighter.component';
 import { FinishedReadingComponent } from './finished-reading/finished-reading.component';
+import {PostCodeComponent} from "./post-code/post-code.component";
+import {PostTexteComponent} from "./post-texte/post-texte.component";
 @NgModule({
   declarations: [
     PostListComponent,
@@ -19,13 +21,15 @@ import { FinishedReadingComponent } from './finished-reading/finished-reading.co
     FinishedReadingComponent,
     RelativeTimePipe,
   ],
-  imports: [
-    CommonModule,
-    PostsRoutingModule,
-    RouterModule,
-    ResumeProfilsComponent,
-    FormsModule,
-    ReactiveFormsModule,
-  ]
+    imports: [
+        CommonModule,
+        PostsRoutingModule,
+        RouterModule,
+        ResumeProfilsComponent,
+        FormsModule,
+        ReactiveFormsModule,
+        PostCodeComponent,
+        PostTexteComponent,
+    ]
 })
 export class PostsModule { }

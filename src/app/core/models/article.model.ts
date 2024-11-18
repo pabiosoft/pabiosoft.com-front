@@ -26,7 +26,13 @@ export interface Author {
 export interface Chapter {
     "@id": string;
     title: string;
-    content: string;
+    content: ContentBlock[]; // Mise à jour pour prendre en charge plusieurs types de contenu
+
+}
+export interface ContentBlock {
+    type: 'text' | 'code'; // Ajout des types possibles
+    language?: string; // Langage pour le code (uniquement pour type 'code')
+    value: string; // Le contenu texte ou le code
 }
 
 
