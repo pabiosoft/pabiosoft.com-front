@@ -43,11 +43,19 @@
   </div>
 </div>
 
+ <button
+      type="button"
+      class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
+      Partager cet article
+    </button> 
+
 
  -->
 
 
- <div class="py-6 text-gray-100 md:flex md:items-center md:justify-between lg:border-t lg:border-gray-200">
+
+
+<!-- <div class="py-6 text-gray-100 md:flex md:items-center md:justify-between lg:border-t lg:border-gray-200">
   <div class="flex-1 min-w-0">
     <div class="flex items-center">
       <img
@@ -80,22 +88,84 @@
             </svg>
             {{ article.author.country }}
           </dd>
-          <strong class="ml-auto"><i class="fas fa-calendar-alt"></i>  {{article.date | date: 'dd MMM yyyy'}}</strong>
+          <strong class="ml-auto"><i class="fas fa-calendar-alt"></i> {{ article.date | date: 'dd MMM yyyy' }}</strong>
         </dl>
       </div>
     </div>
   </div>
+</div> -->
 
-  <!-- Technologies -->
-  <div class="mt-6 flex space-x-3 md:mt-0 md:ml-4">
-    <div *ngFor="let tech of article.technologies" class="flex items-center space-x-2">
-      <img [src]="tech.logoUrl" [alt]="tech.name" class="h-5 w-5" />
-      <span class="text-sm text-gray-500 font-medium capitalize">{{ tech.name }}</span>
+
+
+<div class="py-6 text-gray-100 md:flex md:items-center md:justify-between lg:border-t lg:border-gray-200">
+  <div class="flex-1 min-w-0">
+    <div class="flex items-center">
+      <img
+        class="hidden h-16 w-16 rounded-full sm:block"
+        [src]="article.author.profileImageUrl"
+        [alt]="article.author.name" />
+
+      <div>
+        <div class="flex items-center">
+          <img
+            class="h-16 w-16 rounded-full sm:hidden"
+            [src]="article.author.profileImageUrl"
+            [alt]="article.author.name" />
+          <h1 class="ml-3 text-2xl font-bold leading-7 text-gray-400 sm:leading-9 sm:truncate">{{ article.author.name }}</h1>
+        </div>
+
+        <dl class="mt-6 flex flex-col sm:ml-3 sm:mt-1 sm:flex-row sm:flex-wrap">
+          <dt class="sr-only">Country</dt>
+          <dd class="flex items-center text-sm text-gray-500 font-medium capitalize sm:mr-6">
+            <svg
+              class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true">
+              <path
+                fill-rule="evenodd"
+                d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
+                clip-rule="evenodd" />
+            </svg>
+            {{ article.author.country }}
+          </dd>
+          <strong class="ml-auto"><i class="fas fa-calendar-alt"></i> {{ article.date | date: 'dd MMM yyyy' }}</strong>
+        </dl>
+      </div>
     </div>
-    <button
-      type="button"
-      class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">
-      Partager cet article
-    </button>
+  </div>
+  <button
+    class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none"
+    (click)="openShareModal()"
+  >
+    Partager cet article
+  </button>
+</div>
+
+
+<div
+  *ngIf="isShareModalOpen"
+  class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white rounded-lg p-6 w-96 shadow-lg">
+    <h2 class="text-lg font-bold mb-4">Partager cet article</h2>
+
+    <share-buttons
+    [theme]="'circles-dark'"
+    [include]="['copy', 'facebook', 'email', 'messenger', 'mix', 'line', 'linkedin', 'pinterest', 'print', 'reddit', 'sms', 'telegram', 'tumblr', 'twitter', 'viber', 'vk', 'xing', 'whatsapp']"
+    [showIcon]="false"
+    [showText]="true"
+    [url]="article.url"
+    [description]="article.coverText"
+    twitterAccount="HardikSavani19">
+  </share-buttons>
+
+    <div class="mt-6 flex justify-end">
+      <button
+        class="px-4 py-2 bg-gray-300 rounded-md hover:bg-gray-400 focus:outline-none"
+        (click)="closeShareModal()">
+        Fermer
+      </button>
+    </div>
   </div>
 </div>

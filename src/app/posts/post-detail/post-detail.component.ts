@@ -4,13 +4,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ArticleService } from 'src/app/core/services/article.service';
 import { ArticleModel } from 'src/app/core/models/article.model';
 import { CommonModule, Location } from '@angular/common';
+import { SidebarDetailComponent } from "./sidebar-detail/sidebar-detail.component";
 // import * as Prism from 'prismjs';
 
 
 @Component({
   selector: 'app-post-detail',
   templateUrl: './post-detail.component.html',
-  styleUrl: './post-detail.component.scss'
+  styleUrl: './post-detail.component.scss',
 })
 export class PostDetailComponent implements OnInit, AfterViewInit{
 

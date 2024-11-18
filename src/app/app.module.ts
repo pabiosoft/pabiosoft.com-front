@@ -18,6 +18,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
+import { ShareButtons } from 'ngx-sharebuttons/buttons';
+// import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +45,8 @@ import { RouterLink } from '@angular/router';
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterLink
+        RouterLink,
+        ShareButtons
 // meme si sharedModule a ete importe dans CoreModule cela ne va pas double le taille du fichier
     ],
   providers: [],
