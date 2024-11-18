@@ -1,69 +1,162 @@
-<div class="bg-gray-900 text-gray-600 p-8 ">
+
+<!--//-->
+<!--<app-post-code-->
+<!--        [language]="'javascript'"-->
+<!--        [code]="'function greet(name) {\n  return `Hello, ${name}!`;\n}'"-->
+<!--&gt;</app-post-code>-->
+<!--<br>-->
+<!--<app-post-texte-->
+<!--        [content]="'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.\n\nInteger nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.'">-->
+<!--</app-post-texte>-->
+
+<!--//-->
+
+<div class="bg-gray-900 text-gray-600 p-8 w-full">
     <app-resume-profils [article]="article" />
 </div>
 
-<div class="flex max-w-full mx-auto mx-6 mt-4">
-  <!-- Sidebar spécifique pour les chapitres de l'article -->
-  <div class="w-1/6 bg-white text-gray-100 p-4 h-screen sticky top-0 overflow-y-auto">
-    <app-sidebar-detail
-            [article]="article"
-            [currentChapterIndex]="currentChapterIndex">
-    </app-sidebar-detail>
-  </div>
+<div class="flex flex-col w-full max-w-full mx-auto shadow-lg">
+    <div class="w-full flex flex-col md:flex-row">
 
-
-
-  <!-- Contenu principal de l'article -->
-  <div #articleContent class="w-4/5 bg-gray-900 text-gray-100 p-8 flex flex-col justify-between">
-    <div class="flex-grow">
-      <div *ngIf="currentChapterIndex === 0" class="mb-6">
-        <h1 class="text-3xl font-bold mb-4">{{ article?.coverText }}</h1>
-        <div class="flex justify-center">
-          <img [src]="article?.coverImageUrl" alt="Cover Image" class="w-1/2 h-auto mb-4 rounded-lg shadow-lg">
+        <!-- Sidebar -->
+        <div
+                class="w-full md:w-1/4 bg-gray-800 text-gray-100 p-4
+                sticky top-0 h-screen overflow-y-auto md:block hidden"
+        >
+            <app-sidebar-detail
+                    [article]="article"
+                    [currentChapterIndex]="currentChapterIndex"
+                    [goToChapter]="goToChapter" />
         </div>
-      </div>
 
+        <!-- Main Content -->
+        <div class="w-full md:w-3/4 bg-gray-900 text-gray-100 p-8">
+
+            <!-- Button to go back -->
+            <div class="mb-4">
+                <button
+                        (click)="goBack()"
+                        class="px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition w-full md:w-auto">
+                    &larr; Retourner à la liste
+                </button>
+            </div>
+
+            <!-- Cover Section -->
+            <div *ngIf="currentChapterIndex === 0" class="mb-6 text-center">
+                <h1 class="text-3xl font-bold mb-4">{{ article?.coverText }}</h1>
+                <img
+                        [src]="article?.coverImageUrl"
+                        alt="Cover Image"
+                        class="mx-auto mb-4 rounded-lg"
+                        style="max-width: 50%; max-height: 300px; object-fit: contain; border: 2px solid #ccc; padding: 10px;">
+            </div>
+
+            <!-- Chapter Content -->
+            <div *ngIf="currentChapterIndex < (article?.chapters.length || 0)" class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">{{ article?.chapters[currentChapterIndex].title }}</h2>
+                <div *ngFor="let section of article?.chapters[currentChapterIndex]?.content">
+                    <ng-container [ngSwitch]="section?.type">
+                        <app-post-texte
+                                *ngSwitchCase="'text'"
+                                [content]="section?.value">
+                        </app-post-texte>
+                        <app-post-code
+                                *ngSwitchCase="'code'"
+                                [language]="section?.language"
+                                [code]="section?.value">
+                        </app-post-code>
+                    </ng-container>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="flex flex-col md:flex-row justify-between mt-6">
+                <div class="flex space-x-2 w-full md:w-auto justify-end">
+                    <button
+                            *ngIf="currentChapterIndex > 0"
+                            (click)="previousChapter()"
+                            class="px-4 py-2 bg-cyan-600 text-white rounded-md hover:bg-cyan-700 transition w-full md:w-auto">
+                        ⬅
+                    </button>
+
+                    <button
+                            *ngIf="currentChapterIndex < (article?.chapters.length || 0) - 1"
+                            (click)="nextChapter()"
+                            class="px-4 py-2 bg-cyan-600 text-white rounded-md hover:bg-cyan-700 transition w-full md:w-auto">
+                        ➡
+                    </button>
+
+                    <button
+                            (click)="terminer()"
+                            *ngIf="currentChapterIndex === (article?.chapters.length || 0) - 1"
+                            class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition w-full md:w-auto">
+                        Fin de l'article
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="bg-gray-900 text-gray-600 p-8 w-full">-->
+<!--  <app-resume-profils [article]="article" />-->
+<!--</div>-->
+
+<!--<div class="flex flex-col w-full max-w-full mx-auto shadow-lg">-->
+<!--  <div class="w-full flex flex-col md:flex-row">-->
+
+<!--    <div class="w-full md:w-1/4 bg-gray-800 text-gray-100 p-4 sticky top-0 h-screen overflow-y-auto md:block hidden">-->
+<!--      <app-sidebar-detail-->
+<!--        [article]="article"-->
+<!--        [currentChapterIndex]="currentChapterIndex"-->
+<!--        [goToChapter]="goToChapter" />-->
+<!--    </div>-->
+
+<!--    <div class="w-full md:w-3/4 bg-gray-900 text-gray-100 p-8">-->
+
+<!--      <div class="mb-4">-->
+<!--        <button-->
+<!--          (click)="goBack()"-->
+<!--          class="px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition w-full md:w-auto">-->
+<!--          &larr; Retourner à la liste-->
+<!--        </button>-->
+<!--      </div>-->
+
+<!--      <div *ngIf="currentChapterIndex === 0" class="mb-6">-->
+<!--        <h1 class="text-3xl font-bold mb-4">{{ article?.coverText }}</h1>-->
+<!--        <img [src]="article?.coverImageUrl" alt="Cover Image" class="w-full mb-4 rounded-lg">-->
+<!--      </div>-->
 
 <!--      <div *ngIf="currentChapterIndex < (article?.chapters.length || 0)" class="mb-6">-->
 <!--        <h2 class="text-xl font-semibold mb-2">{{ article?.chapters[currentChapterIndex].title }}</h2>-->
 <!--        <p class="text-justify">{{ article?.chapters[currentChapterIndex].content }}</p>-->
 <!--      </div>-->
 
-      <div   *ngFor="let section of article?.chapters[currentChapterIndex]?.content">
-        <ng-container [ngSwitch]="section.type">
-          <p *ngSwitchCase="'text'">{{ section.value }}</p>
-          <pre class="code-snippet-card" *ngSwitchCase="'code'">
-            <code class="language-java" >{{ section.value }}</code>
-          </pre>
-        </ng-container>
+<!--      <div class="flex flex-col md:flex-row justify-between mt-6">-->
+<!--        <div class="flex space-x-2 w-full md:w-auto justify-end">-->
+<!--          <button-->
+<!--            *ngIf="currentChapterIndex > 0"-->
+<!--            (click)="previousChapter()"-->
+<!--            class="px-4 py-2 bg-cyan-600 text-white rounded-md hover:bg-cyan-700 transition w-full md:w-auto">-->
+<!--            ⬅-->
+<!--          </button>-->
 
-      </div>
-    </div>
+<!--          <button-->
+<!--            *ngIf="currentChapterIndex < (article?.chapters.length || 0) - 1"-->
+<!--            (click)="nextChapter()"-->
+<!--            class="px-4 py-2 bg-cyan-600 text-white rounded-md hover:bg-cyan-700 transition w-full md:w-auto">-->
+<!--            ➡-->
+<!--          </button>-->
 
-    <!-- Navigation entre les chapitres -->
-    <div class="flex justify-between mt-6 pt-4 border-t border-gray-700">
-      <button
-              *ngIf="currentChapterIndex > 0"
-              (click)="previousChapter()"
-              class="px-4 py-2 bg-cyan-600 text-white rounded-md hover:bg-cyan-700 transition">
-        Précédent
-      </button>
-
-      <button
-              *ngIf="currentChapterIndex < (article?.chapters.length || 0) - 1"
-              (click)="nextChapter()"
-              class="px-4 py-2 bg-cyan-600 text-white rounded-md hover:bg-cyan-700 transition">
-        Suivant
-      </button>
-
-      <button
-              *ngIf="currentChapterIndex === (article?.chapters.length || 0) - 1"
-              class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition">
-        Fin de l'article
-      </button>
-    </div>
-  </div>
-</div>
-
-
-
+<!--          <button-->
+<!--            (click)="terminer()"-->
+<!--            *ngIf="currentChapterIndex === (article?.chapters.length || 0) - 1"-->
+<!--            class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition w-full md:w-auto">-->
+<!--            Fin de l'article-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

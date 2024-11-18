@@ -1,0 +1,91 @@
+<!-- sans les section  -->
+<!-- <div class="code-editor space-y-6 p-6 max-w-4xl mx-auto bg-white shadow-lg rounded-lg">
+  <div>
+    <label for="language" class="block text-lg font-semibold text-gray-700">Choisir un langage:</label>
+    <select id="language" [(ngModel)]="language" (change)="updateLabel()"
+      class="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+      <option value="typescript">TypeScript</option>
+      <option value="javascript">JavaScript</option>
+      <option value="html">HTML</option>
+      <option value="css">CSS</option>
+      <option value="c_cpp">C++</option> 
+      <option value="python">Python</option>
+      <option value="php">PHP</option>
+      <option value="java">Java</option>
+    </select>
+  </div>
+
+  <div *ngIf="!previewMode">
+    <label for="codeInput" class="block text-lg font-semibold text-gray-700">{{ codeLabel }}</label>
+    <textarea id="codeInput" [(ngModel)]="code" (input)="updatePreviewContent()"
+      rows="6" 
+      class="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 resize-none">
+    </textarea>
+  </div>
+
+  <div class="mt-4">
+    <button (click)="togglePreviewMode()" 
+            class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none w-full sm:w-auto">
+      {{ previewMode ? 'Cacher l\'aperçu' : 'Voir l\'aperçu' }}
+    </button>
+  </div>
+
+  <div *ngIf="previewMode" class="mt-6 p-4 border border-gray-300 rounded-md">
+    <h3 class="text-lg font-semibold text-gray-700">Aperçu Formaté</h3>
+    <div #previewElement class="ace-editor mt-2 w-full"></div>
+  </div>
+</div> -->
+
+<!-- avec des section  -->
+ 
+<div class="code-editor space-y-6 p-6 max-w-4xl mx-auto bg-white shadow-lg rounded-lg">
+  <div *ngFor="let section of codeSections; let i = index" class="mb-4">
+    <div>
+      <label for="language-{{i}}" class="block text-lg font-semibold text-gray-700">Choisir un langage:</label>
+      <select id="language-{{i}}" [(ngModel)]="section.language" (change)="updatePreviewContent()"
+        class="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+        <option value="typescript">TypeScript</option>
+        <option value="javascript">JavaScript</option>
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="c_cpp">C++</option> 
+        <option value="python">Python</option>
+        <option value="php">PHP</option>
+        <option value="java">Java</option>
+      </select>
+    </div>
+
+    <div *ngIf="!previewMode">
+      <label for="codeInput-{{i}}" class="block text-lg font-semibold text-gray-700">Code en {{ section.language | titlecase }}</label>
+      <textarea id="codeInput-{{i}}" [(ngModel)]="section.code" (input)="updatePreviewContent()"
+        rows="6" 
+        class="mt-2 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 resize-none">
+      </textarea>
+    </div>
+
+    <div class="mt-2">
+      <button (click)="removeCodeSection(i)" 
+              class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none">
+        Supprimer cette section
+      </button>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <button (click)="addCodeSection()" 
+            class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none w-full sm:w-auto">
+      Ajouter une nouvelle section de code
+    </button>
+    <button (click)="togglePreviewMode()" 
+            class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none w-full sm:w-auto mt-2">
+      {{ previewMode ? 'Cacher l\'aperçu' : 'Voir l\'aperçu' }}
+    </button>
+  </div>
+
+  <div *ngIf="previewMode" class="mt-6 p-4 border border-gray-300 rounded-md">
+    <h3 class="text-lg font-semibold text-gray-700">Aperçu Formaté</h3>
+    <div #previewElement>
+      <div *ngFor="let _ of codeSections; let i = index" class="ace-editor mt-2 w-full"></div>
+    </div>
+  </div>
+</div>

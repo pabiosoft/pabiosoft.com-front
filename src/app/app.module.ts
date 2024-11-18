@@ -13,6 +13,10 @@ import {ResumeProfilsComponent} from "./pages/resume-profils/resume-profils.comp
 import {FooterComponent} from "./core/components/footer/footer.component";
 import {TechnologiesComponent} from "./pages/technologies/technologies.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { Highlight, HighlightModule } from 'ngx-highlightjs';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,12 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
         ResumeProfilsComponent,
         FooterComponent,
         TechnologiesComponent,
+        Highlight,
+        HighlightModule,
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterLink
 // meme si sharedModule a ete importe dans CoreModule cela ne va pas double le taille du fichier
     ],
   providers: [],

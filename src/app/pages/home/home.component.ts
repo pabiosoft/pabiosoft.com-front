@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   confirmationMessage: string | null = null;
   loadings: boolean = true;
   //
-  articles: ArticleModel[] | null = null;
+  articles: ArticleModel[] | null = null ;
   technologies: Technology[] | null = null;
 
 
@@ -68,5 +68,9 @@ export class HomeComponent implements OnInit {
     if (imageElement) {
       imageElement.style.transform = 'scale(1)';
     }
+  }
+
+  onLireClick(article: any): void {
+    console.log('Article sélectionné:', article);
   }
 }
