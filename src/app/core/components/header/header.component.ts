@@ -17,8 +17,8 @@ export class HeaderComponent implements OnInit{
     this.items = [
       {
         label: 'Pabiosoft',
-        icon: 'pi pi-wrench',
-        routerLink: '/home'  // Lien vers la page d'accueil
+        icon: 'pi pi-chart-pie',
+        routerLink: '/'  // Lien vers la page d'accueil
       },
       {
         label: 'Articles',

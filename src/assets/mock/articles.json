@@ -28,6 +28,12 @@
             "value": "export default {\n  setup() {\n    const count = ref(0);\n    const increment = () => count.value++;\n    return { count, increment };\n  }\n};"
           },
           {
+            "type": "media",
+            "mediaType": "image",
+            "src": "https://via.placeholder.com/800x400",
+            "altText": "Placeholder Image"
+          },
+          {
             "type": "text",
             "value": "The Composition API provides a more expressive and reusable way to write your components..."
           }
@@ -40,6 +46,12 @@
           {
             "type": "text",
             "value": "Learn how to manage reactivity and leverage lifecycle hooks in Vue 3 for efficient data handling and state management..."
+          },
+          {
+            "type": "media",
+            "mediaType": "image",
+            "src": "https://www.redhat.com/rhdc/managed-files/iaas-paas-saas-diagram5.1-1638x1046.png",
+            "altText": "Placeholder Image"
           }
         ]
       },
@@ -312,16 +324,32 @@
         "content": [
           {
             "type": "text",
-            "value": "Firebase is an excellent choice for real-time data. Learn how to set up Firebase and connect it to an Angular project."
+            "value": "Discover how to build robust APIs with Spring Boot..."
           },
           {
-            "type": "code",
-            "language": "typescript",
-            "value": "// Install Firebase SDK\nnpm install firebase @angular/fire\n\n// Import AngularFireModule in your app.module.ts\nimport { AngularFireModule } from '@angular/fire/compat';\nimport { environment } from '../environments/environment';\n\n@NgModule({\n  declarations: [\n    AppComponent\n  ],\n  imports: [\n    BrowserModule,\n    AngularFireModule.initializeApp(environment.firebase)\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }"
+            "type": "media",
+            "mediaType": "image",
+            "src": "https://via.placeholder.com/800x400",
+            "altText": "Placeholder Image"
           },
           {
             "type": "text",
-            "value": "This setup ensures Firebase is properly integrated into your Angular project by importing the necessary modules and initializing them with the environment configuration."
+            "value": "In this example, we define a REST controller with a single endpoint..."
+          },
+          {
+            "type": "media",
+            "mediaType": "video",
+            "src": "https://www.w3schools.com/html/mov_bbb.mp4",
+            "altText": "Sample Video"
+          },
+          {
+            "type": "code",
+            "language": "java",
+            "value": "public static void main(String[] args) {\n    System.out.println(\"Hello World!\");\n}"
+          },
+          {
+            "type": "text",
+            "value": "In this example, we define a REST controller with a single endpoint..."
           }
         ]
       },
@@ -415,6 +443,12 @@
             "value": "Spring Boot simplifies Java development. Learn the basics of Spring Boot and set up a project in minutes."
           },
           {
+            "type": "media",
+            "mediaType": "image",
+            "src": "https://via.placeholder.com/800x400",
+            "altText": "Placeholder Image"
+          },
+          {
             "type": "code",
             "language": "java",
             "value": "// Main class for a Spring Boot application\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n\n@SpringBootApplication\npublic class DemoApplication {\n    public static void main(String[] args) {\n        SpringApplication.run(DemoApplication.class, args);\n    }\n}"
@@ -437,6 +471,12 @@
             "type": "code",
             "language": "java",
             "value": "// Security configuration for Spring Boot\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\nimport org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;\n\n@Configuration\n@EnableWebSecurity\npublic class SecurityConfig extends WebSecurityConfigurerAdapter {\n\n    @Override\n    protected void configure(HttpSecurity http) throws Exception {\n        http.csrf().disable()\n            .authorizeRequests()\n            .antMatchers(\"/api/public/**\").permitAll()\n            .anyRequest().authenticated()\n            .and()\n            .httpBasic();\n    }\n}"
+          },
+          {
+            "type": "media",
+            "mediaType": "image",
+            "src": "https://via.placeholder.com/800x400",
+            "altText": "Placeholder Image"
           },
           {
             "type": "text",

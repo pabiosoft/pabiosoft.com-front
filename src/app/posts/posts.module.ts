@@ -13,6 +13,7 @@ import { PostCodehighlighterComponent } from './post-codehighlighter/post-codehi
 import { FinishedReadingComponent } from './finished-reading/finished-reading.component';
 import {PostCodeComponent} from "./post-code/post-code.component";
 import {PostTexteComponent} from "./post-texte/post-texte.component";
+import {PostMediaComponent} from "./post-media/post-media.component";
 @NgModule({
   declarations: [
     PostListComponent,
@@ -32,6 +33,7 @@ import {PostTexteComponent} from "./post-texte/post-texte.component";
         ReactiveFormsModule,
         PostCodeComponent,
         PostTexteComponent,
+        PostMediaComponent,
     ]
 })
 export class PostsModule { }

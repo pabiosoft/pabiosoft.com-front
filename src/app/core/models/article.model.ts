@@ -1,4 +1,4 @@
-import {Technology} from "./technologies.model";
+import { Technology } from "./technologies.model";
 
 export interface ArticleModel {
     "@context": string;
@@ -20,22 +20,37 @@ export interface Author {
     "@id": string;
     name: string;
     country: string;
-    profileImageUrl: string
+    profileImageUrl: string;
 }
 
 export interface Chapter {
     "@id": string;
     title: string;
-    content: ContentBlock[]; // Mise à jour pour prendre en charge plusieurs types de contenu
-
-}
-export interface ContentBlock {
-    type: 'text' | 'code'; // Ajout des types possibles
-    language?: string; // Langage pour le code (uniquement pour type 'code')
-    value: string; // Le contenu texte ou le code
+    content: ContentBlock[]; // Prise en charge de plusieurs types de contenu
 }
 
+export type ContentBlock =
+    | TextContentBlock
+    | CodeContentBlock
+    | MediaContentBlock;
 
+export interface TextContentBlock {
+    type: 'text';
+    value: string; // Contenu textuel
+}
+
+export interface CodeContentBlock {
+    type: 'code';
+    language: string; // Langage pour le code
+    value: string; // Contenu du code
+}
+
+export interface MediaContentBlock {
+    type: 'media';
+    mediaType: 'image' | 'video'; // Type du média (image ou vidéo)
+    src: string; // URL du média
+    altText?: string; // Texte alternatif pour l'accessibilité
+}
 
 export interface RelatedArticle {
     "@id": string;

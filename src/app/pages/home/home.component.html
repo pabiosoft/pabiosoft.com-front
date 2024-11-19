@@ -1,7 +1,3 @@
-<!-- <hr />
-<h2>Home component   </h2>
-<hr />
-<p>{{ (olympics$ | async)?.length }} data loaded</p> -->
 <div class="bg-white">
     <div class="relative overflow-hidden">
         <main>
@@ -51,58 +47,44 @@
                 </div>
             </div>
 
-            <div class="relative bg-gray-100 py-16 sm:py-24 lg:py-32">
-                <h1 class="mt-4 text-4xl tracking-tight font-extrabold text-cyan-600 text-center sm:mt-5 sm:text-5xl lg:mt-6 xl:text-6xl">
-                    🚀 Nos Technologies 🚀
-                </h1>
-                <p class="text-lg text-gray-300 text-center max-w-2xl mx-auto mb-8">
-                    <span class="font-semibold text-blue-400">Explorez</span> les <span class="font-semibold">outils de pointe</span> qui <span class="font-semibold text-green-400">propulsent nos projets</span> ! Du <span class="text-red-400 font-semibold">frontend élégant</span> au <span class="text-indigo-400 font-semibold">backend robuste</span>, en passant par des <span class="font-semibold text-orange-400">solutions DevOps flexibles</span>, découvrez l’<span class="font-semibold text-purple-400">écosystème technologique</span> qui nous permet de <span class="text-blue-400 font-semibold">transformer des idées audacieuses en réalité concrète</span>.
-                </p>
+<!--            <div class="relative bg-gray-100 py-16 sm:py-24 lg:py-32">-->
+<!--                <h1 class="mt-4 text-4xl tracking-tight font-extrabold text-cyan-600 text-center sm:mt-5 sm:text-5xl lg:mt-6 xl:text-6xl">-->
+<!--                    🚀 Nos Technologies 🚀-->
+<!--                </h1>-->
+<!--                <p class="text-lg text-gray-300 text-center max-w-2xl mx-auto mb-8">-->
+<!--                    <span class="font-semibold text-blue-400">Explorez</span> les <span class="font-semibold">outils de pointe</span> qui <span class="font-semibold text-green-400">propulsent nos projets</span> ! Du <span class="text-red-400 font-semibold">frontend élégant</span> au <span class="text-indigo-400 font-semibold">backend robuste</span>, en passant par des <span class="font-semibold text-orange-400">solutions DevOps flexibles</span>, découvrez l’<span class="font-semibold text-purple-400">écosystème technologique</span> qui nous permet de <span class="text-blue-400 font-semibold">transformer des idées audacieuses en réalité concrète</span>.-->
+<!--                </p>-->
 
-                <app-technologies/>
+<!--                <app-technologies/>-->
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8 bg-white">
-<!--                    <div-->
-<!--                            *ngFor="let tech of technologies"-->
-<!--                            [id]="tech.name"-->
-<!--                            #techSection-->
-<!--                            class="tech-item flex bg-white shadow-md rounded-lg overflow-hidden"-->
-<!--                    >-->
-<!--                        <div class="w-1/3">-->
-<!--                            <img-->
-<!--                                    [src]="tech.logoUrl"-->
-<!--                                    [alt]="tech.name"-->
-<!--                                    class="w-full h-full object-contain"-->
-<!--                                    (mouseover)="onMouseOver($event)"-->
-<!--                                    (mouseout)="onMouseOut($event)"-->
-<!--                            />-->
-<!--                        </div>-->
+<!--                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8 bg-white">-->
+<!--&lt;!&ndash;                    <div&ndash;&gt;-->
+<!--&lt;!&ndash;                            *ngFor="let tech of technologies"&ndash;&gt;-->
+<!--&lt;!&ndash;                            [id]="tech.name"&ndash;&gt;-->
+<!--&lt;!&ndash;                            #techSection&ndash;&gt;-->
+<!--&lt;!&ndash;                            class="tech-item flex bg-white shadow-md rounded-lg overflow-hidden"&ndash;&gt;-->
+<!--&lt;!&ndash;                    >&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="w-1/3">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <img&ndash;&gt;-->
+<!--&lt;!&ndash;                                    [src]="tech.logoUrl"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    [alt]="tech.name"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    class="w-full h-full object-contain"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    (mouseover)="onMouseOver($event)"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    (mouseout)="onMouseOut($event)"&ndash;&gt;-->
+<!--&lt;!&ndash;                            />&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
 
-<!--                        <div class="w-2/3 p-6 flex flex-col justify-center">-->
-<!--                            <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ tech.name }}</h2>-->
-<!--                            <p class="text-gray-600">{{ tech.description }}</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-                </div>
-            </div>
+<!--&lt;!&ndash;                        <div class="w-2/3 p-6 flex flex-col justify-center">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ tech.name }}</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <p class="text-gray-600">{{ tech.description }}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--                </div>-->
+<!--            </div>-->
 
             <!-- Testimonial section -->
             <div class="pb-16 bg-gradient-to-r from-teal-500 to-cyan-600 lg:pb-0 lg:z-10 lg:relative">
                 <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-8">
-                    <div class="relative lg:-my-8">
-                        <div aria-hidden="true" class="absolute inset-x-0 top-0 h-1/2 bg-white lg:hidden"></div>
-                        <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full">
-                            <div class="aspect-w-10 aspect-h-6 rounded-xl shadow-xl overflow-hidden sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none lg:h-full">
-                                <img
-                                        class="object-cover lg:h-full lg:w-full"
-                                        src="https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80"
-                                        alt=""
-                                        (mouseover)="onMouseOver($event)"
-                                        (mouseout)="onMouseOut($event)"
-                                >
-                            </div>
-                        </div>
-                    </div>
                     <div class="mt-12 lg:m-0 lg:col-span-2 lg:pl-8">
                         <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:px-0 lg:py-20 lg:max-w-none">
                             <blockquote>
@@ -119,6 +101,21 @@
                             </blockquote>
                         </div>
                     </div>
+                    <div class="relative lg:-my-8">
+                        <div aria-hidden="true" class="absolute inset-x-0 top-0 h-1/2 bg-white lg:hidden"></div>
+                        <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full">
+                            <div class="aspect-w-10 aspect-h-6 rounded-xl shadow-xl overflow-hidden sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none lg:h-full">
+                                <img
+                                        class="object-cover lg:h-full lg:w-full"
+                                        src="https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80"
+                                        alt=""
+                                        (mouseover)="onMouseOver($event)"
+                                        (mouseout)="onMouseOut($event)"
+                                >
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -133,12 +130,12 @@
                         <p class="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">Helpful Resources</p>
                         <p class="mt-5 mx-auto max-w-prose text-xl text-gray-500">Phasellus lorem quam molestie id quisque diam aenean nulla in. Accumsan in quis quis nunc, ullamcorper malesuada. Eleifend condimentum id viverra nulla.</p>
                     </div>
-                    
+
                     <div class="mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl">
-                        <div *ngFor="let article of articles | slice:0:3 " 
+                        <div *ngFor="let article of articles | slice:0:3 "
                          class="blog-item max-w-sm mx-auto bg-white rounded-lg shadow-md overflow-hidden transform transition duration-500 hover:shadow-2xl hover:bg-red-400"
                         >
-                            <div class="relative overflow-hidden h-48"> 
+                            <div class="relative overflow-hidden h-48">
                                 <div class="flex-shrink-0">
                                     <img
                                             class="h-48 w-full "
@@ -176,10 +173,10 @@
                                         <span>11 min read</span>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
             </div>
 

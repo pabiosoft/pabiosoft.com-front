@@ -1,0 +1,8 @@
+<div class="mt-6">
+    <div *ngIf="mediaType === 'image'">
+        <img [src]="src" [alt]="altText" class="w-full rounded-lg" />
+    </div>
+    <div *ngIf="mediaType === 'video'">
+        <video [src]="src" controls class="w-full rounded-lg"></video>
+    </div>
+</div>
