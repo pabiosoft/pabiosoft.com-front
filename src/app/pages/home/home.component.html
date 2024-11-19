@@ -156,7 +156,7 @@
                                     <a href="#">
                                         <img
                                                 class="h-10 w-10 rounded-full"
-                                                [src]="article.profileImageUrl || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVAMDuckcN3qfwKoPDf8j6LU_d_hW7g5FYgQ&s'"
+                                                [src]="article.author.profileImageUrl || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVAMDuckcN3qfwKoPDf8j6LU_d_hW7g5FYgQ&s'"
                                                 alt="{{ article.author }}"
                                                 (mouseover)="onMouseOver($event)"
                                                 (mouseout)="onMouseOut($event)"
@@ -170,7 +170,7 @@
                                     <div class="flex space-x-1 text-sm text-gray-500">
                                         <p>{{ article.date | date }}</p>
                                         <span aria-hidden="true"> &middot; </span>
-                                        <span>11 min read</span>
+                                        <span>{{article.estimateTime}} min de lecture </span>
                                     </div>
                                 </div>
 

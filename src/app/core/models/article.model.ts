@@ -6,6 +6,7 @@ export interface ArticleModel {
     "@type": string;
     coverImageUrl: string;
     coverText: string;
+    url: string; //  ajout d'une propriete url 
     date: string;
     status: string;
     author: Author;
