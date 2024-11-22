@@ -1,27 +1,32 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {ResumeProfilsComponent} from "../../pages/resume-profils/resume-profils.component";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ArticleService } from 'src/app/core/services/article.service';
 import { ArticleModel } from 'src/app/core/models/article.model';
-import { CommonModule, Location } from '@angular/common';
-import { SidebarDetailComponent } from "./sidebar-detail/sidebar-detail.component";
-// import * as Prism from 'prismjs';
-
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-post-detail',
   templateUrl: './post-detail.component.html',
-  styleUrl: './post-detail.component.scss',
+  styleUrls: ['./post-detail.component.scss'],
 })
-export class PostDetailComponent implements OnInit, AfterViewInit{
-
+export class PostDetailComponent implements OnInit {
   article: ArticleModel | any = null;
   currentChapterIndex = 0;
-  sidebarVisible: boolean = false;
+  sidebarVisible = false;
+  showSubChapter: boolean = false;
+  showQuiz: boolean = false;
 
-  //
+
+  currentSubChapterIndex: number = 0;
+  subChaptersRead: boolean[] = [];
+
   @ViewChild('articleContent') articleContent!: ElementRef;
-//
 
   constructor(
     private route: ActivatedRoute,
@@ -38,18 +43,19 @@ export class PostDetailComponent implements OnInit, AfterViewInit{
       });
     }
   }
-  ngAfterViewInit(): void {
-    // Prism.highlightAll();
-  }
+
+  
 
   private scrollToTop(): void {
-    this.articleContent.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    this.articleContent.nativeElement.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
   }
-  nextChapter() {
-    if (this.currentChapterIndex < (this.article?.chapters.length || 0) - 1) {
-      this.currentChapterIndex++;
-      this.scrollToTop();
-    }
+
+  
+  markSubChapterAsRead(subChapterIndex: number) {
+    this.subChaptersRead[subChapterIndex] = true;
   }
 
   previousChapter() {
@@ -59,30 +65,37 @@ export class PostDetailComponent implements OnInit, AfterViewInit{
     }
   }
 
-  goToChapter(index: number) {
+  nextChapter() {
+    if (this.currentChapterIndex < (this.article?.chapters.length || 0) - 1) {
+      this.currentChapterIndex++;
+      this.scrollToTop();
+    }
+  }
+
+  goToChapter(index: any): void {
     this.currentChapterIndex = index;
   }
 
-  toggleSidebar() {
-    this.sidebarVisible = !this.sidebarVisible; // Toggle de la visibilité de la sidebar
+  toggleSidebar(): void {
+    this.sidebarVisible = !this.sidebarVisible;
   }
 
-  goBack() {
+  goBack(): void {
     this.location.back();
   }
 
-
-  terminer() {
+  terminer(): void {
     if (this.article && this.article.technologies) {
-      const technologies = this.article.technologies.map((tech: any) => ({ name: tech.name }));
+      const technologies = this.article.technologies.map((tech: any) => ({
+        name: tech.name,
+      }));
 
       this.router.navigate(['/posts/finish'], {
         queryParams: {
           technologies: JSON.stringify(technologies),
-          blogId: this.article['@id']
-        }
+          blogId: this.article['@id'],
+        },
       });
     }
   }
-
 }

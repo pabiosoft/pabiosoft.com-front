@@ -1,9 +1,17 @@
 <aside class="w-1/4 bg-gray-800 text-gray-100 p-4 rounded-l-lg">
+  <div class="mb-4">
+    <button
+            (click)="goBack()"
+            class="px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition w-full md:w-auto">
+        &larr; Retourner à la liste
+    </button>
+</div>
     <h2 class="text-xl font-bold mb-4">Sommaire</h2>
     <ul class="space-y-2">
         <li
-                *ngFor="let chapter of article?.chapters; let i = index"
-                (click)="goToChapter(i)"
+                *ngFor="let chapter of article?.chapters; index as i"
+                
+                (click)="navigateToChapter(i)"
                 [class.bg-gray-500]="i === currentChapterIndex"
                 class="cursor-pointer rounded hover:bg-cyan-600 transition">
       <span class="block text-base text-left">

@@ -1,75 +1,76 @@
-<div class="articles-container p-4">
-    <h2 class="text-2xl font-bold mb-6 text-gray-400">Articles</h2>
+<div class="articles-container p-4 bg-gray-900 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 shadow-inner rounded-lg">
+  <h2 class="text-2xl font-bold mb-6 text-gray-400">Articles</h2>
+  <div class="hidden md:grid md:grid-cols-3 md:gap-6 mb-8">
+    <div *ngFor="let article of articles" class="article-card bg-teal-100 border border-gray-600 shadow-lg rounded-lg overflow-hidden">
+      <img [src]="article.coverImageUrl" alt="Cover Image" class="img-zoom article-image w-full h-48 object-cover object-center">
+      <div class="article-content p-4">
+        <h3 class="text-lg font-semibold text-gray-800">{{ article['@type'] }}</h3>
+        <p class="text-gray-600 mb-4">{{ article.coverText }}</p>
+        <div class="article-footer flex items-center space-x-2 text-gray-500 text-sm mb-4">
+          <span><i class="fas fa-calendar-alt mr-1"></i> {{ article.date | relativeTime }}</span>
+          <img [src]="article.author.profileImageUrl" alt="Author Image" class="img-zoom author-image w-6 h-6 rounded-full">
+          <span>{{ article.author.name }}</span>
+        </div>
 
-    <div class="hidden md:grid md:grid-cols-3 md:gap-6 mb-8">
-      <div *ngFor="let article of articles" class="article-card bg-white shadow-lg rounded-lg overflow-hidden">
-        <img [src]="article.coverImageUrl" alt="Cover Image" class="img-zoom article-image w-full h-48 object-cover object-center">
-        <div class="article-content p-4">
-          <h3 class="text-lg font-semibold text-gray-800">{{ article['@type'] }}</h3>
-          <p class="text-gray-600 mb-4">{{ article.coverText }}</p>
-          <div class="article-footer flex items-center space-x-2 text-gray-500 text-sm mb-4">
-            <span><i class="fas fa-calendar-alt mr-1"></i> {{ article.date | relativeTime }}</span>
-            <img [src]="article.author.profileImageUrl" alt="Author Image" class="img-zoom author-image w-6 h-6 rounded-full">
-            <span>{{ article.author.name }}</span>
+        <div class="technologies flex items-center space-x-2 mb-4">
+          <div *ngFor="let tech of article.technologies.slice(0, 3)" class="technology flex items-center space-x-2">
+            <img [src]="tech.logoUrl" alt="{{ tech.name }} Logo" class="img-zoom w-6 h-6">
+            <span class="text-gray-700 text-sm">{{ tech.name }}</span>
           </div>
+        </div>
 
-          <div class="technologies flex items-center space-x-2 mb-4">
-            <div *ngFor="let tech of article.technologies.slice(0, 3)" class="technology flex items-center space-x-2">
-              <img [src]="tech.logoUrl" alt="{{ tech.name }} Logo" class="img-zoom w-6 h-6">
-              <span class="text-gray-700 text-sm">{{ tech.name }}</span>
-            </div>
-          </div>
-
-          <div class="reading-time text-sm text-gray-500 mt-2">
-             <i class="fas fa-clock mr-1"></i> {{ article.estimateTime }} min de lecture
-          </div>
-            <button [routerLink]="['/posts/article', article['@id']]"
+        <div class="reading-time text-sm text-gray-500 mt-2">
+          <i class="fas fa-clock mr-1"></i> {{ article.estimateTime }} min de lecture
+        </div>
+        <button [routerLink]="['/posts/article', article['@id']]"
                 (click)="onLireClick(article)"
                 class="mt-4 py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 flex items-center justify-end transition-all duration-300 group relative overflow-hidden"
-            >
-                <span class="text-sm transition-opacity duration-300 group-hover:opacity-0">Lire</span>
-                <i class="fas fa-arrow-right ml-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-4 group-hover:scale-110"></i>
-            </button>
-        </div>
+        >
+          <span class="text-sm transition-opacity duration-300 group-hover:opacity-0">Lire</span>
+          <i class="fas fa-arrow-right ml-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-4 group-hover:scale-110"></i>
+        </button>
       </div>
     </div>
+  </div>
 
-    <div class="md:hidden grid grid-cols-1 gap-6">
-      <div *ngFor="let article of articles" class="article-card bg-white shadow-lg rounded-lg overflow-hidden">
-        <img [src]="article.coverImageUrl" alt="Cover Image" class="img-zoom article-image w-full h-48 object-cover object-center">
-        <div class="article-content p-4">
-          <h3 class="text-lg font-semibold text-gray-800">{{ article['@type'] }}</h3>
-          <p class="text-gray-600 mb-4">{{ article.coverText }}</p>
-          <div class="article-footer flex items-center space-x-2 text-gray-500 text-sm mb-4">
-            <span><i class="fas fa-calendar-alt mr-1"></i> {{ article.date | relativeTime }}</span>
-            <img [src]="article.author.profileImageUrl" alt="{{article.author.name}}" class="img-zoom author-image w-6 h-6 rounded-full">
-            <span>{{ article.author.name }}</span>
-          </div>
+  <div class="md:hidden grid grid-cols-1 gap-6">
+    <div *ngFor="let article of articles" class="article-card bg-gray-300 shadow-lg rounded-lg overflow-hidden">
+      <img [src]="article.coverImageUrl" alt="Cover Image" class="img-zoom article-image w-full h-48 object-cover object-center">
+      <div class="article-content p-4">
+        <h3 class="text-lg font-semibold text-gray-800">{{ article['@type'] }}</h3>
+        <p class="text-gray-600 mb-4">{{ article.coverText }}</p>
+        <div class="article-footer flex items-center space-x-2 text-gray-500 text-sm mb-4">
+          <span><i class="fas fa-calendar-alt mr-1"></i> {{ article.date | relativeTime }}</span>
+          <img [src]="article.author.profileImageUrl" alt="{{article.author.name}}" class="img-zoom author-image w-6 h-6 rounded-full">
+          <span>{{ article.author.name }}</span>
+        </div>
 
-          <div class="technologies flex items-center space-x-2 mb-4">
-            <div *ngFor="let tech of article.technologies.slice(0, 3)" class="technology flex items-center space-x-2">
-              <img [src]="tech.logoUrl" alt="{{ tech.name }} Logo" class="img-zoom w-6 h-6">
-              <span class="text-gray-700 text-sm">{{ tech.name }}</span>
-            </div>
+        <div class="technologies flex items-center space-x-2 mb-4">
+          <div *ngFor="let tech of article.technologies.slice(0, 3)" class="technology flex items-center space-x-2">
+            <img [src]="tech.logoUrl" alt="{{ tech.name }} Logo" class="img-zoom w-6 h-6">
+            <span class="text-gray-700 text-sm">{{ tech.name }}</span>
           </div>
+        </div>
 
-          <div class="reading-time text-sm text-gray-500 mt-2">
-               <i class="fas fa-clock mr-1"></i> {{ article.estimateTime }} min de lecture
-          </div>
-           <button [routerLink]="['/posts/article', article['@id']]"
+        <div class="reading-time text-sm text-gray-500 mt-2">
+          <i class="fas fa-clock mr-1"></i> {{ article.estimateTime }} min de lecture
+        </div>
+        <button [routerLink]="['/posts/article', article['@id']]"
                 (click)="onLireClick(article)"
                 class="mt-4 py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 flex items-center justify-end transition-all duration-300 group relative overflow-hidden"
-            >
-                <span class="text-sm transition-opacity duration-300 group-hover:opacity-0">Lire</span>
-                <i class="fas fa-arrow-right ml-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-4 group-hover:scale-110"></i>
-            </button>
-        </div>
+        >
+          <span class="text-sm transition-opacity duration-300 group-hover:opacity-0">Lire</span>
+          <i class="fas fa-arrow-right ml-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-4 group-hover:scale-110"></i>
+        </button>
       </div>
     </div>
+  </div>
 </div>
 
 
-<!-- liste d'article sue le home  -->
+
+
+<!-- liste d'article sur le home  -->
 <!-- <div class="articles-container p-6 bg-gray-100">
     <h2 class="text-3xl font-bold mb-6 text-gray-800">Articles</h2>
 

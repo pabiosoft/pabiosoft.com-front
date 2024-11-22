@@ -1,8 +1,6 @@
-import { CommonModule } from '@angular/common';
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import { Location } from '@angular/common';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { ArticleModel } from 'src/app/core/models/article.model';
-import {MenuItem} from "primeng/api";
-import {Menu} from "primeng/menu";
 
 @Component({
   selector: 'app-sidebar-detail',
@@ -13,9 +11,9 @@ export class SidebarDetailComponent implements OnInit{
   @Input() article: ArticleModel | null = null;
   @Input() currentChapterIndex: number = 0;
   @Input() goToChapter: Function = () => {};
-
-  //
-
+  @Output() chapterSelected = new EventEmitter<number>();
+  
+  constructor(private location: Location){}
 
   items: any[] = [];
 
@@ -24,13 +22,12 @@ export class SidebarDetailComponent implements OnInit{
       this.items = this.article.chapters.map((chapter, index) => ({
         label: `Chapitre ${index + 1}: ${chapter.title}`,
         command: () => this.navigateToChapter(index),
-        icon: index === this.currentChapterIndex ? 'pi pi-check' : 'pi pi-circle' // Icône dynamique
+        icon: index === this.currentChapterIndex ? 'pi pi-check' : 'pi pi-circle' 
       }));
     }
 
 
   }
-  // Mettre à jour l'icône si le chapitre actuel change
   ngOnChanges(): void {
     if (this.items && this.article && this.article.chapters) {
       this.items = this.article.chapters.map((chapter, index) => ({
@@ -46,6 +43,10 @@ export class SidebarDetailComponent implements OnInit{
       'index':index,
       'curentIndex':this.currentChapterIndex
     })
-    this.currentChapterIndex = index;
+    this.chapterSelected.emit(index);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

@@ -1,5 +1,4 @@
 import { Technology } from "./technologies.model";
-
 export interface ArticleModel {
     "@context": string;
     "@id": string;
