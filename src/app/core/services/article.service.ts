@@ -28,7 +28,7 @@ export class ArticleService {
         return this.articles$.asObservable();
     }
 
-    getArticleById(id: string): Observable<ArticleModel | undefined> {
+    getArticleById(id: string): Observable<ArticleModel | any> {
         return new Observable((observer) => {
             const articles = this.articles$.getValue();
             if (articles) {

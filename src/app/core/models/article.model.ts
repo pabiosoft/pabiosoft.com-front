@@ -58,3 +58,87 @@ export interface RelatedArticle {
     coverImageUrl: string;
     author: Author;
 }
+
+
+
+
+// import { Technology } from "./technologies.model";
+
+// export interface ArticleModel {
+//     "@context": string;
+//     "@id": string;
+//     "@type": string;
+//     coverImageUrl: string;
+//     coverText: string;
+//     url: string;
+//     date: string;
+//     status: string;
+//     author: Author;
+//     chapters: Chapter[];
+//     technologies: Technology[];
+//     profileImageUrl: string;
+//     relatedArticles: RelatedArticle[];
+//     estimateTime: number;
+//     quiz: Quiz;
+// }
+
+// export interface Author {
+//     "@id": string;
+//     name: string;
+//     country: string;
+//     profileImageUrl: string;
+// }
+
+// export interface Chapter {
+//     "@id": string;
+//     title: string;
+//     content: ContentBlock[];
+//     subChapters?: SubChapter[];
+// }
+
+// export interface SubChapter {
+//     "@id": string;
+//     title: string;
+//     content: ContentBlock[];
+// }
+
+// export type ContentBlock = 
+//     | TextContentBlock
+//     | CodeContentBlock
+//     | MediaContentBlock;
+
+// export interface TextContentBlock {
+//     type: 'text';
+//     value: string;
+// }
+
+// export interface CodeContentBlock {
+//     type: 'code';
+//     language: string;
+//     value: string;
+// }
+
+// export interface MediaContentBlock {
+//     type: 'media';
+//     mediaType: 'image' | 'video';
+//     src: string;
+//     altText?: string;
+// }
+
+// export interface RelatedArticle {
+//     "@id": string;
+//     title: string;
+//     coverImageUrl: string;
+//     author: Author;
+// }
+
+// export interface Quiz {
+//     questions: QuizQuestion[];
+// }
+
+// export interface QuizQuestion {
+//     question: string;
+//     options: string[];
+//     correctAnswerIndex: number;
+//     explanation?: string;
+// }

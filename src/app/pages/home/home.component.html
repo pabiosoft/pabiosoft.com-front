@@ -1,4 +1,4 @@
-<div class="bg-white">
+<div >
     <div class="relative overflow-hidden">
         <main>
             <div class="pt-10 bg-gray-900 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
@@ -126,14 +126,14 @@
 
                 <div class="relative" *ngIf="articles; else loading">
                     <div class="text-center mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
-                        <h2 class="text-base font-semibold tracking-wider text-cyan-600 uppercase">Learn</h2>
-                        <p class="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">Helpful Resources</p>
-                        <p class="mt-5 mx-auto max-w-prose text-xl text-gray-500">Phasellus lorem quam molestie id quisque diam aenean nulla in. Accumsan in quis quis nunc, ullamcorper malesuada. Eleifend condimentum id viverra nulla.</p>
+                        <h2 class="text-base font-semibold tracking-wider text-white uppercase">Learn</h2>
+                        <p class="mt-2 text-3xl font-extrabold text-white tracking-tight sm:text-4xl">Helpful Resources</p>
+                        <p class="mt-5 mx-auto max-w-prose text-xl text-white">asellus lorem quam molestie id quisque diam aenean nulla in. Accumsan in quis quis nunc, ullamcorper malesuada. Eleifend condimentum id viverra nulla.</p>
                     </div>
  
                     <div class="mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl">
                         <div *ngFor="let article of articles | slice:0:3 "
-                         class="blog-item max-w-sm mx-auto bg-white rounded-lg shadow-md overflow-hidden transform transition duration-500 hover:shadow-2xl hover:bg-gray-400"
+                         class="blog-item max-w-sm mx-auto bg-white rounded-lg shadow-md overflow-hidden transform transition duration-500 hover:shadow-2xl hover:bg-gray-300"
                         >
                             <div (click)="onLireClick(article)" class="relative overflow-hidden h-48">
                                 <div class="flex-shrink-0">

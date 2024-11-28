@@ -1,11 +1,11 @@
 <aside class="w-1/4 bg-gray-800 text-gray-100 p-4 rounded-l-lg">
-  <div class="mb-4">
+  <!-- <div class="mb-4">
     <button
-            (click)="goBack()"
-            class="px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition w-full md:w-auto">
+      (click)="goBack()"
+      class="px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition w-full md:w-auto">
         &larr; Retourner à la liste
     </button>
-</div>
+  </div> -->
     <h2 class="text-xl font-bold mb-4">Sommaire</h2>
     <ul class="space-y-2">
         <li
@@ -20,3 +20,44 @@
         </li>
     </ul>
 </aside>
+
+
+
+
+
+
+<!-- <aside class="w-1/4 bg-gray-800 text-gray-100 p-4 rounded-l-lg scrollable">
+  <div class="mb-4">
+    <button
+      (click)="goBack()"
+      class="px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition"
+    >
+      &larr; Retourner à la liste
+    </button>
+  </div>
+  <h2 class="text-xl font-bold mb-4">Sommaire</h2>
+  <ul class="space-y-2">
+    <li
+      *ngFor="let item of items; let chapterIndex = index"
+      class="cursor-pointer rounded hover:bg-cyan-600 transition"
+    >
+      <span
+        (click)="item.navigate()"
+        [class.bg-cyan-700]="item.isSelected"
+        class="block text-base text-left px-2 py-1 rounded-md"
+      >
+        {{ item.label }}
+      </span>
+      <ul *ngIf="item.subChapters?.length > 0" class="pl-4 space-y-1">
+        <li
+          *ngFor="let subChapter of item.subChapters; let subIndex = index"
+          (click)="subChapter.navigate()"
+          [class.bg-red-500]="subChapter.isSelected"
+          class="cursor-pointer rounded px-2 py-1 hover:bg-cyan-400 transition"
+        >
+          - {{ subChapter.title }}
+        </li>
+      </ul>
+    </li>
+  </ul>
+</aside> -->
