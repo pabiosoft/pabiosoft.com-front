@@ -10,12 +10,13 @@
     <ul class="space-y-2">
         <li
                 *ngFor="let chapter of article?.chapters; index as i"
-                
+
                 (click)="navigateToChapter(i)"
                 [class.bg-gray-500]="i === currentChapterIndex"
                 class="cursor-pointer rounded hover:bg-cyan-600 transition">
       <span class="block text-base text-left">
-        Chapitre {{ i + 1 }}: {{ chapter.title }}
+<!--        Chapitre {{ i + 1 }}: {{ chapter.title }}-->
+        {{ i + 1 }} - {{ chapter.title }}
       </span>
         </li>
     </ul>

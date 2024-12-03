@@ -21,12 +21,12 @@
               class="w-full md:w-1/4 bg-gray-800 text-gray-100 p-4
               sticky top-0 h-screen overflow-y-auto md:block hidden"
       >
-          
+
       <app-sidebar-detail
         [article]="article"
         [currentChapterIndex]="currentChapterIndex"
         (chapterSelected)="goToChapter($event)"
-      /> 
+      />
 
       </div>
       <div class="w-full md:w-3/4 bg-gray-900 text-gray-100 p-8">
@@ -94,114 +94,7 @@
                 </button>
             </div>
         </div>
-    </div> 
-  </div>
-</div> 
-
-<!-- <div class="full-height">
-  <div class="w-full flex">
-    <app-sidebar-detail
-      [article]="article"
-      [currentChapterIndex]="currentChapterIndex"
-      (chapterSelected)="goToChapter($event)"
-      class="sidebar scrollable"
-    ></app-sidebar-detail>
-
-    <div class="article-content scrollable">
-      <div *ngIf="currentChapterIndex === 0" class="mb-6 text-center">
-        <h1 class="text-3xl font-bold mb-4">{{ article?.coverText }}</h1>
-        <img
-          [src]="article?.coverImageUrl"
-          alt="Cover Image"
-          class="mx-auto mb-4 rounded-lg"
-          style="max-width: 50%; max-height: 300px; object-fit: contain; border: 2px solid #ccc; padding: 10px;"
-        />
-        
-      </div>
-
-      <div *ngIf="article?.chapters?.length > 0">
-        <h2 class="text-xl font-semibold mb-2">{{ article.chapters[currentChapterIndex]?.title }}</h2>
-        
-        <div *ngIf="article.chapters[currentChapterIndex]?.subChapters?.length > 0">
-          <h3 class="text-lg font-medium mb-2">
-            {{ article.chapters[currentChapterIndex]?.subChapters[currentSubChapterIndex]?.title }}
-          </h3>
-          <div *ngFor="let section of article.chapters[currentChapterIndex]?.subChapters[currentSubChapterIndex]?.content">
-            <ng-container [ngSwitch]="section?.type">
-              <app-post-texte *ngSwitchCase="'text'" [content]="section?.value"></app-post-texte>
-              <app-post-code *ngSwitchCase="'code'" [language]="section?.language" [code]="section?.value"></app-post-code>
-              <app-post-media *ngSwitchCase="'media'" [mediaType]="section?.mediaType" [src]="section?.src" [altText]="section?.altText || ''"></app-post-media>
-            </ng-container>
-          </div>
-        </div>
-
-        <div *ngIf="article.chapters[currentChapterIndex]?.subChapters?.length === 0">
-          <div *ngFor="let section of article.chapters[currentChapterIndex]?.content">
-            <ng-container [ngSwitch]="section?.type">
-              <app-post-texte *ngSwitchCase="'text'" [content]="section?.value"></app-post-texte>
-              <app-post-code *ngSwitchCase="'code'" [language]="section?.language" [code]="section?.value"></app-post-code>
-              <app-post-media *ngSwitchCase="'media'" [mediaType]="section?.mediaType" [src]="section?.src" [altText]="section?.altText || ''"></app-post-media>
-            </ng-container>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex flex-col md:flex-row justify-between mt-6">
-        <button
-          *ngIf="currentChapterIndex > 0 || currentSubChapterIndex > 0"
-          (click)="previousChapter()"
-          class="px-4 py-2 bg-cyan-600 text-white rounded-md hover:bg-cyan-700 transition w-full md:w-auto"
-        >
-          ⬅
-        </button>
-        <button
-          *ngIf="(currentChapterIndex < (article?.chapters.length || 0) - 1) || (currentSubChapterIndex < (article?.chapters[currentChapterIndex]?.subChapters.length || 0) - 1)"
-          (click)="nextChapter()"
-          class="px-4 py-2 bg-cyan-600 text-white rounded-md hover:bg-cyan-700 transition w-full md:w-auto"
-        >
-          ➡
-        </button>
-        <button
-          *ngIf="currentChapterIndex === (article?.chapters.length || 0) - 1 && currentSubChapterIndex === (article?.chapters[currentChapterIndex]?.subChapters.length || 0) - 1"
-          (click)="terminer()"
-          class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition w-full md:w-auto"
-        >
-          Fin de l'article
-        </button>
-      </div>
     </div>
   </div>
 </div>
-<div class="full-height">
-  <div
-    *ngIf="showQuizModal"
-    class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-  >
-    <div
-      class="bg-white rounded-lg shadow-lg max-w-3xl p-6 relative"
-      style="width: 90%; max-height: 90%; overflow-y: auto;"
-    >
-      <h2 class="text-2xl font-bold mb-4 text-center">
-        Quiz: {{ article?.chapters[currentChapterIndex]?.title }}
-      </h2>
-      <div *ngFor="let question of article?.chapters[currentChapterIndex]?.quiz?.questions; let i = index">
-        <p class="mb-2 font-medium">{{ i + 1 }}. {{ question.question }}</p>
-        <ul class="list-disc pl-6">
-          <li
-            *ngFor="let option of question.options"
-            (click)="completeQuiz()"
-            class="cursor-pointer hover:text-blue-500"
-          >
-            {{ option }}
-          </li>
-        </ul>
-      </div>
-      <button
-        (click)="closeQuizModal()"
-        class="absolute top-2 right-2 text-red-500 hover:text-red-700"
-      >
-        ✖
-      </button>
-    </div>
-  </div>
-</div> -->
+

@@ -1,0 +1,9 @@
+p-menuitem-link {
+  transition: all 0.2s ease-in-out;
+}
+
+p-menuitem-link:hover,
+p-menuitem-link:focus {
+  background-color: #2d3748; /* Couleur au survol ou au focus */
+  color: #fff; /* Assurez-vous que le texte reste lisible */
+}

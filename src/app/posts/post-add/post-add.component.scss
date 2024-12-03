@@ -1,0 +1,106 @@
+body {
+  background-color: #f9f9f9; /* Fond général */
+  color: #333; /* Texte général */
+}
+
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 24px;
+  margin: 24px auto;
+  max-width: 1200px;
+}
+
+.left-column {
+  flex: 0 0 65%; /* Colonne gauche : 65% de largeur */
+}
+
+.right-column {
+  flex: 0 0 35%; /* Colonne droite : 35% de largeur */
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.card-header {
+  color:black;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  font-size: 0.875rem;
+  color: #555;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.buttons-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.buttons-group button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.buttons-group button.discard {
+  background-color: #f44336;
+  color: white;
+}
+
+.buttons-group button.publish {
+  background-color: #4caf50;
+  color: white;
+}
+.chapter__add{
+  background-color: #4caf50;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background-color: #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  color: #555;
+}

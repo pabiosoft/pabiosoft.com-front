@@ -1,0 +1,244 @@
+<div class="container p-grid p-mt-4">
+    <!-- Section principale -->
+    <div class="left-column">
+        <div class="card">
+            <div class="card-header">Create a new post</div>
+
+            <!-- Image de couverture -->
+            <div class="input-group">
+                <label for="coverImageUrl">Cover Image</label>
+                <input
+                        id="coverImageUrl"
+                        type="text"
+                        placeholder="URL de l'image"
+                        pInputText
+                        [(ngModel)]="article.coverImageUrl"
+                />
+                <img
+                        [src]="article.coverImageUrl"
+                        *ngIf="article.coverImageUrl"
+                        alt="Cover Image"
+                        class="p-w-full p-mt-2"
+                        style="max-height: 150px; object-fit: cover; border-radius: 8px;"
+                />
+            </div>
+
+            <!-- Titre -->
+            <div class="input-group">
+                <label for="coverText">Title</label>
+                <input
+                        id="coverText"
+                        type="text"
+                        placeholder="Titre de l'article"
+                        pInputText
+                        [(ngModel)]="article.coverText"
+                />
+            </div>
+
+            <!-- Auteur -->
+            <div class="input-group">
+                <label for="author">Author</label>
+                <input
+                        id="author"
+                        type="text"
+                        placeholder="Nom de l'auteur"
+                        pInputText
+                        [(ngModel)]="article.author"
+                />
+            </div>
+            <!-- Temps estimé -->
+            <div class="input-group">
+                <label for="estimateTime">Estimated Time (min)</label>
+                <input
+                        id="estimateTime"
+                        type="number"
+                        placeholder="Temps estimé (minutes)"
+                        pInputText
+                        [(ngModel)]="article.estimateTime"
+                />
+            </div>
+
+            <!-- Chapitres dynamiques -->
+            <div class="input-group">
+                <label  for="chapters">Chapters</label>
+                <p-accordion [(activeIndex)]="activeChapterIndex">
+                    <p-accordionTab
+                            *ngFor="let chapter of article.chapters; let i = index"
+                            [header]="'Chapter ' + (i + 1)"
+                            id="chapters"
+                            class="text-black"
+                    >
+                        <!-- Titre du chapitre -->
+                        <div class="p-field">
+                            <label class="text-black" for="chapter-title-{{ i }}">Chapter Title</label>
+                            <input
+                                    id="chapter-title-{{ i }}"
+                                    type="text"
+                                    placeholder="Enter chapter title"
+                                    pInputText
+                                    [(ngModel)]="chapter.title"
+                            />
+                        </div>
+
+                        <!-- Sections dynamiques -->
+                        <div *ngFor="let section of chapter.content; let j = index" class="p-mt-3">
+                            <p-dropdown
+                                    [(ngModel)]="section.type"
+                                    [options]="sectionTypes"
+                                    placeholder="Select Section Type"
+                            ></p-dropdown>
+
+                            <!-- Text Content -->
+                            <div *ngIf="section.type === 'text'" class="p-field">
+                                <label for="section-text-{{ i }}-{{ j }}">Text Content</label>
+                                <textarea
+                                        id="section-text-{{ i }}-{{ j }}"
+                                        rows="5"
+                                        pInputTextarea
+                                        [(ngModel)]="section.value"
+                                ></textarea>
+                            </div>
+
+                            <!-- Code Content -->
+                            <div *ngIf="section.type === 'code'" class="p-field">
+                                <label for="section-code-{{ i }}-{{ j }}">Code Content</label>
+                                <textarea
+                                        id="section-code-{{ i }}-{{ j }}"
+                                        rows="5"
+                                        pInputTextarea
+                                        [(ngModel)]="section.value"
+                                ></textarea>
+                                <input
+                                        type="text"
+                                        placeholder="Language (e.g., javascript)"
+                                        pInputText
+                                        [(ngModel)]="section.language"
+                                        class="p-mt-2"
+                                />
+                            </div>
+
+                            <!-- Media Content -->
+                            <div *ngIf="section.type === 'media'" class="p-field">
+                                <label for="section-media-{{ i }}-{{ j }}">Media URL</label>
+                                <input
+                                        id="section-media-{{ i }}-{{ j }}"
+                                        type="text"
+                                        placeholder="Enter media URL"
+                                        pInputText
+                                        [(ngModel)]="section.src"
+                                />
+                                <p-dropdown
+                                        [(ngModel)]="section.mediaType"
+                                        [options]="mediaTypes"
+                                        placeholder="Select Media Type"
+                                        class="p-mt-2"
+                                ></p-dropdown>
+                                <input
+                                        type="text"
+                                        placeholder="Alt Text"
+                                        pInputText
+                                        [(ngModel)]="section.altText"
+                                        class="p-mt-2"
+                                />
+                            </div>
+
+                            <!-- Remove Section -->
+                            <button
+                                    type="button"
+                                    pButton
+                                    label="Remove Section"
+                                    class="p-button-danger p-mt-2"
+                                    (click)="removeSection(i, j)"
+                            ></button>
+                        </div>
+
+                        <!-- Add Section -->
+                        <button
+                                type="button"
+                                pButton
+                                icon="pi pi-plus"
+                                label="Add Section"
+                                class="p-button-secondary  mt-5"
+                                (click)="addSection(i)"
+                        ></button>
+                    </p-accordionTab>
+                </p-accordion>
+
+                <!-- Add Chapter -->
+                <button
+                        type="button"
+                        pButton
+                        label="Add Chapter"
+                        class="chapter__add  p-mt-3"
+                        (click)="addChapter()"
+                ></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="right-column">
+        <div class="card">
+            <div class="card-header">Publish</div>
+
+            <div class="input-group">
+                <label for="status">Status</label>
+                <p-dropdown
+                        id="status"
+                        [(ngModel)]="article.status"
+                        [options]="statuses"
+                        placeholder="Select Status"
+                ></p-dropdown>
+            </div>
+
+            <div class="input-group">
+                <label for="visibility">Visibility</label>
+                <p-dropdown
+                        id="visibility"
+                        [(ngModel)]="article.visibility"
+                        [options]="['private', 'public']"
+                        placeholder="Select Visibility"
+                ></p-dropdown>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Tags</div>
+            <div class="tags">
+                <span *ngFor="let tag of article.tags" class="tag">{{ tag }}</span>
+                <p-chips [(ngModel)]="article.tags"></p-chips>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Meta</div>
+            <div class="input-group">
+                <label for="meta-title">Meta Title</label>
+                <input id="meta-title" type="text" pInputText [(ngModel)]="article.metaTitle" />
+            </div>
+            <div class="input-group">
+                <label for="meta-description">Meta Description</label>
+                <textarea id="meta-description" rows="3" [(ngModel)]="article.metaDescription"></textarea>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Timeline</div>
+            <div class="input-group">
+                <label for="created-at">Created At</label>
+                <input id="created-at" type="text" pInputText [(ngModel)]="article.createdAt" disabled />
+            </div>
+            <div class="input-group">
+                <label for="updated-at">Updated At</label>
+                <input id="updated-at" type="text" pInputText [(ngModel)]="article.updatedAt" disabled />
+            </div>
+        </div>
+
+        <div class="buttons-group">
+            <button type="button" class="discard" (click)="discardArticle()">Discard</button>
+            <button type="button" class="publish" (click)="publishArticle()">Publish</button>
+        </div>
+    </div>
+</div>
+
+
