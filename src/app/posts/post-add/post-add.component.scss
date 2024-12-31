@@ -3,6 +3,33 @@ body {
   color: #333; /* Texte général */
 }
 
+input[type="text"],
+input[type="number"],
+textarea {
+  color: #000; /* Couleur noire pour le texte */
+  background-color: #fff; /* Fond blanc pour s'assurer de la clarté */
+}
+
+input[type="text"]::placeholder,
+input[type="number"]::placeholder,
+textarea::placeholder {
+  color: #aaa; /* Couleur grise pour les placeholders */
+}
+
+/* Changer la couleur des noms des technologies sélectionnées */
+.selected-tech-name {
+  color: red;
+  font-weight: bold; /* Optionnel : mettre en gras */
+}
+
+/* Appliquer un fond léger si besoin */
+.selected-technology {
+  background-color: #f9f9f9; /* Optionnel : fond léger */
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+
 .container {
   display: flex;
   flex-wrap: nowrap;
@@ -82,6 +109,10 @@ body {
   background-color: #f44336;
   color: white;
 }
+button.navigate {
+  background-color: #1e548a;
+  color: white;
+}
 
 .buttons-group button.publish {
   background-color: #4caf50;
@@ -98,9 +129,10 @@ body {
 }
 
 .tag {
-  background-color: #e0e0e0;
+  background-color: #1e548a;
   padding: 5px 10px;
   border-radius: 16px;
   font-size: 0.75rem;
   color: #555;
 }
+

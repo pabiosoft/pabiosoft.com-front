@@ -26,7 +26,7 @@
 
         <div class="technologies flex items-center space-x-2">
           <div
-                  *ngFor="let tech of article.technologies.slice(0, 3)"
+                  *ngFor="let tech of article.technologies?.slice(0, 3)"
                   class="technology flex items-center space-x-2 bg-gray-700 px-2 py-1 rounded-full"
           >
             <img
@@ -72,7 +72,7 @@
 
         <div class="technologies flex items-center space-x-2">
           <div
-                  *ngFor="let tech of article.technologies.slice(0, 3)"
+                  *ngFor="let tech of article.technologies?.slice(0, 3)"
                   class="technology flex items-center space-x-2 bg-gray-700 px-2 py-1 rounded-full"
           >
             <img

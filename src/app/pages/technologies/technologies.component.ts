@@ -29,12 +29,6 @@ export class TechnologiesComponent implements OnInit{
   constructor(private technologieService: TechnologieService) {
   }
   ngOnInit(): void {
-    // this.technologieService.loadInitialData().subscribe();
-    // this.technologieService.getTechnologiesTree().subscribe((data) => {
-    //   console.log(data)
-    //   this.data = data;
-    // });
-
     this.loadTechnologies();
   }
 
