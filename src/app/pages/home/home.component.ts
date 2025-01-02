@@ -4,6 +4,7 @@ import {ArticleModel} from "../../core/models/article.model";
 import {ArticleService} from "../../core/services/article.service";
 import {TechnologieService} from "../../core/services/technologie.service";
 import {Technology} from "../../core/models/technologies.model";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
       private articleService: ArticleService,
-      private technologieService: TechnologieService
+      private technologieService: TechnologieService,
+      private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -70,7 +72,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  onLireClick(article: any): void {
+  onLireClick(article: ArticleModel): void {
     console.log('Article sélectionné:', article);
+    this.router.navigate(['/posts/article', article['@id']])
   }
 }

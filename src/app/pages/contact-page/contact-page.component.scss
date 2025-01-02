@@ -1,0 +1,27 @@
+.contact-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+  background-color: #121212; // Remplace par le thème de ton blog
+  color: #ffffff;
+
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  iframe {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%; // Utilise toute la hauteur disponible
+    min-height: 600px; // Assure un minimum pour éviter les coupures
+  }
+}

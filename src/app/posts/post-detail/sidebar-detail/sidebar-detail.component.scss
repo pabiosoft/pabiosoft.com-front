@@ -31,3 +31,8 @@ aside ul li.bg-gray-500 {
   background-color: #475569; /* Couleur de fond lorsque l'élément est actif */
   color: #fff; /* Couleur du texte actif */
 }
+.scrollable {
+  height: calc(100vh - 20px); /* Ajuste pour une hauteur de la vue moins un petit espace */
+  overflow-y: auto; /* Active le défilement vertical */
+  overflow-x: hidden; /* Cache le débordement horizontal */
+}

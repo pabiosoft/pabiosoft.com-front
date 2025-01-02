@@ -14,27 +14,52 @@
 
 body {
   background-image: url('./assets/img/bg-site.svg');
-  background-color: #f5f5f5; /* Optionnel : Couleur de fond pour remplir les espaces */
+  background-color: #111827;
+  color: #ffffff; /* Ajustez la couleur du texte si nécessaire */
+  overflow: visible;
+}
+
+/* styles.scss */
+
+/* Cible les liens du menu PrimeNG */
+.p-menuitem-link {
+  background-color: transparent !important; /* Supprime le bg par défaut */
+  color: white !important; /* Garde le texte blanc */
+  box-shadow: none !important; /* Supprime toute ombre */
+}
+
+.p-menuitem-link:hover,
+.p-menuitem-link:focus,
+.p-menuitem-link:active {
+  background-color: red !important; /* Empêche le bg gris */
+  color: white !important;
+}
+
+/* Supprime les styles "highlight" et "focused" de PrimeNG */
+.p-menuitem[data-p-highlight="true"] .p-menuitem-link,
+.p-menuitem[data-p-focused="true"] .p-menuitem-link {
+  background-color: transparent !important;
+  color: white !important;
 }
 
 
+//
 /* Cible le premier item du menu, qui est "Pabiosoft" */
 .p-menubar-root-list > li:first-child .p-menuitem-link {
   font-size: 1.25rem; /* Augmente la taille de la police */
   font-weight: bold;  /* Met le texte en gras */
-  color: #4A90E2;     /* Couleur personnalisée */
+  //color: #4A90E2;     /* Couleur personnalisée */
   font-family: 'Roboto', sans-serif; /* Police personnalisée */
   letter-spacing: 0.5px; /* Espacement des lettres */
 }
 
 /* Ajoute des styles pour l'icône à côté de "Pabiosoft" */
 .p-menubar-root-list > li:first-child .p-menuitem-icon {
-  color: #4A90E2; /* Assure-toi que la couleur de l'icône est la même que le texte */
+  //color: #4A90E2; /* Assure-toi que la couleur de l'icône est la même que le texte */
   font-size: 1.5rem; /* Agrandit l'icône pour correspondre au texte */
 }
 
 //
-
 
 
 /* Container style for the code snippet */

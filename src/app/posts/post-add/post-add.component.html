@@ -1,0 +1,401 @@
+<div class="container p-grid p-mt-4">
+</div>
+<div class="container p-grid p-mt-4">
+
+    <!-- Section principale -->
+    <div class="left-column">
+        <div class="card">
+            <div class="card-header">Create a new post</div>
+
+            <!-- Image de couverture v2 -->
+            <div class="input-group">
+                <label for="coverImageUpload">Upload Cover Image</label>
+                <input
+                        id="coverImageUpload"
+                        type="file"
+                        (change)="onCoverImageSelected($event)"
+                        pInputText
+
+                />
+                <img
+                        [src]="article.coverImageUrl"
+                        *ngIf="article.coverImageUrl"
+                        alt="Cover Image"
+                        class="p-w-full p-mt-2"
+                        style="max-height: 150px; object-fit: cover; border-radius: 8px;"
+                />
+            </div>
+
+            <!-- Image de couverture -->
+            <div class="input-group">
+                <label for="coverImageUrl">Votre images Cover Image</label>
+                <input
+                        id="coverImageUrl"
+                        type="text"
+                        placeholder="URL de l'image"
+                        pInputText
+                        [(ngModel)]="article.coverImageUrl"
+                        [attr.disabled]="isInputDisabled()"
+                />
+            </div>
+
+            <!-- Titre -->
+            <div class="input-group">
+                <label for="coverText">Title</label>
+                <input
+                        id="coverText"
+                        type="text"
+                        placeholder="Titre de l'article"
+                        pInputText
+                        [(ngModel)]="article.coverText"
+                />
+            </div>
+
+            <!-- Type de l'article -->
+            <div class="input-group">
+                <label for="typeArticle">Type de l'article</label>
+                <input
+                        id="typeArticle"
+                        type="text"
+                        placeholder="Le type de l'article"
+                        pInputText
+                        [(ngModel)]="article['@type']"
+                />
+            </div>
+
+            <!-- Auteur v2 -->
+            <div class="input-group">
+                <label for="author">Author</label>
+                <p-dropdown
+                        id="author"
+                        [options]="authors"
+                        optionLabel="name"
+                        optionValue="@id"
+                        [(ngModel)]="article.author['@id']"
+                        placeholder="Select an Author"
+                >
+                    <ng-template let-author pTemplate="item">
+                        <div class="author-item">
+                            <img
+                                    [src]="author.profileImageUrl"
+                                    alt="{{ author.name }}"
+                                    style="width: 20px; height: 20px; margin-right: 10px; border-radius: 50%;"
+                            />
+                            <span>{{ author.name }} ({{ author.country }})</span>
+                        </div>
+                    </ng-template>
+                </p-dropdown>
+            </div>
+
+
+            <!-- Temps estimé -->
+            <div class="input-group">
+                <label for="estimateTime">Estimated Time (min)</label>
+                <input
+                        id="estimateTime"
+                        type="number"
+                        placeholder="Temps estimé (minutes)"
+                        pInputText
+                        [(ngModel)]="article.estimateTime"
+                />
+            </div>
+
+<!--            <div>-->
+<!--                <h3 class="text-gray-900" >Technologies</h3>-->
+<!--                <label class="text-black"  for="technologiess">Select Technologies</label>-->
+<!--                <p-multiSelect-->
+<!--                        id="technologiess"-->
+<!--                        [options]="technologies"-->
+<!--                        optionLabel="name"-->
+<!--                        [(ngModel)]="article.technologies"-->
+<!--                        placeholder="Select Technologies"-->
+<!--                        [displaySelectedLabel]="false"-->
+<!--                >-->
+<!--                    <ng-template let-tech pTemplate="item">-->
+<!--                        <div class="technology-item">-->
+<!--                            <img-->
+<!--                                    [src]="tech.logoUrl"-->
+<!--                                    alt="{{ tech.name }}"-->
+<!--                                    style="width: 20px; height: 20px; margin-right: 10px;"-->
+<!--                            />-->
+<!--                            <span>{{ tech.name }}</span>-->
+<!--                        </div>-->
+<!--                    </ng-template>-->
+<!--                    <ng-template pTemplate="selectedItems">-->
+<!--                        <ng-container *ngFor="let tech of article.technologies">-->
+<!--                        <span *ngIf="getTechnologyLabel(tech['@id'])" class="selected-label">-->
+<!--                            {{ getTechnologyLabel(tech["@id"]) }}-->
+<!--                        </span>-->
+<!--                        </ng-container>-->
+<!--                    </ng-template>-->
+<!--                </p-multiSelect>-->
+<!--            </div>-->
+
+            <!-- Technologies Dropdown -->
+            <div class="input-group">
+                <label for="technologies">Technologies</label>
+                <p-multiSelect
+                        id="technologies"
+                        [options]="technologies"
+                        optionLabel="name"
+                        optionValue="@id"
+                        [(ngModel)]="article.technologies"
+                        placeholder="Select Technologies"
+
+                >
+                    <ng-template let-tech pTemplate="item">
+                        <div class="technology-item">
+                            <img
+                                    [src]="tech.logoUrl"
+                                    alt="{{ tech.name }}"
+                                    style="width: 20px; height: 20px; margin-right: 10px;"
+                            />
+                            <span>{{ tech.name }}</span>
+                            <span class="selected-tech-name">{{ tech.name }}</span>
+
+                        </div>
+                    </ng-template>
+                    <ng-template let-tech pTemplate="selectedItem">
+                        <div class="technology-item ">
+                            <img
+                                    [src]="tech.logoUrl"
+                                    alt="{{ tech.name }}"
+                                    style="width: 20px; height: 20px; margin-right: 10px;"
+                            />
+                            <span>{{ tech.name }}</span>
+                        </div>
+                    </ng-template>
+
+                </p-multiSelect>
+            </div>
+
+
+            <!-- Chapitres dynamiques -->
+            <div class="input-group">
+                <label  for="chapters">Chapters</label>
+                <p-accordion [(activeIndex)]="activeChapterIndex">
+                    <p-accordionTab
+                            *ngFor="let chapter of article.chapters; let i = index"
+                            [header]="'Chapter ' + (i + 1)"
+                            id="chapters"
+                            class="text-black"
+                    >
+                        <!-- Titre du chapitre -->
+                        <div class="p-field">
+                            <label class="text-black" for="chapter-title-{{ i }}">Chapter Title</label>
+                            <input
+                                    id="chapter-title-{{ i }}"
+                                    type="text"
+                                    placeholder="Enter chapter title"
+                                    pInputText
+                                    [(ngModel)]="chapter.title"
+                            />
+                        </div>
+
+                        <!-- Sections dynamiques -->
+                        <div *ngFor="let section of chapter.content; let j = index" class="p-mt-3">
+                            <p-dropdown
+                                    [(ngModel)]="section.type"
+                                    [options]="sectionTypes"
+                                    placeholder="Select Section Type"
+                            ></p-dropdown>
+
+                            <!-- Text Content -->
+                            <div *ngIf="section.type === 'text'" class="p-field">
+                                <label for="section-text-{{ i }}-{{ j }}">Text Content</label>
+                                <textarea
+                                        id="section-text-{{ i }}-{{ j }}"
+                                        rows="5"
+                                        pInputTextarea
+                                        [(ngModel)]="section.value"
+                                ></textarea>
+                            </div>
+
+                            <!-- Code Content -->
+                            <div *ngIf="section.type === 'code'" class="p-field">
+                                <label for="section-code-{{ i }}-{{ j }}">Code Content</label>
+                                <textarea
+                                        id="section-code-{{ i }}-{{ j }}"
+                                        rows="5"
+                                        pInputTextarea
+                                        [(ngModel)]="section.value"
+                                ></textarea>
+
+                                <!-- Language Input -->
+                                <input
+                                        id="section-language-{{ i }}-{{ j }}"
+                                        type="text"
+                                        placeholder="Enter programming language (e.g., JavaScript, Python)"
+                                        pInputText
+                                        [(ngModel)]="section.language"
+                                        class="p-mt-2"
+                                />
+
+                            </div>
+
+                            <!-- Media Content -->
+                            <div *ngIf="section.type === 'media'" class="p-field">
+                                <label for="section-media-{{ i }}-{{ j }}">Media URL</label>
+                                <input
+                                        id="section-media-{{ i }}-{{ j }}"
+                                        type="text"
+                                        placeholder="Enter media URL"
+                                        pInputText
+                                        [(ngModel)]="section.src"
+                                />
+                                <p-dropdown
+                                        [(ngModel)]="section.mediaType"
+                                        [options]="mediaTypes"
+                                        placeholder="Select Media Type"
+                                        class="p-mt-2"
+                                ></p-dropdown>
+                                <input
+                                        type="text"
+                                        placeholder="Alt Text"
+                                        pInputText
+                                        [(ngModel)]="section.altText"
+                                        class="p-mt-2"
+                                />
+                            </div>
+
+                            <!-- Remove Section -->
+                            <button
+                                    type="button"
+                                    pButton
+                                    label="Remove Section"
+                                    class="p-button-danger p-mt-2"
+                                    (click)="removeSection(i, j)"
+                            ></button>
+                        </div>
+
+                        <!-- Add Section -->
+                        <button
+                                type="button"
+                                pButton
+                                icon="pi pi-plus"
+                                label="Add Section"
+                                class="p-button-secondary  mt-5"
+                                (click)="addSection(i)"
+                        ></button>
+                    </p-accordionTab>
+                </p-accordion>
+
+
+                <!-- Add Chapter -->
+                <button
+                        type="button"
+                        pButton
+                        label="Add Chapter"
+                        class="chapter__add  p-mt-3"
+                        (click)="addChapter()"
+                ></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="right-column">
+        <div class="card">
+            <div class="card-header">Publish</div>
+
+            <div class="input-group">
+                <label for="status">Status</label>
+                <p-dropdown
+                        id="status"
+                        [(ngModel)]="article.status"
+                        [options]="statuses"
+                        optionLabel="name"
+                        placeholder="Select Status"
+                >
+                    <ng-template let-status pTemplate="item">
+                        <span>{{ status.name }}</span>
+                    </ng-template>
+                </p-dropdown>
+            </div>
+
+            <!-- Visibilité -->
+            <div class="input-group">
+                <label for="visibility">Visibility</label>
+                <p-dropdown
+                        id="visibility"
+                        [options]="visibilities"
+                        optionLabel="name"
+                        [(ngModel)]="article.visibility"
+                        placeholder="Select a Visibility"
+                >
+                    <ng-template let-visibility pTemplate="item">
+                        <span>{{ visibility.name }}</span>
+                    </ng-template>
+                </p-dropdown>
+            </div>
+
+        </div>
+
+        <div class="card">
+            <div class="card-header">Tags</div>
+            <div class="tags">
+                <!-- Saisie des tags -->
+                <p-chips
+                        [(ngModel)]="article.tags"
+                        placeholder="Enter tags separated by commas et entrer"
+                        (onAdd)="onTagAdded($event)"
+                ></p-chips>
+            </div>
+        </div>
+
+
+
+        <div class="card">
+            <div class="card-header">Meta</div>
+            <div class="input-group">
+                <label for="meta-title">Meta Title</label>
+                <input id="meta-title" type="text" pInputText [(ngModel)]="article.metaTitle" />
+            </div>
+            <div class="input-group">
+                <label for="meta-description">Meta Description</label>
+                <textarea id="meta-description" rows="3" [(ngModel)]="article.metaDescription"></textarea>
+            </div>
+        </div>
+        <p-messages [(value)]="messagesToast" [enableService]="false"></p-messages>
+        <p-messages [(value)]="messagesToastArticleAddSucces" [enableService]="false"></p-messages>
+
+        <div class="card">
+            <div class="card-header">Timeline</div>
+            <div class="input-group">
+                <label for="created-at">Created At</label>
+                <input id="created-at" type="text" pInputText
+                       [(ngModel)]="article.createdAt"
+                       [disabled]="isFieldDisabled('createdAt')"
+
+                />
+            </div>
+            <div class="input-group">
+                <label for="updated-at">Updated At</label>
+                <input id="updated-at" type="text"
+                       pInputText [(ngModel)]="article.updatedAt"
+                       [disabled]="isFieldDisabled('updatedAt')"
+                />
+            </div>
+        </div>
+
+        <div class="card text-black" *ngIf="article.url">
+            <div class="card-header">Article Publication</div>
+            <div class="card-body text-black">
+                <p>
+                    Votre article a été publié avec succès! Cliquez sur le bouton ci-dessous pour le lire :
+                </p>
+<!--                {{article.url}}-->
+                <button type="button" class="navigate" (click)="openArticle()">Lire mon article</button>
+            </div>
+        </div>
+
+
+
+        <div class="buttons-group">
+            <button type="button" class="discard" (click)="discardArticle()">Discard</button>
+            <button type="button" class="publish" (click)="publishArticle()">Publish</button>
+        </div>
+    </div>
+</div>
+
+

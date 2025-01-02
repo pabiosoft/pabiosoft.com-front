@@ -7,6 +7,7 @@ import {Ripple} from "primeng/ripple";
 import {BadgeModule} from "primeng/badge";
 import {AvatarModule} from "primeng/avatar";
 import {ChipsModule} from "primeng/chips";
+import {SearchComponent} from "../pages/search-component/search.component";
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {ChipsModule} from "primeng/chips";
         BadgeModule,
         AvatarModule,
         ChipsModule,
+        SearchComponent,
     ],
   exports :[
     HeaderComponent

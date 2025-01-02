@@ -3,7 +3,6 @@ import {TechnologieService} from "../../core/services/technologie.service";
 import {Technology} from "../../core/models/technologies.model";
 import {OrganizationChartModule} from "primeng/organizationchart";
 import {TreeNode} from "primeng/api";
-import {NgIf} from "@angular/common";
 import {CardModule} from "primeng/card";
 
 @Component({
@@ -11,7 +10,6 @@ import {CardModule} from "primeng/card";
   standalone: true,
   imports: [
     OrganizationChartModule,
-    NgIf,
     CardModule
   ],
   templateUrl: './technologies.component.html',
@@ -31,12 +29,6 @@ export class TechnologiesComponent implements OnInit{
   constructor(private technologieService: TechnologieService) {
   }
   ngOnInit(): void {
-    // this.technologieService.loadInitialData().subscribe();
-    // this.technologieService.getTechnologiesTree().subscribe((data) => {
-    //   console.log(data)
-    //   this.data = data;
-    // });
-
     this.loadTechnologies();
   }
 

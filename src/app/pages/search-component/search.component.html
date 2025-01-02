@@ -1,0 +1,57 @@
+<div>
+    <!-- Input de recherche -->
+              <input
+                      id="search-field"
+                      name="search-field"
+                      class="rounded-lg bg-gray-700 text-white px-4 py-2 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-500"
+                      placeholder="Search ⌘ + k"
+                      type="search"
+                      (focus)="openSearchModal()"
+
+              />
+
+    <!-- Modal de recherche -->
+    <p-dialog
+            [(visible)]="modalVisible"
+            [modal]="true"
+            [dismissableMask]="true"
+            [style]="{ width: '50vw' }"
+            header="Search"
+            [closable]="true"
+            (onHide)="closeSearchModal() "
+    >
+        <div>
+            <input
+                    type="text"
+                    placeholder="Search..."
+                    [(ngModel)]="searchQuery"
+                    (input)="onSearch()"
+                    class="w-full p-2 border border-gray-300 rounded mb-4"
+            />
+
+            <!-- Résultats -->
+            <ng-container *ngIf="results.length > 0">
+                <h3 class="text-lg font-bold mb-4">
+                    {{ results.length }} article(s) trouvé(s) pour "{{ searchQuery }}"
+                </h3>
+                <ul>
+                    <li
+                            *ngFor="let result of results"
+                            [routerLink]="['/posts/article', result.objectID]"
+                            class="search-result p-3 border-b border-gray-200 cursor-pointer hover:bg-gray-100"
+                    >
+                        <h4 class="font-semibold">{{ result.title }}</h4>
+                        <p class="text-sm text-gray-600">
+                            {{ result.content.length > 150 ? (result.content | slice:0:150) + '...' : result.content }}
+                        </p>
+                        <span class="text-xs text-blue-500">Tags: {{ result.tags }} | Auteur: {{ result.author }}</span>
+                    </li>
+                </ul>
+            </ng-container>
+            <ng-container *ngIf="results.length === 0 && searchQuery">
+                <p class="text-center text-gray-500">Aucun résultat trouvé pour "{{ searchQuery }}"</p>
+            </ng-container>
+        </div>
+    </p-dialog>
+</div>
+
