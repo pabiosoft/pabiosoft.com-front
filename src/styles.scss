@@ -21,26 +21,26 @@ body {
 
 /* styles.scss */
 
-/* Cible les liens du menu PrimeNG */
-.p-menuitem-link {
-  background-color: transparent !important; /* Supprime le bg par défaut */
-  color: white !important; /* Garde le texte blanc */
-  box-shadow: none !important; /* Supprime toute ombre */
-}
-
-.p-menuitem-link:hover,
-.p-menuitem-link:focus,
-.p-menuitem-link:active {
-  background-color: red !important; /* Empêche le bg gris */
-  color: white !important;
-}
-
-/* Supprime les styles "highlight" et "focused" de PrimeNG */
-.p-menuitem[data-p-highlight="true"] .p-menuitem-link,
-.p-menuitem[data-p-focused="true"] .p-menuitem-link {
-  background-color: transparent !important;
-  color: white !important;
-}
+///* Cible les liens du menu PrimeNG */
+//.p-menuitem-link {
+//  background-color: transparent !important; /* Supprime le bg par défaut */
+//  color: white !important; /* Garde le texte blanc */
+//  box-shadow: none !important; /* Supprime toute ombre */
+//}
+//
+//.p-menuitem-link:hover,
+//.p-menuitem-link:focus,
+//.p-menuitem-link:active {
+//  background-color: red !important; /* Empêche le bg gris */
+//  color: white !important;
+//}
+//
+///* Supprime les styles "highlight" et "focused" de PrimeNG */
+//.p-menuitem[data-p-highlight="true"] .p-menuitem-link,
+//.p-menuitem[data-p-focused="true"] .p-menuitem-link {
+//  background-color: transparent !important;
+//  color: white !important;
+//}
 
 
 //

@@ -32,12 +32,16 @@ export class HeaderComponent implements OnInit{
         link: 'logiciels'
       },
       {
+        label: 'Boutique',
+        icon: 'pi pi-shopping-cart',
+        link: 'boutique'
+      },
+      {
         label: 'Contact',
         icon: 'pi pi-envelope',
         link: 'contact',
       }
     ];
-
   }
   ngOnInit(): void {
     this.darkMode = localStorage.getItem('darkMode') === 'true';
