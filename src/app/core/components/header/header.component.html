@@ -1,9 +1,9 @@
 
 
-<header class="w-full shadow-lg">
+<header class="w-full shadow-lg " style="position: fixed; top: 0; z-index: 50;">
   <p-menubar
           [model]="items"
-          styleClass="bg-gradient-to-r from-gray-800 via-gray-900 to-gray-800 text-white"
+          styleClass="bg-gradient-to-r from-gray-800 via-gray-900 to-gray-800 text-white "
           [style]="{
       'border-radius': '0',
       'padding': '0 1rem',
@@ -15,16 +15,16 @@
         <svg width="33" height="35" viewBox="0 0 33 35" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="..." fill="var(--blue-500)" />
         </svg>
-        <span class="text-lg font-bold ml-2">Pabiosoft</span>
+        <span routerLink="/" class="text-lg font-bold ml-2 cursor-pointer">Pabiosoft</span>
       </div>
     </ng-template>
     <ng-template pTemplate="item" let-item let-root="root">
       <a
               pRipple
-              class="flex items-center p-menuitem-link focus:bg-gray-800 hover:bg-gray-800 transition-all duration-300 rounded-md"
+              class="flex items-center p-menuitem-link  cursor-pointer"
               [ngStyle]="{
               'padding': '0.5rem 1rem',
-              'color': '#fff',
+              'color': '#fff'
                }"
               [routerLink]="item.link"
       >
@@ -32,23 +32,21 @@
         <span class="ml-2">{{ item.label }}</span>
         <p-badge *ngIf="item.badge" [value]="item.badge" class="ml-auto" />
       </a>
+
     </ng-template>
     <ng-template pTemplate="end">
       <div class="flex items-center space-x-4">
         <div class="relative">
-          <input
-                  id="search-field"
-                  name="search-field"
-                  class="rounded-lg bg-gray-700 text-white px-4 py-2 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-500"
-                  placeholder="Search ⌘ + k"
-                  type="search"
-          />
+          <app-search></app-search>
         </div>
-        <p-avatar
-                image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
-                shape="circle"
-                class="cursor-pointer"
-        />
+        <div class="rounded-full   p-1 shadow-lg">
+          <p-avatar
+                  image="./assets/logo/pabiosoft-banner.png"
+                  shape="circle"
+                  class="cursor-pointer"
+                  [ngStyle]="{ 'border': '2px solid white' }"
+          ></p-avatar>
+        </div>
       </div>
     </ng-template>
   </p-menubar>

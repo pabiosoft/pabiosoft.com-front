@@ -1,5 +1,9 @@
 <div class="articles-container p-4 rounded-lg">
-  <h2 class="text-2xl font-bold mb-6 text-gray-300">Des articles affinés par un cerveau humain, pour inspirer vos projets</h2>
+  <h2 class="text-3xl font-extrabold mb-6 text-white flex items-center justify-center space-x-3">
+    <span>✨</span>
+    <span>Repensez ce qui est possible,</span>
+    <span class="text-blue-500">avec chaque lecture.</span>
+  </h2>
   <div class="hidden md:grid md:grid-cols-3 md:gap-6 mb-8">
     <a
             *ngFor="let article of articles"
@@ -91,3 +95,103 @@
     </a>
   </div>
 </div>
+
+
+
+
+
+<!--<div class="articles-container p-4 rounded-lg">-->
+<!--  <h2 class="text-2xl font-bold mb-6 text-gray-300">-->
+<!--    Repensez ce qui est possible, avec chaque lecture.-->
+<!--  </h2>-->
+<!--  <div class="hidden md:grid md:grid-cols-3 md:gap-6 mb-8">-->
+<!--    <a-->
+<!--            *ngFor="let article of articles"-->
+<!--            [routerLink]="['/posts/article', article['@id']]"-->
+<!--            class="article-card bg-gradient-to-br from-gray-800 via-gray-900 to-black border border-gray-700 shadow-lg rounded-xl overflow-hidden hover:shadow-2xl hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-2 block"-->
+<!--    >-->
+<!--      <img-->
+<!--              [src]="article.coverImageUrl"-->
+<!--              alt="Cover Image"-->
+<!--              class="img-zoom article-image w-full h-48 object-cover object-center rounded-t-xl"-->
+<!--      />-->
+<!--      <div class="p-4 space-y-4">-->
+<!--        <h3 class="text-lg font-semibold text-white">{{ article['@type'] }}</h3>-->
+<!--        <p class="text-gray-400 text-sm line-clamp-3">{{ article.coverText }}</p>-->
+<!--        <div class="article-footer flex items-center space-x-2 text-gray-500 text-sm">-->
+<!--          <span><i class="fas fa-calendar-alt mr-1"></i> {{ article.date | relativeTime }}</span>-->
+<!--          <img-->
+<!--                  [src]="article.author.profileImageUrl"-->
+<!--                  alt="Author Image"-->
+<!--                  class="img-zoom author-image w-8 h-8 rounded-full border border-gray-700"-->
+<!--          />-->
+<!--          <span class="text-gray-300 font-medium">{{ article.author.name }}</span>-->
+<!--        </div>-->
+
+<!--        <div class="technologies flex items-center space-x-2">-->
+<!--          <div-->
+<!--                  *ngFor="let tech of article.technologies?.slice(0, 3)"-->
+<!--                  class="technology flex items-center space-x-2 bg-gray-700 px-2 py-1 rounded-full"-->
+<!--          >-->
+<!--            <img-->
+<!--                    [src]="tech.logoUrl"-->
+<!--                    alt="{{ tech.name }} Logo"-->
+<!--                    class="img-zoom w-5 h-5"-->
+<!--            />-->
+<!--            <span class="text-gray-200 text-sm">{{ tech.name }}</span>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="reading-time text-sm text-gray-400 mt-2">-->
+<!--          <i class="fas fa-clock mr-1"></i> {{ article.estimateTime }} min de lecture-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </a>-->
+<!--  </div>-->
+
+<!--  &lt;!&ndash; Version mobile &ndash;&gt;-->
+<!--  <div class="md:hidden grid grid-cols-1 gap-6">-->
+<!--    <a-->
+<!--            *ngFor="let article of articles"-->
+<!--            [routerLink]="['/posts/article', article['@id']]"-->
+<!--            class="article-card bg-gray-800 border border-gray-700 shadow-lg rounded-xl overflow-hidden block"-->
+<!--    >-->
+<!--      <img-->
+<!--              [src]="article.coverImageUrl"-->
+<!--              alt="Cover Image"-->
+<!--              class="img-zoom article-image w-full h-48 object-cover object-center rounded-t-xl"-->
+<!--      />-->
+<!--      <div class="article-content p-4">-->
+<!--        <h3 class="text-lg font-semibold text-white">{{ article['@type'] }}</h3>-->
+<!--        <p class="text-gray-400 text-sm line-clamp-3">{{ article.coverText }}</p>-->
+<!--        <div class="article-footer flex items-center space-x-2 text-gray-500 text-sm">-->
+<!--          <span><i class="fas fa-calendar-alt mr-1"></i> {{ article.date | relativeTime }}</span>-->
+<!--          <img-->
+<!--                  [src]="article.author.profileImageUrl"-->
+<!--                  alt="{{article.author.name}}"-->
+<!--                  class="img-zoom author-image w-8 h-8 rounded-full border border-gray-700"-->
+<!--          />-->
+<!--          <span class="text-gray-300 font-medium">{{ article.author.name }}</span>-->
+<!--        </div>-->
+
+<!--        <div class="technologies flex items-center space-x-2">-->
+<!--          <div-->
+<!--                  *ngFor="let tech of article.technologies?.slice(0, 3)"-->
+<!--                  class="technology flex items-center space-x-2 bg-gray-700 px-2 py-1 rounded-full"-->
+<!--          >-->
+<!--            <img-->
+<!--                    [src]="tech.logoUrl"-->
+<!--                    alt="{{ tech.name }} Logo"-->
+<!--                    class="img-zoom w-5 h-5"-->
+<!--            />-->
+<!--            <span class="text-gray-200 text-sm">{{ tech.name }}</span>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="reading-time text-sm text-gray-400 mt-2">-->
+<!--          <i class="fas fa-clock mr-1"></i> {{ article.estimateTime }} min de lecture-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </a>-->
+<!--  </div>-->
+<!--</div>-->

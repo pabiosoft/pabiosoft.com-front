@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8083'
+  apiUrl: 'http://localhost:8083',
+  ALGOLIA_APP_ID : 'YLVS5BS6XW',
+  ALGOLIA_API_KEY : '1bc2b8a1336a3881228edaa47f33666d',
 };
 
 /*

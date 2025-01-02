@@ -20,6 +20,8 @@ import { RouterLink } from '@angular/router';
 
 import { ShareButtons } from 'ngx-sharebuttons/buttons';
 import { ToastrModule } from 'ngx-toastr';
+import {SearchComponent} from "./pages/search-component/search.component";
+import {PostsModule} from "./posts/posts.module";
 // import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 
@@ -48,7 +50,9 @@ import { ToastrModule } from 'ngx-toastr';
         ReactiveFormsModule,
         RouterLink,
         ShareButtons,
-        ToastrModule.forRoot()
+        ToastrModule.forRoot(),
+        SearchComponent,
+        PostsModule,
 // meme si sharedModule a ete importe dans CoreModule cela ne va pas double le taille du fichier
     ],
   providers: [],

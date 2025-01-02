@@ -15,14 +15,17 @@ import {PostCodeComponent} from "./post-code/post-code.component";
 import {PostTexteComponent} from "./post-texte/post-texte.component";
 import {PostMediaComponent} from "./post-media/post-media.component";
 @NgModule({
-  declarations: [
-    PostListComponent,
-    PostDetailComponent,
-    SidebarDetailComponent,
-    PostCodehighlighterComponent,
-    FinishedReadingComponent,
-    RelativeTimePipe,
-  ],
+    declarations: [
+        PostListComponent,
+        PostDetailComponent,
+        SidebarDetailComponent,
+        PostCodehighlighterComponent,
+        FinishedReadingComponent,
+        RelativeTimePipe,
+    ],
+    exports: [
+        RelativeTimePipe
+    ],
     imports: [
         CommonModule,
         PostsRoutingModule,
